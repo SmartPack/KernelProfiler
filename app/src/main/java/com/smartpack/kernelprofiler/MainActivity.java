@@ -1,11 +1,3 @@
-/*
- * Copyright (C) 2020-2021 sunilpaulmathew <sunil.kde@gmail.com>
- *
- * This file is part of Script Manager, an app to create, import, edit
- * and easily execute any properly formatted shell scripts.
- *
- */
-
 package com.smartpack.kernelprofiler;
 
 import android.annotation.SuppressLint;
@@ -37,8 +29,8 @@ import com.smartpack.kernelprofiler.utils.Utils;
 import com.smartpack.kernelprofiler.utils.ViewUtils;
 import com.smartpack.kernelprofiler.utils.root.RootUtils;
 
-/*
- * Created by sunilpaulmathew <sunil.kde@gmail.com> on January 12, 2020
+/**
+ * Created by sunilpaulmathew <sunil.kde@gmail.com> on May 22, 2020
  */
 
 public class MainActivity extends AppCompatActivity {
@@ -89,11 +81,11 @@ public class MainActivity extends AppCompatActivity {
         AppCompatImageView customBanner = findViewById(R.id.customBanner);
         AppCompatTextView customTitle = findViewById(R.id.customTitle);
         AppCompatTextView customDescription = findViewById(R.id.customDescription);
-        boolean supported = Utils.existFile(KP.KP_CONFIG) && KP.geCustomImage(this) != null;
+        boolean supported = KP.supported() && KP.geCustomImage(this) != null;
         customBanner.setImageDrawable(supported ? KP.geCustomImage(this)
                 : getResources().getDrawable(R.mipmap.ic_launcher_round));
-        customTitle.setText(KP.getCustomTitle() != null ? KP.getCustomTitle() : getString(R.string.app_name));
-        customDescription.setText(KP.getCustomDescription() != null ? KP.getCustomDescription() : getString(R.string.app_name_summary));
+        customTitle.setText(KP.supported() && KP.getCustomTitle() != null ? KP.getCustomTitle() : getString(R.string.app_name));
+        customDescription.setText(KP.supported() && KP.getCustomDescription() != null ? KP.getCustomDescription() : getString(R.string.app_name_summary));
         mSettings.setOnClickListener(v -> {
             if (Utils.mForegroundActive) return;
             settingsMenu();
@@ -122,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
         PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager());
         adapter.AddFragment(new KPFragment(), getString(R.string.app_name));
 
-        if (KP.getDeveloper() != null) {
+        if (KP.supported() && KP.getDeveloper() != null) {
             String copyright = KP.getDeveloper();
             if (!copyright.startsWith("©")) {
                 copyright = "©" + copyright;
@@ -157,7 +149,9 @@ public class MainActivity extends AppCompatActivity {
         app.add(Menu.NONE, 9, Menu.NONE, getString(R.string.source_code));
         app.add(Menu.NONE, 10, Menu.NONE, getString(R.string.report_issue));
         app.add(Menu.NONE, 5, Menu.NONE, getString(R.string.change_logs));
-        app.add(Menu.NONE, 11, Menu.NONE, getString(R.string.donations));
+        if (Utils.isNotDonated(this)) {
+            app.add(Menu.NONE, 11, Menu.NONE, getString(R.string.donations));
+        }
         app.add(Menu.NONE, 6, Menu.NONE, getString(R.string.about));
         popupMenu.setOnMenuItemClickListener(item -> {
             switch (item.getItemId()) {
