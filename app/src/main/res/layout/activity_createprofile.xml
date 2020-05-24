@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="end|center_vertical"
+        tools:ignore="UselessParent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="?android:attr/colorAccent"
+            android:gravity="end|center_vertical">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/back_button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:layout_gravity="start"
+                android:src="@drawable/ic_back"
+                android:background="?android:attr/colorAccent"
+                android:tint="@color/black"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:gravity="center_vertical"
+                android:layout_gravity="start"
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:textColor="@color/black" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/save_button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:layout_gravity="end"
+                android:src="@drawable/ic_save"
+                android:background="?android:attr/colorAccent"
+                android:tint="@color/black"/>
+        </FrameLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="150sp"
+            android:scrollbars="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:layout_gravity="top"
+                android:baselineAligned="false" >
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/profile_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:gravity="start"
+                    android:visibility="gone"
+                    android:text="@string/profile_description"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textSize="18sp"
+                    android:padding="5dp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/profile_description_hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:gravity="top|start"
+                    android:visibility="gone"
+                    android:hint="@string/profile_description_summary"
+                    android:textColor="?android:attr/colorAccent"
+                    android:textColorHint="?android:attr/colorAccent"
+                    android:inputType="textMultiLine|textImeMultiLine|textNoSuggestions"
+                    android:padding="10dp"
+                    android:textSize="15sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/profile_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:gravity="start"
+                    android:visibility="gone"
+                    android:text="@string/profile_details"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textSize="18sp"
+                    android:padding="5dp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/profile_details_hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:gravity="top|start"
+                    android:visibility="gone"
+                    android:hint="@string/profile_details_summary"
+                    android:textColor="?android:attr/colorAccent"
+                    android:textColorHint="?android:attr/colorAccent"
+                    android:inputType="textMultiLine|textImeMultiLine|textNoSuggestions"
+                    android:padding="10dp"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150sp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:layout_gravity="bottom"
+            android:baselineAligned="false" >
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/test_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:gravity="center"
+                android:background="?attr/colorAccent"
+                android:textColor="@color/black"
+                android:text="@string/test"
+                android:visibility="gone"
+                android:textSize="18sp"
+                android:padding="10dp" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/test_output"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="fill_vertical"
+                    android:visibility="gone"
+                    android:textSize="15sp"
+                    android:padding="10dp" />
+            </ScrollView>
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

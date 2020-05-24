@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="end|center_vertical"
+        tools:ignore="UselessParent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="?android:attr/colorAccent"
+            android:gravity="end|center_vertical">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/back_button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:layout_gravity="start"
+                android:src="@drawable/ic_back"
+                android:background="?android:attr/colorAccent"
+                android:tint="@color/black"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:gravity="center_vertical"
+                android:layout_gravity="start"
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:textColor="@color/black" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/save_button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:layout_gravity="end"
+                android:src="@drawable/ic_save"
+                android:background="?android:attr/colorAccent"
+                android:tint="@color/black"/>
+        </FrameLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            android:scrollbars="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:layout_gravity="top"
+                android:baselineAligned="false" >
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/config_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:visibility="gone"
+                    android:gravity="start"
+                    android:text="@string/title"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textSize="18sp"
+                    android:padding="5dp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/config_title_hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:gravity="top|start"
+                    android:visibility="gone"
+                    android:textColor="?android:attr/colorAccent"
+                    android:textColorHint="?android:attr/colorAccent"
+                    android:hint="@string/title_summary"
+                    android:inputType="textMultiLine|textImeMultiLine|textNoSuggestions"
+                    android:padding="10dp"
+                    android:textSize="15sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/config_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:gravity="start"
+                    android:visibility="gone"
+                    android:text="@string/description"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textSize="18sp"
+                    android:padding="5dp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/config_description_hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:gravity="top|start"
+                    android:visibility="gone"
+                    android:hint="@string/description_summary"
+                    android:textColor="?android:attr/colorAccent"
+                    android:textColorHint="?android:attr/colorAccent"
+                    android:inputType="textMultiLine|textImeMultiLine|textNoSuggestions"
+                    android:padding="10dp"
+                    android:textSize="15sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/default_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:gravity="start"
+                    android:visibility="gone"
+                    android:text="@string/default_profile"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textSize="18sp"
+                    android:padding="5dp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/default_profile_hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:gravity="top|start"
+                    android:visibility="gone"
+                    android:hint="@string/default_profile_summary"
+                    android:textColor="?android:attr/colorAccent"
+                    android:textColorHint="?android:attr/colorAccent"
+                    android:inputType="textMultiLine|textImeMultiLine|textNoSuggestions"
+                    android:padding="10dp"
+                    android:textSize="15sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/developer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:gravity="start"
+                    android:visibility="gone"
+                    android:text="@string/developer_credits"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textSize="18sp"
+                    android:padding="5dp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/developer_hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:gravity="top|start"
+                    android:visibility="gone"
+                    android:hint="@string/developer_credits_summary"
+                    android:textColor="?android:attr/colorAccent"
+                    android:textColorHint="?android:attr/colorAccent"
+                    android:inputType="textMultiLine|textImeMultiLine|textNoSuggestions"
+                    android:padding="10dp"
+                    android:textSize="15sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/support"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:gravity="start"
+                    android:visibility="gone"
+                    android:text="@string/support"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textSize="18sp"
+                    android:padding="5dp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/support_hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:gravity="top|start"
+                    android:visibility="gone"
+                    android:hint="@string/support_summary"
+                    android:textColor="?android:attr/colorAccent"
+                    android:textColorHint="?android:attr/colorAccent"
+                    android:inputType="textMultiLine|textImeMultiLine|textNoSuggestions"
+                    android:padding="10dp"
+                    android:textSize="15sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/donations"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:gravity="start"
+                    android:visibility="gone"
+                    android:text="@string/donations"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textSize="18sp"
+                    android:padding="5dp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/donations_hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:gravity="top|start"
+                    android:visibility="gone"
+                    android:hint="@string/donations_summary"
+                    android:textColor="?android:attr/colorAccent"
+                    android:textColorHint="?android:attr/colorAccent"
+                    android:inputType="textMultiLine|textImeMultiLine|textNoSuggestions"
+                    android:padding="10dp"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+</LinearLayout>
