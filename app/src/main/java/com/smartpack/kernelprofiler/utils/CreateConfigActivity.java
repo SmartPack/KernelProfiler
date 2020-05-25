@@ -95,26 +95,9 @@ public class CreateConfigActivity extends AppCompatActivity {
         });
     }
 
-    private void closeForeground() {
-        mProfileTitleHint.setVisibility(View.GONE);
-        mDescriptionHint.setVisibility(View.GONE);
-        mDefaultHint.setVisibility(View.GONE);
-        mDeveloperHint.setVisibility(View.GONE);
-        mSupportHint.setVisibility(View.GONE);
-        mDonationsHint.setVisibility(View.GONE);
-        mTitle.setVisibility(View.GONE);
-        mProfileTitle.setVisibility(View.GONE);
-        mDescription.setVisibility(View.GONE);
-        mDefault.setVisibility(View.GONE);
-        mDeveloper.setVisibility(View.GONE);
-        mSupport.setVisibility(View.GONE);
-        mDonation.setVisibility(View.GONE);
-        super.onBackPressed();
-    }
-
     @Override
     public void onBackPressed() {
-        closeForeground();
+        super.onBackPressed();
     }
 
 }

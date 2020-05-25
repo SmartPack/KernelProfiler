@@ -83,7 +83,11 @@ public class KPFragment extends RecyclerViewFragment {
             if (KP.KPFile().length() > 0 && KP.isKPProfile(kpProfiles.toString())) {
                 DescriptionView kpProfile = new DescriptionView();
                 kpProfile.setTitle(kpProfiles.getName().replace(".sh", ""));
-                kpProfile.setSummary(KP.getProfileDescription(kpProfiles.toString()));
+                String description = KP.getProfileDescription(kpProfiles.toString());
+                if (description == null) {
+                    description = getString(R.string.description_unknown);
+                }
+                kpProfile.setSummary(description);
                 kpProfile.setFullSpan(true);
                 kpProfile.setChecked(kpProfiles.getName().equals(KP.getDefaultProfile()));
                 kpProfile.setOnCheckBoxListener((descriptionView, isChecked) -> {

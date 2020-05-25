@@ -16,8 +16,9 @@
     <string name="credits">Credits</string>
     <string name="credits_summary"><b><i>Grarak</i></b>: KernelAdiutor (Code base)\n<b><i>topjohnwu</i></b>: libsu\n<b><i>Lennoard Silva</i></b>: Code Contributions/App Icon</string>
     <string name="dark_theme">Dark Theme</string>
-    <string name="description">Description (Mandatory)</string>
+    <string name="description">Description</string>
     <string name="description_summary">Add a short description about your kernel here (single line)!</string>
+    <string name="description_unknown">Description for this profile is not provided by the developer.</string>
     <string name="default_profile">Default Profile (Mandatory)</string>
     <string name="default_profile_summary">Specify default profile name (including \'.sh\' extension) here!</string>
     <string name="developer_credits">Developer Credits</string>
@@ -26,6 +27,8 @@
     <string name="donation_app">Buy Donation App</string>
     <string name="donations_summary">Add donation link here!</string>
     <string name="kernel_about">About Kernel</string>
+    <string name="kernel_support">How to add support in kernel</string>
+    <string name="kernel_support_summary">Kernel Profiler expects a configuration file (<b><i>kernelprofiler.json</i></b>) and one or more \'<b><i>profiles</i></b>\' (basically shell scripts) in certain specific structure placed inside <b>\'<i>/data/kernel_profiler</i>\'</b>. Please check \'<b>Settings  -> Developer Tools</b>\' for more information.</string>
     <string name="more">More</string>
     <string name="name_empty">Profile name shouldn\'t be empty! Aborting.</string>
     <string name="no_internet">Please check your internet connection!</string>
@@ -39,7 +42,7 @@
     <string name="options">Options</string>
     <string name="press_back">Press back again to exit</string>
     <string name="profile_applied_success">%s applied successfully!</string>
-    <string name="profile_description">Profile Description (Mandatory)</string>
+    <string name="profile_description">Profile Description</string>
     <string name="profile_description_summary">Add description here!</string>
     <string name="profile_details">Profile Details</string>
     <string name="profile_details_summary">Add details (only commands) here!</string>
@@ -57,7 +60,9 @@
     <string name="title_summary">Add your title here! (Important: Title should contain a matching word from \'uname\')</string>
     <string name="tools_developer">Developer Tools</string>
     <string name="unsupported">No Kernel Support</string>
+    <string name="unsupported_help_message">Please Note: This app is also equipped with necessity tools to create its support files. Please check \'Settings  -> Developer Tools\' for more information.</string>
     <string name="unsupported_message">Please ask your favourite kernel developer to add support to this app!</string>
+    <string name="unsupported_summary">It seems like you\'re kernel doesn\'t have necessary configuration file/profiles to support this app.</string>
     <string name="wrong_profile">%s is not a proper profile file! Aborting.</string>
     <string name="yes">Yes</string>
 </resources>

@@ -106,6 +106,30 @@
                         android:textSize="15sp" />
 
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:textStyle="bold"
+                        android:gravity="center_horizontal"
+                        android:text="@string/kernel_support"
+                        android:textColor="?android:attr/colorAccent"
+                        android:textIsSelectable="true"
+                        android:textSize="18sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="16dp"
+                        android:paddingTop="16dp"
+                        android:gravity="center_horizontal"
+                        android:text="@string/kernel_support_summary"
+                        android:textStyle="normal"
+                        android:lineSpacingExtra="5dp"
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textIsSelectable="true"
+                        android:textSize="15sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/credits_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

@@ -128,8 +128,7 @@ public class KP {
     }
 
     public static boolean isKPProfile(String file) {
-        return getProfileDescription(file) != null && Utils.getExtension(file).equals("sh") &&
-                readProfile(file).startsWith("#!/system/bin/sh");
+        return Utils.getExtension(file).equals("sh") && readProfile(file).startsWith("#!/system/bin/sh");
     }
 
     public static boolean supported() {

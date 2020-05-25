@@ -96,7 +96,14 @@ public class MainActivity extends AppCompatActivity {
             helpIcon.setImageDrawable(Utils.getColoredIcon(R.drawable.ic_help, this));
             Utils.snackbarIndenite(mViewPager, getString(R.string.unsupported_message));
             helpIcon.setOnClickListener(v -> {
-                Utils.snackbarIndenite(mViewPager, "Soon");
+                new AlertDialog.Builder(this)
+                        .setIcon(R.mipmap.ic_launcher)
+                        .setTitle(getString(R.string.unsupported))
+                        .setMessage(getString(R.string.unsupported_summary) + " " + getString(R.string.unsupported_message) +
+                                "\n\n" + getString(R.string.unsupported_help_message))
+                        .setPositiveButton(getString(R.string.cancel), (dialog1, id1) -> {
+                        })
+                        .show();
             });
             return;
         }

@@ -58,7 +58,6 @@ public class CreateProfileActivity extends AppCompatActivity {
         mProfileDetails = findViewById(R.id.profile_details);
         mTestButton = findViewById(R.id.test_button);
         mTestOutput = findViewById(R.id.test_output);
-        mTitle.setText(getString(R.string.create_config));
         mProfileDescriptionHint.setVisibility(View.VISIBLE);
         mProfileDetailsHint.setVisibility(View.VISIBLE);
         mTitle.setVisibility(View.VISIBLE);
@@ -156,21 +155,10 @@ public class CreateProfileActivity extends AppCompatActivity {
         }.start();
     }
 
-    private void closeForeground() {
-        mProfileDescriptionHint.setVisibility(View.GONE);
-        mProfileDetailsHint.setVisibility(View.GONE);
-        mTitle.setVisibility(View.GONE);
-        mProfileDescription.setVisibility(View.GONE);
-        mProfileDetails.setVisibility(View.GONE);
-        mTestButton.setVisibility(View.GONE);
-        mTestOutput.setVisibility(View.GONE);
-        super.onBackPressed();
-    }
-
     @Override
     public void onBackPressed() {
         if (KP.mTestingProfile) return;
-        closeForeground();
+        super.onBackPressed();
     }
 
 }
