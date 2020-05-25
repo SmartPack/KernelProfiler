@@ -5,7 +5,7 @@
 ### Kernel Profiler: The easiest way to manage your kernel settings.
 
 ## Download
-[![](https://img.shields.io/badge/Kernel%20Profiler-beta--v0.1-green)](https://github.com/SmartPack/KernelProfiler/releases/download/v0.1/com.smartpack.kernelprofiler-beta-v0.1-release.apk)
+[![](https://img.shields.io/badge/Kernel%20Profiler-beta--v0.2-green)](https://github.com/SmartPack/KernelProfiler/releases/download/v0.2/com.smartpack.kernelprofiler-beta-v0.2-release.apk)
 
 ## Requirements
 * ROOT Access
