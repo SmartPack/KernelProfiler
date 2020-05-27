@@ -91,6 +91,16 @@ public class MainActivity extends AppCompatActivity {
             settingsMenu();
         });
 
+        if (!RootUtils.rootAccess()) {
+            textView.setText(getString(R.string.no_root));
+            helpIcon.setImageDrawable(Utils.getColoredIcon(R.drawable.ic_help, this));
+            Utils.snackbar(mViewPager, getString(R.string.no_root_message));
+            helpIcon.setOnClickListener(v -> {
+                launchURL("https://www.google.com/search?site=&source=hp&q=android+rooting+magisk");
+            });
+            return;
+        }
+
         if (!KP.supported()) {
             textView.setText(getString(R.string.unsupported));
             helpIcon.setImageDrawable(Utils.getColoredIcon(R.drawable.ic_help, this));
@@ -104,16 +114,6 @@ public class MainActivity extends AppCompatActivity {
                         .setPositiveButton(getString(R.string.cancel), (dialog1, id1) -> {
                         })
                         .show();
-            });
-            return;
-        }
-
-        if (!RootUtils.rootAccess()) {
-            textView.setText(getString(R.string.no_root));
-            helpIcon.setImageDrawable(Utils.getColoredIcon(R.drawable.ic_help, this));
-            Utils.snackbar(mViewPager, getString(R.string.no_root_message));
-            helpIcon.setOnClickListener(v -> {
-                launchURL("https://www.google.com/search?site=&source=hp&q=android+rooting+magisk");
             });
             return;
         }
