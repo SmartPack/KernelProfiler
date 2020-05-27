@@ -29,7 +29,7 @@ Kernel Profiler expects a configuration file (*<b>kernelprofiler.json</b>*) and 
 
 * "<b>default</b>": "The exact name of the default profile including *<b>.sh</b>* extension".
 
-* "<b>developer</b>": "The identity (name, pet name or anything similar) of the developer". *</b>Please note</b>* that the "<b>developer</b>" string will be displayed in app along with a *©* symbol (bottom part of app).
+* "<b>developer</b>": "The identity (name, pet name or anything similar) of the developer". *<b>Please note</b>* that the "<b>developer</b>" string will be displayed in app along with a *©* symbol (bottom part of app).
 
 * "<b>support</b>": "A link to the discussion page or a support group of your kernel". *<b>Please note</b>* that the "<b>support</b>" string will be linked to the app's settings menu.
 
@@ -40,7 +40,7 @@ App considers any properly formatted shell script as a *<b>profile</b>*. Optiona
 
 <b>Additionally, the developer may also include an <b>icon</b> (a small square image in black background and in *<b>png</b>* format placed inside the main folder of *<b>"/sdcard"</b>* as *<b>banner.png</b>*. This image will be also displayed in app along with the main title.</b>
 
-### How to integrdate into an Anykernel zip
+## How to integrate into an Anykernel zip
 [This](https://github.com/sunilpaulmathew/android_kernel_oneplus_msm8998/commit/540e34058d92f3cbe6c234c91f52df777e6a9395) commit shall be used as a reference to integrate the above mentioned files into an Anykernel zip.
 
 ## Support
@@ -65,7 +65,7 @@ Please Note: Purchasing [SmartPack Donation Package](https://play.google.com/sto
 ## Credits
 * [Grarak](https://github.com/Grarak), Kernel Adiutor, from where I took a lot of code
 * [topjohnwu](https://github.com/topjohnwu), libsu & Magisk
-* [Lennoard Silva](https://github.com/Lennoard), Code contributions, App Icon
+* [Lennoard Silva](https://github.com/Lennoard), Code contributions, App Icon, & Portuguese (Brazilian) Translation
 
 ## Report a bug or request a feature
 
