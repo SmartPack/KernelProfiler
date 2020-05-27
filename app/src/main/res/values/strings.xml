@@ -60,9 +60,9 @@
     <string name="title_summary">Add your title here! (Important: Title should contain a matching word from \'uname\')</string>
     <string name="tools_developer">Developer Tools</string>
     <string name="unsupported">No Kernel Support</string>
-    <string name="unsupported_help_message">Please Note: This app is also equipped with necessity tools to create its support files. Please check \'Settings  -> Developer Tools\' for more information.</string>
+    <string name="unsupported_help_message">Please Note: This app is also equipped with necessary tools to create its support files. Please check \'Settings  -> Developer Tools\' for more information.</string>
     <string name="unsupported_message">Please ask your favourite kernel developer to add support to this app!</string>
-    <string name="unsupported_summary">It seems like you\'re kernel doesn\'t have necessary configuration file/profiles to support this app.</string>
+    <string name="unsupported_summary">It seems like your kernel doesn\'t have the necessary configuration file/profiles to support this app.</string>
     <string name="wrong_profile">%s is not a proper profile file! Aborting.</string>
     <string name="yes">Yes</string>
 </resources>
