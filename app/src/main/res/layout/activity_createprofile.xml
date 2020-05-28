@@ -66,12 +66,10 @@
                 android:baselineAligned="false" >
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/profile_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
                     android:gravity="start"
-                    android:visibility="gone"
                     android:text="@string/profile_description"
                     android:textColor="?android:attr/textColorPrimary"
                     android:textSize="18sp"
@@ -84,7 +82,6 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:gravity="top|start"
-                    android:visibility="gone"
                     android:hint="@string/profile_description_summary"
                     android:textColor="?android:attr/colorAccent"
                     android:textColorHint="?android:attr/colorAccent"
@@ -93,12 +90,10 @@
                     android:textSize="15sp" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/profile_details"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
                     android:gravity="start"
-                    android:visibility="gone"
                     android:text="@string/profile_details"
                     android:textColor="?android:attr/textColorPrimary"
                     android:textSize="18sp"
@@ -111,7 +106,6 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:gravity="top|start"
-                    android:visibility="gone"
                     android:hint="@string/profile_details_summary"
                     android:textColor="?android:attr/colorAccent"
                     android:textColorHint="?android:attr/colorAccent"
@@ -138,7 +132,6 @@
                 android:background="?attr/colorAccent"
                 android:textColor="@color/black"
                 android:text="@string/test"
-                android:visibility="gone"
                 android:textSize="18sp"
                 android:padding="10dp" />
 

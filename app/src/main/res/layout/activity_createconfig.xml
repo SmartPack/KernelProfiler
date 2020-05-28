@@ -65,39 +65,52 @@
                 android:baselineAligned="false" >
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/config_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
-                    android:visibility="gone"
                     android:gravity="start"
                     android:text="@string/title"
                     android:textColor="?android:attr/textColorPrimary"
                     android:textSize="18sp"
                     android:padding="5dp" />
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/config_title_hint"
+                <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:gravity="top|start"
-                    android:visibility="gone"
-                    android:textColor="?android:attr/colorAccent"
-                    android:textColorHint="?android:attr/colorAccent"
-                    android:hint="@string/title_summary"
-                    android:inputType="textMultiLine|textImeMultiLine|textNoSuggestions"
-                    android:padding="10dp"
-                    android:textSize="15sp" />
+                    android:gravity="end|center_vertical">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/config_title_hint"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="50dp"
+                        android:background="@null"
+                        android:cursorVisible="true"
+                        android:gravity="center|start"
+                        android:textColor="?android:attr/colorAccent"
+                        android:textColorHint="?android:attr/colorAccent"
+                        android:hint="@string/title_summary"
+                        android:inputType="textMultiLine|textImeMultiLine|textNoSuggestions"
+                        android:padding="10dp"
+                        android:textSize="15sp" />
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/check_button"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="10dp"
+                        android:gravity="center_vertical"
+                        android:layout_gravity="end|center"
+                        android:src="@drawable/ic_check"
+                        android:background="@null"
+                        android:tint="?android:attr/colorAccent"/>
+                </FrameLayout>
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/config_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
                     android:gravity="start"
-                    android:visibility="gone"
                     android:text="@string/description"
                     android:textColor="?android:attr/textColorPrimary"
                     android:textSize="18sp"
@@ -109,8 +122,7 @@
                     android:layout_height="wrap_content"
                     android:background="@null"
                     android:cursorVisible="true"
-                    android:gravity="top|start"
-                    android:visibility="gone"
+                    android:gravity="center|start"
                     android:hint="@string/description_summary"
                     android:textColor="?android:attr/colorAccent"
                     android:textColorHint="?android:attr/colorAccent"
@@ -119,12 +131,10 @@
                     android:textSize="15sp" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/default_profile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
                     android:gravity="start"
-                    android:visibility="gone"
                     android:text="@string/default_profile"
                     android:textColor="?android:attr/textColorPrimary"
                     android:textSize="18sp"
@@ -136,8 +146,7 @@
                     android:layout_height="wrap_content"
                     android:background="@null"
                     android:cursorVisible="true"
-                    android:gravity="top|start"
-                    android:visibility="gone"
+                    android:gravity="center|start"
                     android:hint="@string/default_profile_summary"
                     android:textColor="?android:attr/colorAccent"
                     android:textColorHint="?android:attr/colorAccent"
@@ -146,12 +155,10 @@
                     android:textSize="15sp" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/developer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
                     android:gravity="start"
-                    android:visibility="gone"
                     android:text="@string/developer_credits"
                     android:textColor="?android:attr/textColorPrimary"
                     android:textSize="18sp"
@@ -163,8 +170,7 @@
                     android:layout_height="wrap_content"
                     android:background="@null"
                     android:cursorVisible="true"
-                    android:gravity="top|start"
-                    android:visibility="gone"
+                    android:gravity="center|start"
                     android:hint="@string/developer_credits_summary"
                     android:textColor="?android:attr/colorAccent"
                     android:textColorHint="?android:attr/colorAccent"
@@ -173,12 +179,10 @@
                     android:textSize="15sp" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/support"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
                     android:gravity="start"
-                    android:visibility="gone"
                     android:text="@string/support"
                     android:textColor="?android:attr/textColorPrimary"
                     android:textSize="18sp"
@@ -190,8 +194,7 @@
                     android:layout_height="wrap_content"
                     android:background="@null"
                     android:cursorVisible="true"
-                    android:gravity="top|start"
-                    android:visibility="gone"
+                    android:gravity="center|start"
                     android:hint="@string/support_summary"
                     android:textColor="?android:attr/colorAccent"
                     android:textColorHint="?android:attr/colorAccent"
@@ -200,12 +203,10 @@
                     android:textSize="15sp" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/donations"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
                     android:gravity="start"
-                    android:visibility="gone"
                     android:text="@string/donations"
                     android:textColor="?android:attr/textColorPrimary"
                     android:textSize="18sp"
@@ -217,8 +218,7 @@
                     android:layout_height="wrap_content"
                     android:background="@null"
                     android:cursorVisible="true"
-                    android:gravity="top|start"
-                    android:visibility="gone"
+                    android:gravity="center|start"
                     android:hint="@string/donations_summary"
                     android:textColor="?android:attr/colorAccent"
                     android:textColorHint="?android:attr/colorAccent"

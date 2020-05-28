@@ -23,7 +23,7 @@ Kernel Profiler expects a configuration file (*<b>kernelprofiler.json</b>*) and 
 ### Structure of *kernelprofiler.json*
 *<b>kernelprofiler.json</b>* necessorily contains a *<b>title</b>* string as well as a number of optional strings to properly identify a specific kernel. An example *<b>kernelprofiler.json</b>* can be found [here](https://raw.githubusercontent.com/sunilpaulmathew/android_kernel_oneplus_msm8998/oneplus/QC8998_Q_10.0_Beta/AnyKernel/ramdisk/kernel_profiler/kernelprofiler.json).
 
-* "<b>title</b>": "Title of your kernel". The "<b>title</b>" should be a string from your kernel's "<b>uname -a</b>". It will be later matched on your user devices, and also be displayed as app's main title. *<b>Please note</b>* that it is the only way of app to distinguish a supported kernel and should be done carefully.
+* "<b>title</b>": "Title of your kernel". The "<b>title</b>" should be a string from your kernel's "<b>uname -a</b>". It will be later matched on your user's devices, and also be displayed as app's main title. *<b>Please note</b>* that it is the only way of app to distinguish a supported kernel and should be done carefully.
 
 * "<b>description</b>": "A short description (in one line) about your kernel". *<b>Please note</b>* that the "<b>description</b>" string will be also displayed in app along with the main title.
 

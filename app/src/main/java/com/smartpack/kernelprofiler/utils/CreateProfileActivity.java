@@ -34,8 +34,6 @@ public class CreateProfileActivity extends AppCompatActivity {
     AppCompatEditText mProfileDescriptionHint;
     AppCompatEditText mProfileDetailsHint;
     AppCompatTextView mTitle;
-    AppCompatTextView mProfileDescription;
-    AppCompatTextView mProfileDetails;
     AppCompatTextView mTestButton;
     AppCompatTextView mTestOutput;
 
@@ -54,24 +52,19 @@ public class CreateProfileActivity extends AppCompatActivity {
         if (title != null) {
             mTitle.setText(title);
         }
-        mProfileDescription = findViewById(R.id.profile_description);
-        mProfileDetails = findViewById(R.id.profile_details);
         mTestButton = findViewById(R.id.test_button);
         mTestOutput = findViewById(R.id.test_output);
-        mProfileDescriptionHint.setVisibility(View.VISIBLE);
-        mProfileDetailsHint.setVisibility(View.VISIBLE);
-        mTitle.setVisibility(View.VISIBLE);
-        mProfileDescription.setVisibility(View.VISIBLE);
-        mProfileDetails.setVisibility(View.VISIBLE);
-        mTestButton.setVisibility(View.VISIBLE);
-        mTestOutput.setVisibility(View.VISIBLE);
         mBack.setOnClickListener(v -> onBackPressed());
         mSave.setOnClickListener(v -> {
             if (Utils.checkWriteStoragePermission(this)) {
-                Utils.create("#!/system/bin/sh\n\n# Description=" + mProfileDescriptionHint.getText() + "\n\n" + mProfileDetailsHint.getText(),
-                        Environment.getExternalStorageDirectory().toString() + "/" + title);
-                Utils.snackbarIndenite(mTitle, getString(R.string.create_profile_message, title) + " " +
-                        Environment.getExternalStorageDirectory().toString());
+                if (mProfileDetailsHint.getText() != null && !mProfileDetailsHint.getText().toString().equals("")) {
+                    Utils.create("#!/system/bin/sh\n\n# Description=" + mProfileDescriptionHint.getText() + "\n\n" + mProfileDetailsHint.getText(),
+                            Environment.getExternalStorageDirectory().toString() + "/" + title);
+                    Utils.snackbarIndenite(mTitle, getString(R.string.create_profile_message, title) + " " +
+                            Environment.getExternalStorageDirectory().toString());
+                } else {
+                    Utils.snackbar(mTitle, getString(R.string.profile_details_empty));
+                }
             } else {
                 ActivityCompat.requestPermissions(this, new String[] {
                         Manifest.permission.WRITE_EXTERNAL_STORAGE},1);
@@ -79,7 +72,6 @@ public class CreateProfileActivity extends AppCompatActivity {
                         Environment.getExternalStorageDirectory().toString());
             }
         });
-        mTestButton.setVisibility(View.VISIBLE);
         mTestButton.setOnClickListener(v -> {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
             testCommands(new WeakReference<>(this));

@@ -3,9 +3,9 @@ package com.smartpack.kernelprofiler.utils;
 import android.Manifest;
 import android.os.Bundle;
 import android.os.Environment;
-import android.view.View;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.AppCompatImageButton;
@@ -13,6 +13,7 @@ import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.app.ActivityCompat;
 
 import com.smartpack.kernelprofiler.R;
+import com.smartpack.kernelprofiler.utils.root.RootUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,12 +31,6 @@ public class CreateConfigActivity extends AppCompatActivity {
     AppCompatEditText mSupportHint;
     AppCompatEditText mDonationsHint;
     AppCompatTextView mTitle;
-    AppCompatTextView mProfileTitle;
-    AppCompatTextView mDescription;
-    AppCompatTextView mDefault;
-    AppCompatTextView mDeveloper;
-    AppCompatTextView mSupport;
-    AppCompatTextView mDonation;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,6 +40,7 @@ public class CreateConfigActivity extends AppCompatActivity {
         AppCompatImageButton mBack = findViewById(R.id.back_button);
         mBack.setOnClickListener(v -> onBackPressed());
         AppCompatImageButton mSave = findViewById(R.id.save_button);
+        AppCompatImageButton mCheck = findViewById(R.id.check_button);
         mProfileTitleHint = findViewById(R.id.config_title_hint);
         mDescriptionHint = findViewById(R.id.config_description_hint);
         mDefaultHint = findViewById(R.id.default_profile_hint);
@@ -52,39 +48,24 @@ public class CreateConfigActivity extends AppCompatActivity {
         mSupportHint = findViewById(R.id.support_hint);
         mDonationsHint = findViewById(R.id.donations_hint);
         mTitle = findViewById(R.id.title);
-        mProfileTitle = findViewById(R.id.config_title);
-        mDescription = findViewById(R.id.config_description);
-        mDefault = findViewById(R.id.default_profile);
-        mDeveloper = findViewById(R.id.developer);
-        mSupport = findViewById(R.id.support);
-        mDonation = findViewById(R.id.donations);
         mTitle.setText(getString(R.string.create_config));
-        mProfileTitleHint.setVisibility(View.VISIBLE);
-        mDescriptionHint.setVisibility(View.VISIBLE);
-        mDefaultHint.setVisibility(View.VISIBLE);
-        mDeveloperHint.setVisibility(View.VISIBLE);
-        mSupportHint.setVisibility(View.VISIBLE);
-        mDonationsHint.setVisibility(View.VISIBLE);
-        mTitle.setVisibility(View.VISIBLE);
-        mProfileTitle.setVisibility(View.VISIBLE);
-        mDescription.setVisibility(View.VISIBLE);
-        mDefault.setVisibility(View.VISIBLE);
-        mDeveloper.setVisibility(View.VISIBLE);
-        mSupport.setVisibility(View.VISIBLE);
-        mDonation.setVisibility(View.VISIBLE);
         mSave.setOnClickListener(v -> {
             if (Utils.checkWriteStoragePermission(this)) {
-                try {
-                    JSONObject obj= new JSONObject();
-                    obj.put("title", mDescription.getText());
-                    obj.put("description", mDescriptionHint.getText());
-                    obj.put("default", mDefaultHint.getText());
-                    obj.put("developer", mDeveloperHint.getText());
-                    obj.put("support", mSupportHint.getText());
-                    obj.put("donations", mDescriptionHint.getText());
-                    Utils.create(obj.toString(),Environment.getExternalStorageDirectory().toString() + "/kernelprofiler.json");
-                    Utils.snackbarIndenite(mTitle, getString(R.string.configuration_created, Environment.getExternalStorageDirectory().toString()));
-                } catch (JSONException ignored) {
+                if (mProfileTitleHint.getText() != null && !mProfileTitleHint.getText().toString().equals("")) {
+                    try {
+                        JSONObject obj = new JSONObject();
+                        obj.put("title", mProfileTitleHint.getText());
+                        obj.put("description", mDescriptionHint.getText());
+                        obj.put("default", mDefaultHint.getText());
+                        obj.put("developer", mDeveloperHint.getText());
+                        obj.put("support", mSupportHint.getText());
+                        obj.put("donations", mDescriptionHint.getText());
+                        Utils.create(obj.toString(), Environment.getExternalStorageDirectory().toString() + "/kernelprofiler.json");
+                        Utils.snackbarIndenite(mTitle, getString(R.string.configuration_created, Environment.getExternalStorageDirectory().toString()));
+                    } catch (JSONException ignored) {
+                    }
+                } else {
+                    Utils.snackbar(mTitle, getString(R.string.title_empty_message));
                 }
             } else {
                 ActivityCompat.requestPermissions(this, new String[]{
@@ -92,6 +73,21 @@ public class CreateConfigActivity extends AppCompatActivity {
                 Utils.snackbar(mTitle, getString(R.string.storage_access_denied) + " " +
                         Environment.getExternalStorageDirectory().toString());
             }
+        });
+        mCheck.setOnClickListener(v -> {
+            new AlertDialog.Builder(this)
+                    .setMessage(getString(R.string.title_check))
+                    .setNegativeButton(getString(R.string.cancel), (dialog1, id1) -> {
+                    })
+                    .setPositiveButton(getString(R.string.test), (dialog1, id1) -> {
+                        if (mProfileTitleHint.getText() != null && !mProfileTitleHint.getText().toString().equals("") &&
+                                RootUtils.runAndGetOutput("uname -a").contains(mProfileTitleHint.getText())) {
+                            Utils.snackbar(mTitle, getString(R.string.success));
+                        } else {
+                            Utils.snackbar(mTitle, getString(R.string.failed));
+                        }
+                    })
+                    .show();
         });
     }
 
