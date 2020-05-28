@@ -19,6 +19,8 @@ import androidx.appcompat.widget.PopupMenu;
 import androidx.cardview.widget.CardView;
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.smartpack.kernelprofiler.fragments.KPFragment;
 import com.smartpack.kernelprofiler.utils.CreateConfigActivity;
 import com.smartpack.kernelprofiler.utils.CreateProfileActivity;
@@ -54,8 +56,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        // Initialize App Theme
+        // Initialize App Theme & Google Ads
         Utils.initializeAppTheme(this);
+        Utils.initializeGoogleAds(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -74,6 +77,13 @@ public class MainActivity extends AppCompatActivity {
         mCancel.setOnClickListener(v -> {
             closeForeground();
         });
+
+        if (Utils.isNotDonated(this)) {
+            AdView mAdView = findViewById(R.id.adView);
+            AdRequest adRequest = new AdRequest.Builder()
+                    .build();
+            mAdView.loadAd(adRequest);
+        }
 
         mSettings = findViewById(R.id.settings_menu);
         mViewPager = findViewById(R.id.viewPagerID);

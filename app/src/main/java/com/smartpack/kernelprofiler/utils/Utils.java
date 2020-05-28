@@ -14,6 +14,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatDelegate;
 
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.material.snackbar.Snackbar;
 import com.smartpack.kernelprofiler.BuildConfig;
 import com.smartpack.kernelprofiler.utils.root.RootFile;
@@ -58,6 +59,11 @@ public class Utils {
             AppCompatDelegate.setDefaultNightMode(
                     AppCompatDelegate.MODE_NIGHT_NO);
         }
+    }
+
+    public static void initializeGoogleAds(Context context) {
+        if (!isNotDonated(context)) return;
+        MobileAds.initialize(context, "ca-app-pub-7791710838910455~2723633709");
     }
 
     static void startService(Context context, Intent intent) {
