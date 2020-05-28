@@ -1,3 +1,3 @@
 {
-  "releaseNotes": "alpha-v0.1\n - Initial bring up."
+  "releaseNotes": "beta-v0.3\n - Removed a bunch of unnecessary code from the developer tools (improved coding quality).\n - Added Portuguese (Brazilian) translations.\n - Added a title check button on create config activity.\n - Added option to edit current configuration file.\n - Introduced a Developer Mode, which is disabled by default.\n - Miscellaneous changes."
 }
