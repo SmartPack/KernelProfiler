@@ -131,6 +131,10 @@ public class KP {
         return Utils.getExtension(file).equals("sh") && readProfile(file).startsWith("#!/system/bin/sh");
     }
 
+    public static boolean isCustomSettingsAvailable() {
+        return getSupport() != null && !getSupport().isEmpty() || getDonation() != null && !getDonation().isEmpty();
+    }
+
     public static boolean supported() {
         return Utils.existFile(KP_CONFIG) && getCustomTitle() != null &&
                 RootUtils.runAndGetOutput("uname -a").contains(getCustomTitle());

@@ -141,12 +141,12 @@ public class MainActivity extends AppCompatActivity {
         Menu menu = popupMenu.getMenu();
         menu.add(Menu.NONE, 1, Menu.NONE, getString(R.string.dark_theme)).setCheckable(true).setChecked(
                 Prefs.getBoolean("dark_theme", true, this));
-        if (KP.supported()) {
+        if (KP.supported() && KP.isCustomSettingsAvailable()) {
             SubMenu kernel = menu.addSubMenu(Menu.NONE, 0, Menu.NONE, getString(R.string.kernel_about));
-            if (KP.getSupport() != null) {
+            if (KP.getSupport() != null && !KP.getSupport().isEmpty()) {
                 kernel.add(Menu.NONE, 2, Menu.NONE, getString(R.string.support));
             }
-            if (KP.getDonation() != null) {
+            if (KP.getDonation() != null && !KP.getDonation().isEmpty()) {
                 kernel.add(Menu.NONE, 3, Menu.NONE, getString(R.string.donations));
             }
         }
