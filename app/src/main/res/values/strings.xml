@@ -23,6 +23,8 @@
     <string name="default_profile_summary">Specify default profile name (including \'.sh\' extension) here!</string>
     <string name="developer_credits">Developer Credits</string>
     <string name="developer_credits_summary">Add credits text to be shown in the app as copyright!</string>
+    <string name="developer_mode">Developer Mode</string>
+    <string name="developer_mode_message">Developer Mode is enabled! Access to developer tools are temporarily unlocked.</string>
     <string name="donations">Donations</string>
     <string name="donation_app">Buy Donation App</string>
     <string name="donations_summary">Add donation link here!</string>

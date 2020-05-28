@@ -37,6 +37,7 @@ import com.smartpack.kernelprofiler.utils.root.RootUtils;
 public class MainActivity extends AppCompatActivity {
 
     private AppCompatImageButton mSettings;
+    private boolean mDeveloperMode = false;
     private boolean mExit;
     private Handler mHandler = new Handler();
     private ViewPager mViewPager;
@@ -149,11 +150,16 @@ public class MainActivity extends AppCompatActivity {
                 kernel.add(Menu.NONE, 3, Menu.NONE, getString(R.string.donations));
             }
         }
-        SubMenu tools = menu.addSubMenu(Menu.NONE, 0, Menu.NONE, getString(R.string.tools_developer));
-        tools.add(Menu.NONE, 7, Menu.NONE, getString(R.string.create_profile));
-        tools.add(Menu.NONE, 8, Menu.NONE, getString(R.string.create_config));
-        if (KP.supported()) {
-            tools.add(Menu.NONE, 12, Menu.NONE, getString(R.string.edit_config));
+        if (mDeveloperMode) {
+            SubMenu tools = menu.addSubMenu(Menu.NONE, 0, Menu.NONE, getString(R.string.tools_developer));
+            tools.add(Menu.NONE, 7, Menu.NONE, getString(R.string.create_profile));
+            tools.add(Menu.NONE, 8, Menu.NONE, getString(R.string.create_config));
+            if (KP.supported()) {
+                tools.add(Menu.NONE, 12, Menu.NONE, getString(R.string.edit_config));
+            }
+        } else {
+            menu.add(Menu.NONE, 13, Menu.NONE, getString(R.string.developer_mode)).setCheckable(true)
+                    .setChecked(mDeveloperMode);
         }
         SubMenu app = menu.addSubMenu(Menu.NONE, 0, Menu.NONE, getString(R.string.app_about));
         app.add(Menu.NONE, 4, Menu.NONE, getString(R.string.support));
@@ -241,6 +247,10 @@ public class MainActivity extends AppCompatActivity {
                 case 12:
                     Intent editConfig = new Intent(this, EditConfigActivity.class);
                     startActivity(editConfig);
+                    break;
+                case 13:
+                    mDeveloperMode = true;
+                    Utils.snackbar(mViewPager, getString(R.string.developer_mode_message));
                     break;
             }
             return false;
