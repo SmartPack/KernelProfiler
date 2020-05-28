@@ -30,6 +30,7 @@
 
         <activity android:name="com.smartpack.kernelprofiler.utils.CreateConfigActivity" />
         <activity android:name="com.smartpack.kernelprofiler.utils.CreateProfileActivity" />
+        <activity android:name="com.smartpack.kernelprofiler.utils.EditConfigActivity" />
 
         <receiver
             android:name=".utils.OnBootReceiver"

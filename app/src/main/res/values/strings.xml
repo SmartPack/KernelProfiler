@@ -26,6 +26,9 @@
     <string name="donations">Donations</string>
     <string name="donation_app">Buy Donation App</string>
     <string name="donations_summary">Add donation link here!</string>
+    <string name="edit_config">Edit Configuration</string>
+    <string name="edit_config_message">Please Note: You\'re current configuration will be overwritten! Are you sure?</string>
+    <string name="edit_config_saved">You\'re current configuration file is updated! The changes will be applied on next app launch.</string>
     <string name="failed">Failed</string>
     <string name="kernel_about">About Kernel</string>
     <string name="kernel_support">How to add support in kernel</string>

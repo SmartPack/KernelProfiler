@@ -22,6 +22,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.smartpack.kernelprofiler.fragments.KPFragment;
 import com.smartpack.kernelprofiler.utils.CreateConfigActivity;
 import com.smartpack.kernelprofiler.utils.CreateProfileActivity;
+import com.smartpack.kernelprofiler.utils.EditConfigActivity;
 import com.smartpack.kernelprofiler.utils.KP;
 import com.smartpack.kernelprofiler.utils.PagerAdapter;
 import com.smartpack.kernelprofiler.utils.Prefs;
@@ -151,6 +152,9 @@ public class MainActivity extends AppCompatActivity {
         SubMenu tools = menu.addSubMenu(Menu.NONE, 0, Menu.NONE, getString(R.string.tools_developer));
         tools.add(Menu.NONE, 7, Menu.NONE, getString(R.string.create_profile));
         tools.add(Menu.NONE, 8, Menu.NONE, getString(R.string.create_config));
+        if (KP.supported()) {
+            tools.add(Menu.NONE, 12, Menu.NONE, getString(R.string.edit_config));
+        }
         SubMenu app = menu.addSubMenu(Menu.NONE, 0, Menu.NONE, getString(R.string.app_about));
         app.add(Menu.NONE, 4, Menu.NONE, getString(R.string.support));
         app.add(Menu.NONE, 9, Menu.NONE, getString(R.string.source_code));
@@ -233,6 +237,10 @@ public class MainActivity extends AppCompatActivity {
                                 Utils.launchUrl("https://play.google.com/store/apps/details?id=com.smartpack.donate", this);
                             })
                             .show();
+                    break;
+                case 12:
+                    Intent editConfig = new Intent(this, EditConfigActivity.class);
+                    startActivity(editConfig);
                     break;
             }
             return false;

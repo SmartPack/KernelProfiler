@@ -59,7 +59,7 @@ public class CreateConfigActivity extends AppCompatActivity {
                         obj.put("default", mDefaultHint.getText());
                         obj.put("developer", mDeveloperHint.getText());
                         obj.put("support", mSupportHint.getText());
-                        obj.put("donations", mDescriptionHint.getText());
+                        obj.put("donations", mDonationsHint.getText());
                         Utils.create(obj.toString(), Environment.getExternalStorageDirectory().toString() + "/kernelprofiler.json");
                         Utils.snackbarIndenite(mTitle, getString(R.string.configuration_created, Environment.getExternalStorageDirectory().toString()));
                     } catch (JSONException ignored) {
