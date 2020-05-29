@@ -9,8 +9,9 @@ import android.preference.PreferenceManager;
  * Willi Ye <williye97@gmail.com>
  */
 
-public class Prefs {
+// TODO: Use AndroiX Preference, as android.app.preference is deprecated
 
+public class Prefs {
     public static int getInt(String name, int defaults, Context context) {
         return PreferenceManager.getDefaultSharedPreferences(context).getInt(name, defaults);
     }

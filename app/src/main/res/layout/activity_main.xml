@@ -52,7 +52,7 @@
                     android:textColor="@color/white" />
             </LinearLayout>
             <androidx.appcompat.widget.AppCompatImageButton
-                android:id="@+id/settings_menu"
+                android:id="@+id/settingsMenu"
                 android:layout_width="40dp"
                 android:layout_height="50dp"
                 android:background="@null"
@@ -67,7 +67,7 @@
         android:layout_height="match_parent" >
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/unsupported_Text"
+            android:id="@+id/unsupportedText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -76,7 +76,7 @@
             android:textColor="?android:attr/colorAccent" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/help_Image"
+            android:id="@+id/helpImage"
             android:layout_width="50sp"
             android:layout_height="50dp"
             android:layout_marginBottom="85dp"
@@ -86,7 +86,7 @@
             android:visibility="visible" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/copyright_Text"
+            android:id="@+id/copyrightText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -115,5 +115,5 @@
         android:layout_height="match_parent"
         android:layout_marginTop="100dp"
         android:layout_marginBottom="50dp"
-        android:id="@+id/viewPagerID" />
+        android:id="@+id/viewPager" />
 </RelativeLayout>

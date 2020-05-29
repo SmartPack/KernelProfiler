@@ -62,15 +62,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mForegroundCard = findViewById(R.id.foreground_card);
+        mForegroundCard = findViewById(R.id.foregroundCard);
         mBack = findViewById(R.id.back);
-        mAppIcon = findViewById(R.id.app_image);
-        mCardTitle = findViewById(R.id.card_title);
-        mAppName = findViewById(R.id.app_title);
-        mAboutApp = findViewById(R.id.about_app);
-        mCreditsTitle = findViewById(R.id.credits_title);
+        mAppIcon = findViewById(R.id.appImage);
+        mCardTitle = findViewById(R.id.cardTitle);
+        mAppName = findViewById(R.id.appTitle);
+        mAboutApp = findViewById(R.id.aboutApp);
+        mCreditsTitle = findViewById(R.id.creditsTitle);
         mCredits = findViewById(R.id.credits);
-        mCancel = findViewById(R.id.cancel_button);
+        mCancel = findViewById(R.id.cancelButton);
         mBack.setOnClickListener(v -> {
             closeForeground();
         });
@@ -85,11 +85,11 @@ public class MainActivity extends AppCompatActivity {
             mAdView.loadAd(adRequest);
         }
 
-        mSettings = findViewById(R.id.settings_menu);
-        mViewPager = findViewById(R.id.viewPagerID);
-        AppCompatTextView textView = findViewById(R.id.unsupported_Text);
-        AppCompatImageView helpIcon = findViewById(R.id.help_Image);
-        AppCompatTextView copyRightText = findViewById(R.id.copyright_Text);
+        mSettings = findViewById(R.id.settingsMenu);
+        mViewPager = findViewById(R.id.viewPager);
+        AppCompatTextView textView = findViewById(R.id.unsupportedText);
+        AppCompatImageView helpIcon = findViewById(R.id.helpImage);
+        AppCompatTextView copyRightText = findViewById(R.id.copyrightText);
         AppCompatImageView customBanner = findViewById(R.id.customBanner);
         AppCompatTextView customTitle = findViewById(R.id.customTitle);
         AppCompatTextView customDescription = findViewById(R.id.customDescription);

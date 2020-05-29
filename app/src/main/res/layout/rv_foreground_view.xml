@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
-    android:id="@+id/foreground_card"
+    android:id="@+id/foregroundCard"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
@@ -40,7 +40,7 @@
                     android:src="@drawable/ic_back" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/card_title"
+                    android:id="@+id/cardTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_marginStart="50dp"
@@ -60,7 +60,7 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/app_image"
+                android:id="@+id/appImage"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginTop="15dp"
@@ -69,7 +69,7 @@
                 android:visibility="gone" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/app_title"
+                android:id="@+id/appTitle"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:padding="10dp"
@@ -93,7 +93,7 @@
                     android:gravity="center_vertical" >
 
                     <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/about_app"
+                        android:id="@+id/aboutApp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingBottom="16dp"
@@ -130,7 +130,7 @@
                         android:textSize="15sp" />
 
                     <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/credits_title"
+                        android:id="@+id/creditsTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="25dp"
@@ -159,7 +159,7 @@
         </LinearLayout>
     </LinearLayout>
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/cancel_button"
+        android:id="@+id/cancelButton"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center_horizontal"
