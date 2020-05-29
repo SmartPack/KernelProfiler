@@ -33,12 +33,27 @@ android {
             signingConfig signingConfigs.release
             minifyEnabled true
             shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro', 'proguard-kt.pro'
         }
     }
+
+    packagingOptions {
+        exclude '/META-INF/**'
+        exclude '/androidsupportmultidexversion.txt'
+        exclude '/org/bouncycastle/**'
+        exclude '/kotlin/**'
+        exclude '/kotlinx/**'
+        exclude '/okhttp3/**'
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
     lintOptions {
         abortOnError false
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
