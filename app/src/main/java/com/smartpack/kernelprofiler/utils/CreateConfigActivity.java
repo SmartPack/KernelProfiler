@@ -75,16 +75,19 @@ public class CreateConfigActivity extends AppCompatActivity {
             }
         });
         mCheck.setOnClickListener(v -> {
+            if (mProfileTitleHint.getText() == null || mProfileTitleHint.getText().toString().equals("")) {
+                Utils.snackbar(mTitle, getString(R.string.title_empty_message));
+                return;
+            }
             new AlertDialog.Builder(this)
                     .setMessage(getString(R.string.title_check))
                     .setNegativeButton(getString(R.string.cancel), (dialog1, id1) -> {
                     })
                     .setPositiveButton(getString(R.string.test), (dialog1, id1) -> {
-                        if (mProfileTitleHint.getText() != null && !mProfileTitleHint.getText().toString().equals("") &&
-                                RootUtils.runAndGetOutput("uname -a").contains(mProfileTitleHint.getText())) {
-                            Utils.snackbar(mTitle, getString(R.string.success));
+                        if (RootUtils.runAndGetOutput("uname -a").contains(mProfileTitleHint.getText())) {
+                            Utils.snackbar(mTitle, getString(R.string.success_message, mProfileTitleHint.getText()));
                         } else {
-                            Utils.snackbar(mTitle, getString(R.string.failed));
+                            Utils.snackbar(mTitle, getString(R.string.failed_message, mProfileTitleHint.getText()));
                         }
                     })
                     .show();

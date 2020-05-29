@@ -31,7 +31,7 @@
     <string name="edit_config">Edit Configuration</string>
     <string name="edit_config_message">Please Note: Your current configuration file will be overwritten! Are you sure?</string>
     <string name="edit_config_saved">Configuration file is updated! The changes will be applied on next app launch.</string>
-    <string name="failed">Failed</string>
+    <string name="failed_message">Unfortunately, \'%s\' is NOT a supported string! Please try another one!</string>
     <string name="kernel_about">About Kernel</string>
     <string name="kernel_support">How to add support in kernel</string>
     <string name="kernel_support_summary">Kernel Profiler expects a configuration file (<b><i>kernelprofiler.json</i></b>) and one or more \'<b><i>profiles</i></b>\' (basically shell scripts) in certain specific structure placed inside <b>\'<i>/data/kernel_profiler</i>\'</b>. Please check \'<b>Settings  -> Developer Tools</b>\' for more information.</string>
@@ -60,7 +60,7 @@
     <string name="support_developer">Support Developer!</string>
     <string name="support_developer_message">If you like to appreciate my work, please consider buying SmartPack Donation Package from PlayStore as it is really helpful to continue my projects more active, although it is not at all necessary.</string>
     <string name="support_summary">Add a link to the support page here!</string>
-    <string name="success">Success</string>
+    <string name="success_message">Congrats! \'%s\' is a supported string!</string>
     <string name="test">Test</string>
     <string name="testing">Testing profile… Please be patient!</string>
     <string name="testing_success">"Testing profile completed successfully!"</string>

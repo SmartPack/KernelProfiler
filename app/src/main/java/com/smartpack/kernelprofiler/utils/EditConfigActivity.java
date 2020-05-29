@@ -89,11 +89,14 @@ public class EditConfigActivity extends AppCompatActivity {
             }
         });
         mCheck.setOnClickListener(v -> {
-            if (mConfigTitleHint.getText() != null && !mConfigTitleHint.getText().toString().equals("") &&
-                    RootUtils.runAndGetOutput("uname -a").contains(mConfigTitleHint.getText())) {
-                Utils.snackbar(mTitle, getString(R.string.success));
+            if (mConfigTitleHint.getText() == null || mConfigTitleHint.getText().toString().equals("")) {
+                Utils.snackbar(mTitle, getString(R.string.title_empty_message));
+                return;
+            }
+            if (RootUtils.runAndGetOutput("uname -a").contains(mConfigTitleHint.getText())) {
+                Utils.snackbar(mTitle, getString(R.string.success_message, mConfigTitleHint.getText()));
             } else {
-                Utils.snackbar(mTitle, getString(R.string.failed));
+                Utils.snackbar(mTitle, getString(R.string.failed_message, mConfigTitleHint.getText()));
             }
         });
     }
