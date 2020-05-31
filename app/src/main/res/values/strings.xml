@@ -16,6 +16,7 @@
     <string name="credits">Credits</string>
     <string name="credits_summary"><b><i>Grarak</i></b>: KernelAdiutor (Code base)\n<b><i>topjohnwu</i></b>: libsu\n<b><i>Lennoard Silva</i></b>: Code Contributions, App Icon, &amp; Portuguese (Brazilian) Translation</string>
     <string name="dark_theme">Dark Theme</string>
+    <string name="data_lose_warning">The changes you made on this page will be lost! Are you sure?</string>
     <string name="description">Description</string>
     <string name="description_summary">Add a short description about your kernel here (single line)!</string>
     <string name="description_unknown">Description for this profile is not provided by the developer.</string>
@@ -53,6 +54,7 @@
     <string name="profile_details">Profile Details</string>
     <string name="profile_details_empty">Profile Details shouldn\'t be empty! Aborting.</string>
     <string name="profile_details_summary">Add details (only commands) here!</string>
+    <string name="profile_exists">%s already exists! Please use a different name.</string>
     <string name="report_issue">Report an Issue</string>
     <string name="source_code">Source Code</string>
     <string name="storage_access_denied">Permission denied for writing to storage!</string>

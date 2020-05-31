@@ -116,9 +116,29 @@ public class EditConfigActivity extends AppCompatActivity {
         }
     }
 
+    private boolean isTextEntered() {
+        return mConfigTitleHint.getText() != null && !mConfigTitleHint.getText().toString().equals("")
+                || mDescriptionHint.getText() != null && !mDescriptionHint.getText().toString().equals("")
+                || mDefaultHint.getText() != null && !mDefaultHint.getText().toString().equals("")
+                || mDeveloperHint.getText() != null && !mDeveloperHint.getText().toString().equals("")
+                || mSupportHint.getText() != null && !mSupportHint.getText().toString().equals("")
+                || mDonationsHint.getText() != null && !mDonationsHint.getText().toString().equals("");
+    }
+
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        if (isTextEntered()) {
+            new AlertDialog.Builder(this)
+                    .setMessage(getString(R.string.data_lose_warning))
+                    .setNegativeButton(getString(R.string.cancel), (dialog1, id1) -> {
+                    })
+                    .setPositiveButton(getString(R.string.yes), (dialog1, id1) -> {
+                        super.onBackPressed();
+                    })
+                    .show();
+        } else {
+            super.onBackPressed();
+        }
     }
 
 }

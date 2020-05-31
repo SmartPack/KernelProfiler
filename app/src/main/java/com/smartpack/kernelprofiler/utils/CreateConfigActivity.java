@@ -24,7 +24,7 @@ import org.json.JSONObject;
 
 public class CreateConfigActivity extends AppCompatActivity {
 
-    AppCompatEditText mProfileTitleHint;
+    AppCompatEditText mConfigTitleHint;
     AppCompatEditText mDescriptionHint;
     AppCompatEditText mDefaultHint;
     AppCompatEditText mDeveloperHint;
@@ -41,7 +41,7 @@ public class CreateConfigActivity extends AppCompatActivity {
         mBack.setOnClickListener(v -> onBackPressed());
         AppCompatImageButton mSave = findViewById(R.id.save_button);
         AppCompatImageButton mCheck = findViewById(R.id.check_button);
-        mProfileTitleHint = findViewById(R.id.config_title_hint);
+        mConfigTitleHint = findViewById(R.id.config_title_hint);
         mDescriptionHint = findViewById(R.id.config_description_hint);
         mDefaultHint = findViewById(R.id.default_profile_hint);
         mDeveloperHint = findViewById(R.id.developer_hint);
@@ -51,10 +51,10 @@ public class CreateConfigActivity extends AppCompatActivity {
         mTitle.setText(getString(R.string.create_config));
         mSave.setOnClickListener(v -> {
             if (Utils.checkWriteStoragePermission(this)) {
-                if (mProfileTitleHint.getText() != null && !mProfileTitleHint.getText().toString().equals("")) {
+                if (mConfigTitleHint.getText() != null && !mConfigTitleHint.getText().toString().equals("")) {
                     try {
                         JSONObject obj = new JSONObject();
-                        obj.put("title", mProfileTitleHint.getText());
+                        obj.put("title", mConfigTitleHint.getText());
                         obj.put("description", mDescriptionHint.getText());
                         obj.put("default", mDefaultHint.getText());
                         obj.put("developer", mDeveloperHint.getText());
@@ -75,7 +75,7 @@ public class CreateConfigActivity extends AppCompatActivity {
             }
         });
         mCheck.setOnClickListener(v -> {
-            if (mProfileTitleHint.getText() == null || mProfileTitleHint.getText().toString().equals("")) {
+            if (mConfigTitleHint.getText() == null || mConfigTitleHint.getText().toString().equals("")) {
                 Utils.snackbar(mTitle, getString(R.string.title_empty_message));
                 return;
             }
@@ -84,19 +84,39 @@ public class CreateConfigActivity extends AppCompatActivity {
                     .setNegativeButton(getString(R.string.cancel), (dialog1, id1) -> {
                     })
                     .setPositiveButton(getString(R.string.test), (dialog1, id1) -> {
-                        if (RootUtils.runAndGetOutput("uname -a").contains(mProfileTitleHint.getText())) {
-                            Utils.snackbar(mTitle, getString(R.string.success_message, mProfileTitleHint.getText()));
+                        if (RootUtils.runAndGetOutput("uname -a").contains(mConfigTitleHint.getText())) {
+                            Utils.snackbar(mTitle, getString(R.string.success_message, mConfigTitleHint.getText()));
                         } else {
-                            Utils.snackbar(mTitle, getString(R.string.failed_message, mProfileTitleHint.getText()));
+                            Utils.snackbar(mTitle, getString(R.string.failed_message, mConfigTitleHint.getText()));
                         }
                     })
                     .show();
         });
     }
 
+    private boolean isTextEntered() {
+        return mConfigTitleHint.getText() != null && !mConfigTitleHint.getText().toString().equals("")
+                || mDescriptionHint.getText() != null && !mDescriptionHint.getText().toString().equals("")
+                || mDefaultHint.getText() != null && !mDefaultHint.getText().toString().equals("")
+                || mDeveloperHint.getText() != null && !mDeveloperHint.getText().toString().equals("")
+                || mSupportHint.getText() != null && !mSupportHint.getText().toString().equals("")
+                || mDonationsHint.getText() != null && !mDonationsHint.getText().toString().equals("");
+    }
+
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        if (isTextEntered()) {
+            new AlertDialog.Builder(this)
+                    .setMessage(getString(R.string.data_lose_warning))
+                    .setNegativeButton(getString(R.string.cancel), (dialog1, id1) -> {
+                    })
+                    .setPositiveButton(getString(R.string.yes), (dialog1, id1) -> {
+                        super.onBackPressed();
+                    })
+                    .show();
+        } else {
+            super.onBackPressed();
+        }
     }
 
 }

@@ -29,7 +29,6 @@ import com.smartpack.kernelprofiler.utils.KP;
 import com.smartpack.kernelprofiler.utils.PagerAdapter;
 import com.smartpack.kernelprofiler.utils.Prefs;
 import com.smartpack.kernelprofiler.utils.Utils;
-import com.smartpack.kernelprofiler.utils.ViewUtils;
 import com.smartpack.kernelprofiler.utils.root.RootUtils;
 
 /**
@@ -213,28 +212,12 @@ public class MainActivity extends AppCompatActivity {
                     aboutDialogue(this);
                     break;
                 case 7:
-                    ViewUtils.dialogEditText("",
-                            (dialogInterface, i) -> {
-                            }, text -> {
-                                if (text.isEmpty()) {
-                                    Utils.snackbar(mViewPager, getString(R.string.name_empty));
-                                    return;
-                                }
-                                if (!text.endsWith(".sh")) {
-                                    text += ".sh";
-                                }
-                                if (text.contains(" ")) {
-                                    text = text.replace(" ", "_");
-                                }
-                                Intent intent = new Intent(this, CreateProfileActivity.class);
-                                intent.putExtra(CreateProfileActivity.TITLE, text);
-                                startActivity(intent);
-                            }, this).setOnDismissListener(dialogInterface -> {
-                    }).show();
+                    Intent createProfile = new Intent(this, CreateProfileActivity.class);
+                    startActivity(createProfile);
                     break;
                 case 8:
-                    Intent intent = new Intent(this, CreateConfigActivity.class);
-                    startActivity(intent);
+                    Intent createConfig = new Intent(this, CreateConfigActivity.class);
+                    startActivity(createConfig);
                     break;
                 case 9:
                     launchURL("https://github.com/SmartPack/KernelProfiler/");

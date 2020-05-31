@@ -11,6 +11,7 @@ import android.os.Environment;
 import android.view.View;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.AppCompatImageButton;
@@ -29,8 +30,6 @@ import java.util.Objects;
 
 public class CreateProfileActivity extends AppCompatActivity {
 
-    public static final String TITLE = "title";
-
     AppCompatEditText mProfileDescriptionHint;
     AppCompatEditText mProfileDetailsHint;
     AppCompatTextView mTitle;
@@ -48,20 +47,14 @@ public class CreateProfileActivity extends AppCompatActivity {
         mProfileDescriptionHint = findViewById(R.id.profile_description_hint);
         mProfileDetailsHint = findViewById(R.id.profile_details_hint);
         mTitle = findViewById(R.id.title);
-        String title = getIntent().getStringExtra(TITLE);
-        if (title != null) {
-            mTitle.setText(title);
-        }
+        mTitle.setText(getString(R.string.create_profile));
         mTestButton = findViewById(R.id.test_button);
         mTestOutput = findViewById(R.id.test_output);
         mBack.setOnClickListener(v -> onBackPressed());
         mSave.setOnClickListener(v -> {
             if (Utils.checkWriteStoragePermission(this)) {
                 if (mProfileDetailsHint.getText() != null && !mProfileDetailsHint.getText().toString().equals("")) {
-                    Utils.create("#!/system/bin/sh\n\n# Description=" + mProfileDescriptionHint.getText() + "\n\n" + mProfileDetailsHint.getText(),
-                            Environment.getExternalStorageDirectory().toString() + "/" + title);
-                    Utils.snackbarIndenite(mTitle, getString(R.string.create_profile_message, title) + " " +
-                            Environment.getExternalStorageDirectory().toString());
+                    createProfile();
                 } else {
                     Utils.snackbar(mTitle, getString(R.string.profile_details_empty));
                 }
@@ -73,12 +66,42 @@ public class CreateProfileActivity extends AppCompatActivity {
             }
         });
         mTestButton.setOnClickListener(v -> {
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
-            testCommands(new WeakReference<>(this));
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER);
+            if (mProfileDetailsHint.getText() != null && !mProfileDetailsHint.getText().toString().equals("")) {
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
+                testCommands(new WeakReference<>(this));
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER);
+            } else {
+                Utils.snackbar(mTitle, getString(R.string.profile_details_empty));
+            }
         });
         mTestOutput = findViewById(R.id.test_output);
         refreshStatus();
+    }
+
+    private void createProfile() {
+        ViewUtils.dialogEditText("",
+                (dialogInterface, i) -> {
+                }, text -> {
+                    if (text.isEmpty()) {
+                        Utils.snackbar(mTitle, getString(R.string.name_empty));
+                        return;
+                    }
+                    if (!text.endsWith(".sh")) {
+                        text += ".sh";
+                    }
+                    if (text.contains(" ")) {
+                        text = text.replace(" ", "_");
+                    }
+                    if (Utils.existFile(Environment.getExternalStorageDirectory().toString() + "/" + text)) {
+                        Utils.snackbar(mTitle, getString(R.string.profile_exists, text));
+                        return;
+                    }
+                    Utils.create("#!/system/bin/sh\n\n# Description=" + mProfileDescriptionHint.getText() + "\n\n" + mProfileDetailsHint.getText(),
+                            Environment.getExternalStorageDirectory().toString() + "/" + text);
+                    Utils.snackbarIndenite(mTitle, getString(R.string.create_profile_message, text) + " " +
+                            Environment.getExternalStorageDirectory().toString());
+                }, this).setOnDismissListener(dialogInterface -> {
+        }).show();
     }
 
     private void createTestScript() {
@@ -101,11 +124,6 @@ public class CreateProfileActivity extends AppCompatActivity {
             @SuppressLint("WrongThread")
             @Override
             protected Void doInBackground(Void... voids) {
-                if (KP.mOutput == null) {
-                    KP.mOutput = new StringBuilder();
-                } else {
-                    KP.mOutput.setLength(0);
-                }
                 Utils.delete("/data/local/tmp/sm");
                 createTestScript();
                 String output = RootUtils.runAndGetError("sh  /data/local/tmp/sm");
@@ -147,10 +165,37 @@ public class CreateProfileActivity extends AppCompatActivity {
         }.start();
     }
 
+    private boolean isTextEntered() {
+        return mProfileDetailsHint.getText() != null && !mProfileDetailsHint.getText().toString().equals("")
+                || mProfileDescriptionHint.getText() != null && !mProfileDescriptionHint.getText().toString().equals("");
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        if (KP.mOutput == null) {
+            KP.mOutput = new StringBuilder();
+        } else {
+            KP.mOutput.setLength(0);
+        }
+    }
+
     @Override
     public void onBackPressed() {
         if (KP.mTestingProfile) return;
-        super.onBackPressed();
+        if (isTextEntered()) {
+            new AlertDialog.Builder(this)
+                    .setMessage(getString(R.string.data_lose_warning))
+                    .setNegativeButton(getString(R.string.cancel), (dialog1, id1) -> {
+                    })
+                    .setPositiveButton(getString(R.string.yes), (dialog1, id1) -> {
+                        super.onBackPressed();
+                    })
+                    .show();
+        } else {
+            super.onBackPressed();
+        }
     }
 
 }
