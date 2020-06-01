@@ -54,6 +54,9 @@ public class CreateProfileActivity extends AppCompatActivity {
         mSave.setOnClickListener(v -> {
             if (Utils.checkWriteStoragePermission(this)) {
                 if (mProfileDetailsHint.getText() != null && !mProfileDetailsHint.getText().toString().equals("")) {
+                    if (mProfileDescriptionHint.getText() == null || mProfileDescriptionHint.getText().toString().equals("")) {
+                        Utils.snackbar(mTitle, getString(R.string.profile_description_empty));
+                    }
                     createProfile();
                 } else {
                     Utils.snackbar(mTitle, getString(R.string.profile_details_empty));

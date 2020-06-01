@@ -50,6 +50,7 @@
     <string name="press_back">Press back again to exit</string>
     <string name="profile_applied_success">%s applied successfully!</string>
     <string name="profile_description">Profile Description</string>
+    <string name="profile_description_empty">Adding a short description for this profile is highly recommended!</string>
     <string name="profile_description_summary">Add description here!</string>
     <string name="profile_details">Profile Details</string>
     <string name="profile_details_empty">Profile Details shouldn\'t be empty! Aborting.</string>
