@@ -38,28 +38,24 @@ Kernel Profiler expects a configuration file (*<b>kernelprofiler.json</b>*) and 
 ### Structure of *profiles* (shell scripts)
 App considers any properly formatted shell script as a *<b>profile</b>*. Optionally, the developer may add a line starting with "<b>*# Description=*</b>" somewhere in the *<b>profile</b>* so that the app will recognize and display it as the *<b>profile description</b>*. An example *<b>profile</b>* can be found [here](https://raw.githubusercontent.com/sunilpaulmathew/android_kernel_oneplus_msm8998/oneplus/QC8998_Q_10.0_Beta/AnyKernel/ramdisk/kernel_profiler/Default.sh).
 
-<b>Additionally, the developer may also include an <b>icon</b> (a small square image in black background and in *<b>png</b>* format placed inside the main folder of *<b>"/sdcard"</b>* as *<b>banner.png</b>*. This image will be also displayed in app along with the main title.</b>
-
 ## How to integrate into an Anykernel zip
-Adding the following lines into *<b>anykernel.sh</b>* after placing all the support files, such as a properly formatted *<b>kernelprofiler.json</b>*, one or more *<b>profile</b>* scripts, and a *<b>banner.png</b>* (optional), into *<b>ramdisk/kernel_profiler</b>*, allow you to inject Kernel Profiler support upon kernel installation.
+Adding the following lines into *<b>anykernel.sh</b>* after placing all the support files, such as a properly formatted *<b>kernelprofiler.json</b>* and one or more *<b>profile</b>* scripts, into *<b>ramdisk/kernel_profiler</b>*, allow you to inject Kernel Profiler support upon kernel installation.
 
 >     if [ -e $ramdisk/kernel_profiler ]; then
 >     	# Inject Kernel Profiler support
->     	if [ -e $ramdisk/kernel_profiler/banner.png ]; then
->     		mv $ramdisk/kernel_profiler/banner.png /sdcard/
->     	fi
 >     	if [ -e /data/kernel_profiler ]; then
 >     		# Remove old files
 >     		rm -rf /data/kernel_profiler/*
 >     		mv $ramdisk/kernel_profiler/* /data/kernel_profiler/
 >     	else
->     		ramdisk/kernel_profiler/ /data/
+>     		mv ramdisk/kernel_profiler/ /data/
 >     	fi
 >     fi
 
 The following commits shall be used for further reference
 * [AnyKernel: Added Kernel Profiler support](https://github.com/sunilpaulmathew/android_kernel_oneplus_msm8998/commit/540e34058d92f3cbe6c234c91f52df777e6a9395)
 * [Kernel Profiler: Check and remove old files, if necessary](https://github.com/sunilpaulmathew/android_kernel_oneplus_msm8998/commit/a6ae07f4883463847ca5c138cf95b3d363498b25)
+* [AnyKernel: Remove custom banner image for Kernel Profiler](https://github.com/sunilpaulmathew/android_kernel_oneplus_msm8998/commit/160c6fa4e1d755fc3f741fe395b5dbee27e1b03b)
 
 ## Support
 [<img src="https://github.com/SmartPack/SmartPack.github.io/blob/master/asset/pic006.png?raw=true"
