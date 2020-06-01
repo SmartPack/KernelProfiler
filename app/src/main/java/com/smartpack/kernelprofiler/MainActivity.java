@@ -89,12 +89,8 @@ public class MainActivity extends AppCompatActivity {
         AppCompatTextView textView = findViewById(R.id.unsupported_Text);
         AppCompatImageView helpIcon = findViewById(R.id.help_Image);
         AppCompatTextView copyRightText = findViewById(R.id.copyright_Text);
-        AppCompatImageView customBanner = findViewById(R.id.customBanner);
         AppCompatTextView customTitle = findViewById(R.id.customTitle);
         AppCompatTextView customDescription = findViewById(R.id.customDescription);
-        boolean supported = KP.supported() && KP.geCustomImage(this) != null;
-        customBanner.setImageDrawable(supported ? KP.geCustomImage(this)
-                : getResources().getDrawable(R.mipmap.ic_launcher_round));
         customTitle.setText(KP.supported() && KP.getCustomTitle() != null ? KP.getCustomTitle() : getString(R.string.app_name));
         customDescription.setText(KP.supported() && KP.getCustomDescription() != null ? KP.getCustomDescription() : getString(R.string.app_name_summary));
         mSettings.setOnClickListener(v -> {

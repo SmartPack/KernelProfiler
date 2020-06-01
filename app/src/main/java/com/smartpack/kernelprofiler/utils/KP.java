@@ -1,12 +1,5 @@
 package com.smartpack.kernelprofiler.utils;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.os.Environment;
-
 import com.smartpack.kernelprofiler.utils.root.RootFile;
 import com.smartpack.kernelprofiler.utils.root.RootUtils;
 
@@ -24,7 +17,6 @@ public class KP {
 
     private static final String KP = "/data/kernel_profiler";
     public static final String KP_CONFIG = KP + "/kernelprofiler.json";
-    private static final String CUSTOM_BANNER = Environment.getExternalStorageDirectory().toString() + "/banner.png";
     public static StringBuilder mOutput;
 
     static boolean mTestingProfile = false;
@@ -85,13 +77,6 @@ public class KP {
         } catch (JSONException e) {
             return null;
         }
-    }
-
-    public static BitmapDrawable geCustomImage(Context context) {
-        if (!Utils.existFile(CUSTOM_BANNER)) return null;
-        Resources res = context.getResources();
-        Bitmap bitmap = BitmapFactory.decodeFile(CUSTOM_BANNER);
-        return new BitmapDrawable(res, bitmap);
     }
 
     public static String getProfileDescription(String string) {
