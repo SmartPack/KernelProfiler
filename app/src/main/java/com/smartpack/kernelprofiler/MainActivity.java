@@ -48,6 +48,9 @@ public class MainActivity extends AppCompatActivity {
     private AppCompatTextView mCardTitle;
     private AppCompatTextView mAppName;
     private AppCompatTextView mAboutApp;
+    private AppCompatTextView mHowTo;
+    private AppCompatTextView mHowToSummary;
+    private AppCompatTextView mChangeLog;
     private AppCompatTextView mCreditsTitle;
     private AppCompatTextView mCredits;
     private AppCompatTextView mCancel;
@@ -67,8 +70,11 @@ public class MainActivity extends AppCompatActivity {
         mCardTitle = findViewById(R.id.card_title);
         mAppName = findViewById(R.id.app_title);
         mAboutApp = findViewById(R.id.about_app);
+        mHowTo = findViewById(R.id.how_to);
+        mHowToSummary = findViewById(R.id.how_to_summary);
         mCreditsTitle = findViewById(R.id.credits_title);
         mCredits = findViewById(R.id.credits);
+        mChangeLog = findViewById(R.id.change_log);
         mCancel = findViewById(R.id.cancel_button);
         mBack.setOnClickListener(v -> {
             closeForeground();
@@ -197,12 +203,7 @@ public class MainActivity extends AppCompatActivity {
                     launchURL("https://t.me/smartpack_kmanager");
                     break;
                 case 5:
-                    new AlertDialog.Builder(this)
-                            .setTitle(getString(R.string.change_logs))
-                            .setMessage(Utils.getChangeLogs(this))
-                            .setPositiveButton(getString(R.string.cancel), (dialogInterface, i) -> {
-                            })
-                            .show();
+                    changeLogDialogue(this);
                     break;
                 case 6:
                     aboutDialogue(this);
@@ -271,8 +272,25 @@ public class MainActivity extends AppCompatActivity {
         mAppIcon.setVisibility(View.VISIBLE);
         mAppName.setVisibility(View.VISIBLE);
         mAboutApp.setVisibility(View.VISIBLE);
+        mHowTo.setVisibility(View.VISIBLE);
+        mHowToSummary.setVisibility(View.VISIBLE);
         mCreditsTitle.setVisibility(View.VISIBLE);
         mCredits.setVisibility(View.VISIBLE);
+        mCancel.setVisibility(View.VISIBLE);
+        Utils.mForegroundActive = true;
+        mForegroundCard.setVisibility(View.VISIBLE);
+    }
+
+    @SuppressLint("SetTextI18n")
+    private void changeLogDialogue(Context context) {
+        mCardTitle.setText(R.string.change_logs);
+        mAppName.setText(context.getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME);
+        mChangeLog.setText(Utils.getChangeLogs(this));
+        mCardTitle.setVisibility(View.VISIBLE);
+        mBack.setVisibility(View.VISIBLE);
+        mAppIcon.setVisibility(View.VISIBLE);
+        mAppName.setVisibility(View.VISIBLE);
+        mChangeLog.setVisibility(View.VISIBLE);
         mCancel.setVisibility(View.VISIBLE);
         Utils.mForegroundActive = true;
         mForegroundCard.setVisibility(View.VISIBLE);
@@ -284,8 +302,11 @@ public class MainActivity extends AppCompatActivity {
         mAppIcon.setVisibility(View.GONE);
         mAppName.setVisibility(View.GONE);
         mAboutApp.setVisibility(View.GONE);
+        mHowTo.setVisibility(View.GONE);
+        mHowToSummary.setVisibility(View.GONE);
         mCreditsTitle.setVisibility(View.GONE);
         mCredits.setVisibility(View.GONE);
+        mChangeLog.setVisibility(View.GONE);
         mCancel.setVisibility(View.GONE);
         mForegroundCard.setVisibility(View.GONE);
         Utils.mForegroundActive = false;
