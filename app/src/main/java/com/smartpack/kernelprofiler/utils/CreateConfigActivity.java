@@ -52,18 +52,17 @@ public class CreateConfigActivity extends AppCompatActivity {
         mSave.setOnClickListener(v -> {
             if (Utils.checkWriteStoragePermission(this)) {
                 if (mConfigTitleHint.getText() != null && !mConfigTitleHint.getText().toString().equals("")) {
-                    try {
-                        JSONObject obj = new JSONObject();
-                        obj.put("title", mConfigTitleHint.getText());
-                        obj.put("description", mDescriptionHint.getText());
-                        obj.put("default", mDefaultHint.getText());
-                        obj.put("developer", mDeveloperHint.getText());
-                        obj.put("support", mSupportHint.getText());
-                        obj.put("donations", mDonationsHint.getText());
-                        Utils.create(obj.toString(), Environment.getExternalStorageDirectory().toString() + "/kernelprofiler.json");
-                        Utils.snackbarIndenite(mTitle, getString(R.string.configuration_created, Environment.getExternalStorageDirectory().toString()));
-                    } catch (JSONException ignored) {
-                    }
+                    new AlertDialog.Builder(this)
+                            .setIcon(R.mipmap.ic_launcher)
+                            .setTitle(getString(R.string.save_config_title))
+                            .setMessage(Utils.existFile(
+                                    Environment.getExternalStorageDirectory().toString() + "/kernelprofiler.json") ?
+                                    getString(R.string.save_config_warning, Environment.getExternalStorageDirectory()
+                                            .toString() + "/kernelprofiler.json") : getString(R.string.save_config_message,
+                                    Environment.getExternalStorageDirectory().toString() + "/kernelprofiler.json"))
+                            .setNeutralButton(getString(R.string.cancel), (dialog1, id1) -> {})
+                            .setPositiveButton(getString(R.string.yes), (dialog1, id1) -> saveConfig())
+                            .show();
                 } else {
                     Utils.snackbar(mTitle, getString(R.string.title_empty_message));
                 }
@@ -92,6 +91,21 @@ public class CreateConfigActivity extends AppCompatActivity {
                     })
                     .show();
         });
+    }
+
+    private void saveConfig() {
+        try {
+            JSONObject obj = new JSONObject();
+            obj.put("title", mConfigTitleHint.getText());
+            obj.put("description", mDescriptionHint.getText());
+            obj.put("default", mDefaultHint.getText());
+            obj.put("developer", mDeveloperHint.getText());
+            obj.put("support", mSupportHint.getText());
+            obj.put("donations", mDonationsHint.getText());
+            Utils.create(obj.toString(), Environment.getExternalStorageDirectory().toString() + "/kernelprofiler.json");
+            super.onBackPressed();
+        } catch (JSONException ignored) {
+        }
     }
 
     private boolean isTextEntered() {

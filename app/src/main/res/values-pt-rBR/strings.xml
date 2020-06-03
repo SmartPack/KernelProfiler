@@ -6,10 +6,9 @@
     <string name="applying_profile">Aplicando %s!</string>
     <string name="cancel">Cancelar</string>
     <string name="change_logs">Lista de mudanças</string>
-    <string name="configuration_created">O arquivo de configuração foi criado em %s!</string>
     <string name="create_config">Criar Configuração</string>
     <string name="create_profile">Criar um Perfil</string>
-    <string name="create_profile_message">%s foi criado em</string>
+    <string name="create_profile_message">\'%s\' foi criado em</string>
     <string name="credits">Créditos</string>
     <string name="credits_summary"><b><i>Grarak</i></b>: KernelAdiutor (Base de código)\n<b><i>topjohnwu</i></b>: libsu\n<b><i>Lennoard Silva</i></b>: Contribuições de código/Ícone do app</string>
     <string name="dark_theme">Tema escuro</string>

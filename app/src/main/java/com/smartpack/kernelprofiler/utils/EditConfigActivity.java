@@ -111,7 +111,13 @@ public class EditConfigActivity extends AppCompatActivity {
             obj.put("support", mSupportHint.getText());
             obj.put("donations", mDonationsHint.getText());
             Utils.create(obj.toString(), "/data/kernel_profiler/kernelprofiler.json");
-            Utils.snackbarIndenite(mTitle, getString(R.string.edit_config_saved));
+            new AlertDialog.Builder(this)
+                    .setMessage(getString(R.string.edit_config_saved))
+                    .setCancelable(false)
+                    .setPositiveButton(getString(R.string.cancel), (dialog1, id1) -> {
+                        super.onBackPressed();
+                    })
+                    .show();
         } catch (JSONException ignored) {
         }
     }

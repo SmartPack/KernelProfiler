@@ -99,10 +99,16 @@ public class CreateProfileActivity extends AppCompatActivity {
                         Utils.snackbar(mTitle, getString(R.string.profile_exists, text));
                         return;
                     }
-                    Utils.create("#!/system/bin/sh\n\n# Description=" + mProfileDescriptionHint.getText() + "\n\n" + mProfileDetailsHint.getText(),
-                            Environment.getExternalStorageDirectory().toString() + "/" + text);
-                    Utils.snackbarIndenite(mTitle, getString(R.string.create_profile_message, text) + " " +
-                            Environment.getExternalStorageDirectory().toString());
+                    Utils.create("#!/system/bin/sh\n\n# Description=" + mProfileDescriptionHint.getText() + "\n\n" +
+                            mProfileDetailsHint.getText(), Environment.getExternalStorageDirectory().toString() + "/" + text);
+                    new AlertDialog.Builder(this)
+                            .setMessage(getString(R.string.create_profile_message, text) + " '" +
+                                    Environment.getExternalStorageDirectory().toString() + "'")
+                            .setCancelable(false)
+                            .setPositiveButton(getString(R.string.cancel), (dialog1, id1) -> {
+                                super.onBackPressed();
+                            })
+                            .show();
                 }, this).setOnDismissListener(dialogInterface -> {
         }).show();
     }
@@ -123,6 +129,11 @@ public class CreateProfileActivity extends AppCompatActivity {
                 mProgressDialog.setCancelable(false);
                 mProgressDialog.show();
                 KP.mTestingProfile = true;
+                if (KP.mOutput == null) {
+                    KP.mOutput = new StringBuilder();
+                } else {
+                    KP.mOutput.setLength(0);
+                }
             }
             @SuppressLint("WrongThread")
             @Override

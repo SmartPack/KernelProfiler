@@ -8,11 +8,10 @@
     <string name="applying_profile">Applying %s!</string>
     <string name="cancel">Cancel</string>
     <string name="change_logs">Change-logs</string>
-    <string name="configuration_created">Configuration file is created at %s!</string>
     <string name="copyright" translatable="false">&#169;SmartPack Projects</string>
     <string name="create_config">Create Configuration</string>
     <string name="create_profile">Create a Profile</string>
-    <string name="create_profile_message">%s is created at</string>
+    <string name="create_profile_message">\'%s\' is created at</string>
     <string name="credits">Credits</string>
     <string name="credits_summary"><b><i>Grarak</i></b>: KernelAdiutor (Code base)\n<b><i>topjohnwu</i></b>: libsu\n<b><i>Lennoard Silva</i></b>: Code Contributions, App Icon, &amp; Portuguese (Brazilian) Translation</string>
     <string name="dark_theme">Dark Theme</string>
@@ -57,6 +56,9 @@
     <string name="profile_details_summary">Add details (only commands) here!</string>
     <string name="profile_exists">%s already exists! Please use a different name.</string>
     <string name="report_issue">Report an Issue</string>
+    <string name="save_config_title">Are you sure to save this configuration?</string>
+    <string name="save_config_message">Please note: The new configuration file will be saved as \'%s\'!</string>
+    <string name="save_config_warning">Please note: \'%s\' will be overwritten. Please be sure to make a backup if necessary!</string>
     <string name="source_code">Source Code</string>
     <string name="storage_access_denied">Permission denied for writing to storage!</string>
     <string name="support">Support</string>
