@@ -1,8 +1,4 @@
-# Kernel Profiler
-
-![Kernel Profiler](app/src/main/res/mipmap-xxxhdpi/ic_launcher.png?raw=true)
-
-### Kernel Profiler: The easiest way to manage your kernel settings.
+![](banner.png)
 
 ## Download
 [![](https://img.shields.io/badge/Kernel%20Profiler-beta--v0.4-green)](https://github.com/SmartPack/KernelProfiler/releases/download/v0.4/com.smartpack.kernelprofiler-beta-v0.4-release.apk)
@@ -52,10 +48,8 @@ Adding the following lines into *<b>anykernel.sh</b>* after placing all the supp
 >     	fi
 >     fi
 
-The following commits shall be used for further reference
-* [AnyKernel: Added Kernel Profiler support](https://github.com/sunilpaulmathew/android_kernel_oneplus_msm8998/commit/540e34058d92f3cbe6c234c91f52df777e6a9395)
-* [Kernel Profiler: Check and remove old files, if necessary](https://github.com/sunilpaulmathew/android_kernel_oneplus_msm8998/commit/a6ae07f4883463847ca5c138cf95b3d363498b25)
-* [AnyKernel: Remove custom banner image for Kernel Profiler](https://github.com/sunilpaulmathew/android_kernel_oneplus_msm8998/commit/160c6fa4e1d755fc3f741fe395b5dbee27e1b03b)
+The following commit shall be used for further reference
+* [AnyKernel: Introduce Kernel Profiler support](https://github.com/sunilpaulmathew/android_kernel_oneplus_msm8998/commit/43dffe1d2de8c93ba852943a9eb9bf9649d47993)
 
 ## Translations
 Please help me to translate this app. The original english string of this app is available at
