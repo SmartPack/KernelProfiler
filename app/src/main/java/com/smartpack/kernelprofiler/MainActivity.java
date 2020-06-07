@@ -3,6 +3,7 @@ package com.smartpack.kernelprofiler;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
@@ -264,6 +265,7 @@ public class MainActivity extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     private void aboutDialogue(Context context) {
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
         mCardTitle.setText(R.string.about);
         mAppName.setText(context.getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME);
         mCredits.setText(context.getString(R.string.credits_summary));
@@ -283,6 +285,7 @@ public class MainActivity extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     private void changeLogDialogue(Context context) {
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
         mCardTitle.setText(R.string.change_logs);
         mAppName.setText(context.getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME);
         mChangeLog.setText(Utils.getChangeLogs(this));
@@ -310,6 +313,7 @@ public class MainActivity extends AppCompatActivity {
         mCancel.setVisibility(View.GONE);
         mForegroundCard.setVisibility(View.GONE);
         Utils.mForegroundActive = false;
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
     }
 
     @Override
