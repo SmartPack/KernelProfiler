@@ -1,7 +1,7 @@
 ![](banner.png)
 
 ## Download
-[![](https://img.shields.io/badge/Kernel%20Profiler--v0.5-green)](https://github.com/SmartPack/KernelProfiler/releases/download/v0.5/com.smartpack.kernelprofiler-beta-v0.5-release.apk)
+[![](https://img.shields.io/badge/Kernel%20Profiler-v0.5-green)](https://github.com/SmartPack/KernelProfiler/releases/download/v0.5/com.smartpack.kernelprofiler-v0.5-release.apk)
 
 ## Requirements
 * ROOT Access
