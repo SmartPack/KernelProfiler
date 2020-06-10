@@ -26,6 +26,7 @@
     <string name="kernel_support">Como adicionar suporte ao kernel</string>
     <string name="kernel_support_summary">O Kernel Profiler espera um arquivo de configuração (<b><i>kernelprofiler.json</i></b>) e um ou mais \'<b><i>perfis</i></b>\' (basicamente scripts shell) em uma determinada estrutura específica colocada em <b>\'<i>/data/kernel_profiler</i>\'</b>. Por favor, dê uma olhada em \'<b>Configurações -> Ferramentas do Desenvolvedor</b>\' para mais informações.</string>
     <string name="more">Mais</string>
+    <string name="more_apps">Mais do desenvolvedor</string>
     <string name="name_empty">O nome do perfil não deve estar vazio! Abortando.</string>
     <string name="no_internet">Por favor, verifique sua conexão à internet!</string>
     <string name="no_root">Sem root</string>
@@ -43,6 +44,8 @@
     <string name="profile_details">Detalhes do Perfil</string>
     <string name="profile_details_summary">Adicione detalhes (apenas comandos) aqui!</string>
     <string name="report_issue">Comunicar um Problema</string>
+    <string name="share">Compartilhar</string>
+    <string name="share_with">Compartilhar com</string>
     <string name="source_code">Código Fonte</string>
     <string name="storage_access_denied">Permissão negada para modificar o armazenamento!</string>
     <string name="support">Suporte</string>

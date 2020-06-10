@@ -25,6 +25,7 @@
     <string name="developer_credits_summary">Add credits text to be shown in the app as copyright!</string>
     <string name="developer_mode">Developer Mode</string>
     <string name="developer_mode_message">Developer Mode is enabled! Access to developer tools are temporarily unlocked.</string>
+    <string name="documentation">Documentation</string>
     <string name="donations">Donations</string>
     <string name="donation_app">Buy Donation App</string>
     <string name="donations_summary">Add donation link here!</string>
@@ -36,6 +37,7 @@
     <string name="kernel_support">How to add support in kernel</string>
     <string name="kernel_support_summary">Kernel Profiler expects a configuration file (<b><i>kernelprofiler.json</i></b>) and one or more \'<b><i>profiles</i></b>\' (basically shell scripts) in certain specific structure placed inside <b>\'<i>/data/kernel_profiler</i>\'</b>. Please check \'<b>Settings  -> Developer Tools</b>\' for more information.</string>
     <string name="more">More</string>
+    <string name="more_apps">More from Developer</string>
     <string name="name_empty">Profile name shouldn\'t be empty! Aborting.</string>
     <string name="no_internet">Please check your internet connection!</string>
     <string name="no_root">No Root</string>
@@ -59,6 +61,9 @@
     <string name="save_config_title">Are you sure to save this configuration?</string>
     <string name="save_config_message">Please note: The new configuration file will be saved as \'%s\'!</string>
     <string name="save_config_warning">Please note: \'%s\' will be overwritten. Please be sure to make a backup if necessary!</string>
+    <string name="share">Share</string>
+    <string name="share_message">Kernel Profiler is a profile based kernel management utility, which allows kernel developers to provide predefined profiles to their users.\n\nThe latest version of Kernel Profiler can be obtained from https://play.google.com/store/apps/details?id=com.smartpack.kernelprofiler\n\nTo know more about integrating Kernel Profiler support into a kernel, please visit https://github.com/SmartPack/KernelProfiler/wiki</string>
+    <string name="share_with">Share with</string>
     <string name="source_code">Source Code</string>
     <string name="storage_access_denied">Permission denied for writing to storage!</string>
     <string name="support">Support</string>

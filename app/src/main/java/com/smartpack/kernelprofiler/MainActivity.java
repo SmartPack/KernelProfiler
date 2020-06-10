@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
@@ -174,8 +175,11 @@ public class MainActivity extends AppCompatActivity {
                     .setChecked(mDeveloperMode);
         }
         SubMenu app = menu.addSubMenu(Menu.NONE, 0, Menu.NONE, getString(R.string.app_about));
+        app.add(Menu.NONE, 15, Menu.NONE, getString(R.string.share));
         app.add(Menu.NONE, 4, Menu.NONE, getString(R.string.support));
         app.add(Menu.NONE, 9, Menu.NONE, getString(R.string.source_code));
+        app.add(Menu.NONE, 16, Menu.NONE, getString(R.string.documentation));
+        app.add(Menu.NONE, 14, Menu.NONE, getString(R.string.more_apps));
         app.add(Menu.NONE, 10, Menu.NONE, getString(R.string.report_issue));
         app.add(Menu.NONE, 5, Menu.NONE, getString(R.string.change_logs));
         if (Utils.isNotDonated(this)) {
@@ -242,6 +246,23 @@ public class MainActivity extends AppCompatActivity {
                 case 13:
                     mDeveloperMode = true;
                     Utils.snackbar(mViewPager, getString(R.string.developer_mode_message));
+                    break;
+                case 14:
+                    Intent ps = new Intent(Intent.ACTION_VIEW);
+                    ps.setData(Uri.parse("https://play.google.com/store/apps/dev?id=5836199813143882901"));
+                    startActivity(ps);
+                    break;
+                case 15:
+                    Intent share = new Intent();
+                    share.setAction(Intent.ACTION_SEND);
+                    share.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME);
+                    share.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_message));
+                    share.setType("text/plain");
+                    Intent shareIntent = Intent.createChooser(share, null);
+                    startActivity(shareIntent);
+                    break;
+                case 16:
+                    launchURL("https://github.com/SmartPack/KernelProfiler/wiki");
                     break;
             }
             return false;
