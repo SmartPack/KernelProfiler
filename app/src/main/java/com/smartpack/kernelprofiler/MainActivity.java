@@ -40,7 +40,6 @@ import com.smartpack.kernelprofiler.utils.root.RootUtils;
 public class MainActivity extends AppCompatActivity {
 
     private AppCompatImageButton mSettings;
-    private boolean mDeveloperMode = false;
     private boolean mExit;
     private Handler mHandler = new Handler();
     private ViewPager mViewPager;
@@ -163,29 +162,24 @@ public class MainActivity extends AppCompatActivity {
                 kernel.add(Menu.NONE, 3, Menu.NONE, getString(R.string.donations));
             }
         }
-        if (mDeveloperMode) {
-            SubMenu tools = menu.addSubMenu(Menu.NONE, 0, Menu.NONE, getString(R.string.tools_developer));
-            tools.add(Menu.NONE, 7, Menu.NONE, getString(R.string.create_profile));
-            tools.add(Menu.NONE, 8, Menu.NONE, getString(R.string.create_config));
-            if (KP.supported()) {
-                tools.add(Menu.NONE, 12, Menu.NONE, getString(R.string.edit_config));
-            }
-        } else {
-            menu.add(Menu.NONE, 13, Menu.NONE, getString(R.string.developer_mode)).setCheckable(true)
-                    .setChecked(mDeveloperMode);
+        SubMenu tools = menu.addSubMenu(Menu.NONE, 0, Menu.NONE, getString(R.string.tools_developer));
+        tools.add(Menu.NONE, 4, Menu.NONE, getString(R.string.create_profile));
+        tools.add(Menu.NONE, 5, Menu.NONE, getString(R.string.create_config));
+        if (KP.supported()) {
+            tools.add(Menu.NONE, 6, Menu.NONE, getString(R.string.edit_config));
         }
         SubMenu app = menu.addSubMenu(Menu.NONE, 0, Menu.NONE, getString(R.string.app_about));
-        app.add(Menu.NONE, 15, Menu.NONE, getString(R.string.share));
-        app.add(Menu.NONE, 4, Menu.NONE, getString(R.string.support));
+        app.add(Menu.NONE, 7, Menu.NONE, getString(R.string.share));
+        app.add(Menu.NONE, 8, Menu.NONE, getString(R.string.support));
         app.add(Menu.NONE, 9, Menu.NONE, getString(R.string.source_code));
-        app.add(Menu.NONE, 16, Menu.NONE, getString(R.string.documentation));
-        app.add(Menu.NONE, 14, Menu.NONE, getString(R.string.more_apps));
-        app.add(Menu.NONE, 10, Menu.NONE, getString(R.string.report_issue));
-        app.add(Menu.NONE, 5, Menu.NONE, getString(R.string.change_logs));
+        app.add(Menu.NONE, 10, Menu.NONE, getString(R.string.documentation));
+        app.add(Menu.NONE, 11, Menu.NONE, getString(R.string.more_apps));
+        app.add(Menu.NONE, 12, Menu.NONE, getString(R.string.report_issue));
+        app.add(Menu.NONE, 13, Menu.NONE, getString(R.string.change_logs));
         if (Utils.isNotDonated(this)) {
-            app.add(Menu.NONE, 11, Menu.NONE, getString(R.string.donations));
+            app.add(Menu.NONE, 14, Menu.NONE, getString(R.string.donations));
         }
-        app.add(Menu.NONE, 6, Menu.NONE, getString(R.string.about));
+        app.add(Menu.NONE, 15, Menu.NONE, getString(R.string.about));
         popupMenu.setOnMenuItemClickListener(item -> {
             switch (item.getItemId()) {
                 case 0:
@@ -205,54 +199,18 @@ public class MainActivity extends AppCompatActivity {
                     launchURL(KP.getDonation());
                     break;
                 case 4:
-                    launchURL("https://t.me/smartpack_kmanager");
-                    break;
-                case 5:
-                    changeLogDialogue(this);
-                    break;
-                case 6:
-                    aboutDialogue(this);
-                    break;
-                case 7:
                     Intent createProfile = new Intent(this, CreateProfileActivity.class);
                     startActivity(createProfile);
                     break;
-                case 8:
+                case 5:
                     Intent createConfig = new Intent(this, CreateConfigActivity.class);
                     startActivity(createConfig);
                     break;
-                case 9:
-                    launchURL("https://github.com/SmartPack/KernelProfiler/");
-                    break;
-                case 10:
-                    launchURL("https://github.com/SmartPack/KernelProfiler/issues/new");
-                    break;
-                case 11:
-                    new AlertDialog.Builder(this)
-                            .setIcon(R.mipmap.ic_launcher)
-                            .setTitle(getString(R.string.support_developer))
-                            .setMessage(getString(R.string.support_developer_message))
-                            .setNeutralButton(getString(R.string.cancel), (dialog1, id1) -> {
-                            })
-                            .setPositiveButton(getString(R.string.donation_app), (dialogInterface, i) -> {
-                                Utils.launchUrl("https://play.google.com/store/apps/details?id=com.smartpack.donate", this);
-                            })
-                            .show();
-                    break;
-                case 12:
+                case 6:
                     Intent editConfig = new Intent(this, EditConfigActivity.class);
                     startActivity(editConfig);
                     break;
-                case 13:
-                    mDeveloperMode = true;
-                    Utils.snackbar(mViewPager, getString(R.string.developer_mode_message));
-                    break;
-                case 14:
-                    Intent ps = new Intent(Intent.ACTION_VIEW);
-                    ps.setData(Uri.parse("https://play.google.com/store/apps/dev?id=5836199813143882901"));
-                    startActivity(ps);
-                    break;
-                case 15:
+                case 7:
                     Intent share = new Intent();
                     share.setAction(Intent.ACTION_SEND);
                     share.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME);
@@ -261,8 +219,37 @@ public class MainActivity extends AppCompatActivity {
                     Intent shareIntent = Intent.createChooser(share, null);
                     startActivity(shareIntent);
                     break;
-                case 16:
+                case 8:
+                    launchURL("https://t.me/smartpack_kmanager");
+                    break;
+                case 9:
+                    launchURL("https://github.com/SmartPack/KernelProfiler/");
+                    break;
+                case 10:
                     launchURL("https://github.com/SmartPack/KernelProfiler/wiki");
+                    break;
+                case 11:
+                    launchPS("https://play.google.com/store/apps/dev?id=5836199813143882901");
+                    break;
+                case 12:
+                    launchURL("https://github.com/SmartPack/KernelProfiler/issues/new");
+                    break;
+                case 13:
+                    changeLogDialogue(this);
+                    break;
+                case 14:
+                    new AlertDialog.Builder(this)
+                            .setIcon(R.mipmap.ic_launcher)
+                            .setTitle(getString(R.string.support_developer))
+                            .setMessage(getString(R.string.support_developer_message))
+                            .setNeutralButton(getString(R.string.cancel), (dialog1, id1) -> {
+                            })
+                            .setPositiveButton(getString(R.string.donation_app), (dialogInterface, i) -> launchPS(
+                                    "https://play.google.com/store/apps/details?id=com.smartpack.donate"))
+                            .show();
+                    break;
+                case 15:
+                    aboutDialogue(this);
                     break;
             }
             return false;
@@ -275,6 +262,16 @@ public class MainActivity extends AppCompatActivity {
             Utils.snackbar(mViewPager, getString(R.string.no_internet));
         } else {
             Utils.launchUrl(url, this);
+        }
+    }
+
+    private void launchPS(String url) {
+        if (Utils.isNetworkUnavailable(this)) {
+            Utils.snackbar(mViewPager, getString(R.string.no_internet));
+        } else {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(url));
+            startActivity(intent);
         }
     }
 
