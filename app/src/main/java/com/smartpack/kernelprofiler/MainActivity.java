@@ -63,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
         Utils.initializeAppTheme(this);
         Utils.initializeGoogleAds(this);
         super.onCreate(savedInstanceState);
+        // Set App Language
+        Utils.setLanguage(this);
         setContentView(R.layout.activity_main);
 
         mForegroundCard = findViewById(R.id.foreground_card);
@@ -168,6 +170,15 @@ public class MainActivity extends AppCompatActivity {
         if (KP.supported()) {
             tools.add(Menu.NONE, 6, Menu.NONE, getString(R.string.edit_config));
         }
+        SubMenu language = menu.addSubMenu(Menu.NONE, 0, Menu.NONE, getString(R.string.language, Utils.getLanguage(this)));
+        language.add(Menu.NONE, 16, Menu.NONE, getString(R.string.language_default)).setCheckable(true)
+                .setChecked(Utils.languageDefault(this));
+        language.add(Menu.NONE, 17, Menu.NONE, getString(R.string.language_en)).setCheckable(true)
+                .setChecked(Prefs.getBoolean("use_en", false, this));
+        language.add(Menu.NONE, 18, Menu.NONE, getString(R.string.language_pt)).setCheckable(true)
+                .setChecked(Prefs.getBoolean("use_pt", false, this));
+        language.add(Menu.NONE, 19, Menu.NONE, getString(R.string.language_el)).setCheckable(true)
+                .setChecked(Prefs.getBoolean("use_el", false, this));
         SubMenu app = menu.addSubMenu(Menu.NONE, 0, Menu.NONE, getString(R.string.app_about));
         app.add(Menu.NONE, 7, Menu.NONE, getString(R.string.share));
         app.add(Menu.NONE, 8, Menu.NONE, getString(R.string.support));
@@ -250,6 +261,33 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case 15:
                     aboutDialogue(this);
+                    break;
+                case 16:
+                    if (!Utils.languageDefault(this)) {
+                        Utils.setDefaultLanguage(this);
+                        restartApp();
+                    }
+                    break;
+                case 17:
+                    if (!Prefs.getBoolean("use_en", false, this)) {
+                        Utils.setDefaultLanguage(this);
+                        Prefs.saveBoolean("use_en", true, this);
+                        restartApp();
+                    }
+                    break;
+                case 18:
+                    if (!Prefs.getBoolean("use_pt", false, this)) {
+                        Utils.setDefaultLanguage(this);
+                        Prefs.saveBoolean("use_pt", true, this);
+                        restartApp();
+                    }
+                    break;
+                case 19:
+                    if (!Prefs.getBoolean("use_el", false, this)) {
+                        Utils.setDefaultLanguage(this);
+                        Prefs.saveBoolean("use_el", true, this);
+                        restartApp();
+                    }
                     break;
             }
             return false;

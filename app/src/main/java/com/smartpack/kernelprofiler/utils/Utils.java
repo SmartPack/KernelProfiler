@@ -6,10 +6,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Build;
+import android.util.DisplayMetrics;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatDelegate;
@@ -29,6 +31,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Locale;
 import java.util.Objects;
 
 /**
@@ -219,6 +222,39 @@ public class Utils {
      */
     static String getExtension(String string) {
         return android.webkit.MimeTypeMap.getFileExtensionFromUrl(string);
+    }
+
+    public static void setDefaultLanguage(Context context) {
+        Prefs.saveBoolean("use_en", false, context);
+        Prefs.saveBoolean("use_el", false, context);
+        Prefs.saveBoolean("use_pt", false, context);
+    }
+
+    public static boolean languageDefault(Context context) {
+        return !Prefs.getBoolean("use_en", false, context)
+                && !Prefs.getBoolean("use_el", false, context)
+                && !Prefs.getBoolean("use_pt", false, context);
+    }
+
+    public static String getLanguage(Context context) {
+        if (Prefs.getBoolean("use_en", false, context)) {
+            return  "en_US";
+        } else if (Prefs.getBoolean("use_el", false, context)) {
+            return  "el";
+        } else if (Prefs.getBoolean("use_pt", false, context)) {
+            return  "pt";
+        } else {
+            return java.util.Locale.getDefault().getLanguage();
+        }
+    }
+
+    public static void setLanguage(Context context) {
+        Locale myLocale = new Locale(getLanguage(context));
+        Resources res = context.getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        conf.locale = myLocale;
+        res.updateConfiguration(conf, dm);
     }
 
 }

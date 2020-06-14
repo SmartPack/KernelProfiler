@@ -13,7 +13,7 @@
     <string name="create_profile">Create a Profile</string>
     <string name="create_profile_message">\'%s\' is created at</string>
     <string name="credits">Credits</string>
-    <string name="credits_summary"><b><i>Grarak</i></b>: KernelAdiutor (Code base)\n<b><i>topjohnwu</i></b>: libsu\n<b><i>Lennoard Silva</i></b>: Code Contributions, App Icon, &amp; Portuguese (Brazilian) Translation</string>
+    <string name="credits_summary"><b><i>Grarak</i></b>: KernelAdiutor (Code base)\n<b><i>topjohnwu</i></b>: libsu\n<b><i>Lennoard Silva</i></b>: Code Contributions, App Icon, &amp; Portuguese (Brazilian) Translation\n<b><i>tsiflimagas</i></b>: Greek translations</string>
     <string name="dark_theme">Dark Theme</string>
     <string name="data_lose_warning">The changes you made on this page will be lost! Are you sure?</string>
     <string name="description">Description</string>
@@ -34,6 +34,11 @@
     <string name="kernel_about">About Kernel</string>
     <string name="kernel_support">How to add support in kernel</string>
     <string name="kernel_support_summary">Kernel Profiler expects a configuration file (<b><i>kernelprofiler.json</i></b>) and one or more \'<b><i>profiles</i></b>\' (basically shell scripts) in certain specific structure placed inside <b>\'<i>/data/kernel_profiler</i>\'</b>. Please check \'<b>Settings  -> Developer Tools</b>\' for more information.</string>
+    <string name="language">Language (%s)</string>
+    <string name="language_el">Greek</string>
+    <string name="language_en">English</string>
+    <string name="language_default">Default</string>
+    <string name="language_pt">Portuguese</string>
     <string name="more">More</string>
     <string name="more_apps">More from Developer</string>
     <string name="name_empty">Profile name shouldn\'t be empty! Aborting.</string>
