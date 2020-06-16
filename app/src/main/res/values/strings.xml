@@ -15,6 +15,9 @@
     <string name="credits">Credits</string>
     <string name="credits_summary"><b><i>Grarak</i></b>: KernelAdiutor (Code base)\n<b><i>topjohnwu</i></b>: libsu\n<b><i>Lennoard Silva</i></b>: Code Contributions, App Icon, &amp; Portuguese (Brazilian) Translation\n<b><i>tsiflimagas</i></b>: Greek translations</string>
     <string name="dark_theme">Dark Theme</string>
+    <string name="dark_theme_auto">Auto</string>
+    <string name="dark_theme_disable">Disable</string>
+    <string name="dark_theme_enable">Enable</string>
     <string name="data_lose_warning">The changes you made on this page will be lost! Are you sure?</string>
     <string name="description">Description</string>
     <string name="description_summary">Add a short description about your kernel here (single line)!</string>

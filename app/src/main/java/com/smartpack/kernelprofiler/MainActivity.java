@@ -153,8 +153,13 @@ public class MainActivity extends AppCompatActivity {
     private void settingsMenu() {
         PopupMenu popupMenu = new PopupMenu(this, mSettings);
         Menu menu = popupMenu.getMenu();
-        menu.add(Menu.NONE, 1, Menu.NONE, getString(R.string.dark_theme)).setCheckable(true).setChecked(
-                Prefs.getBoolean("dark_theme", true, this));
+        SubMenu appTheme = menu.addSubMenu(Menu.NONE, 0, Menu.NONE, getString(R.string.dark_theme));
+        appTheme.add(Menu.NONE, 21, Menu.NONE, getString(R.string.dark_theme_auto)).setCheckable(true)
+                .setChecked(Prefs.getBoolean("theme_auto", true, this));
+        appTheme.add(Menu.NONE, 1, Menu.NONE, getString(R.string.dark_theme_enable)).setCheckable(true)
+                .setChecked(Prefs.getBoolean("dark_theme", false, this));
+        appTheme.add(Menu.NONE, 20, Menu.NONE, getString(R.string.dark_theme_disable)).setCheckable(true)
+                .setChecked(Prefs.getBoolean("light_theme", false, this));
         if (KP.supported() && KP.isCustomSettingsAvailable()) {
             SubMenu kernel = menu.addSubMenu(Menu.NONE, 0, Menu.NONE, getString(R.string.kernel_about));
             if (KP.getSupport() != null && !KP.getSupport().isEmpty()) {
@@ -196,12 +201,12 @@ public class MainActivity extends AppCompatActivity {
                 case 0:
                     break;
                 case 1:
-                    if (Prefs.getBoolean("dark_theme", true, this)) {
-                        Prefs.saveBoolean("dark_theme", false, this);
-                    } else {
+                    if (!Prefs.getBoolean("dark_theme", false, this)) {
                         Prefs.saveBoolean("dark_theme", true, this);
+                        Prefs.saveBoolean("light_theme", false, this);
+                        Prefs.saveBoolean("theme_auto", false, this);
+                        restartApp();
                     }
-                    restartApp();
                     break;
                 case 2:
                     launchURL(KP.getSupport());
@@ -286,6 +291,22 @@ public class MainActivity extends AppCompatActivity {
                     if (!Prefs.getBoolean("use_el", false, this)) {
                         Utils.setDefaultLanguage(this);
                         Prefs.saveBoolean("use_el", true, this);
+                        restartApp();
+                    }
+                    break;
+                case 20:
+                    if (!Prefs.getBoolean("light_theme", false, this)) {
+                        Prefs.saveBoolean("dark_theme", false, this);
+                        Prefs.saveBoolean("light_theme", true, this);
+                        Prefs.saveBoolean("theme_auto", false, this);
+                        restartApp();
+                    }
+                    break;
+                case 21:
+                    if (!Prefs.getBoolean("theme_auto", true, this)) {
+                        Prefs.saveBoolean("dark_theme", false, this);
+                        Prefs.saveBoolean("light_theme", false, this);
+                        Prefs.saveBoolean("theme_auto", true, this);
                         restartApp();
                     }
                     break;
