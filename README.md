@@ -89,6 +89,7 @@ Please Note: Purchasing [SmartPack Donation Package](https://play.google.com/sto
 * [topjohnwu](https://github.com/topjohnwu), libsu & Magisk
 * [Lennoard Silva](https://github.com/Lennoard), Code contributions, App Icon, & Portuguese (Brazilian) Translation
 * [tsiflimagas](https://github.com/tsiflimagas), Greek Translations
+* [SmgKhOaRn](https://github.com/FiestaLake), Greek Translations
 
 ## Report a bug or request a feature
 
