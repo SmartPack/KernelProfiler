@@ -24,6 +24,7 @@
     <string name="description_unknown">Description for this profile is not provided by the developer.</string>
     <string name="default_profile">Default Profile (Mandatory)</string>
     <string name="default_profile_summary">Specify default profile name (including \'.sh\' extension) here!</string>
+    <string name="developed_by">Developed By</string>
     <string name="developer_credits">Developer Credits</string>
     <string name="developer_credits_summary">Add credits text to be shown in the app as copyright!</string>
     <string name="documentation">Documentation</string>

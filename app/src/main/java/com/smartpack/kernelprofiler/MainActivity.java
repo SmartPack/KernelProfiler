@@ -49,12 +49,14 @@ public class MainActivity extends AppCompatActivity {
     private AppCompatTextView mCardTitle;
     private AppCompatTextView mAppName;
     private AppCompatTextView mAboutApp;
+    private AppCompatTextView mDevelopedBy;
     private AppCompatTextView mHowTo;
     private AppCompatTextView mHowToSummary;
     private AppCompatTextView mChangeLog;
     private AppCompatTextView mCreditsTitle;
     private AppCompatTextView mCredits;
     private AppCompatTextView mCancel;
+    private AppCompatImageView mDeveloper;
     private CardView mForegroundCard;
 
     @Override
@@ -73,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
         mCardTitle = findViewById(R.id.card_title);
         mAppName = findViewById(R.id.app_title);
         mAboutApp = findViewById(R.id.about_app);
+        mDevelopedBy = findViewById(R.id.developed_by);
+        mDeveloper = findViewById(R.id.developer);
         mHowTo = findViewById(R.id.how_to);
         mHowToSummary = findViewById(R.id.how_to_summary);
         mCreditsTitle = findViewById(R.id.credits_title);
@@ -84,6 +88,9 @@ public class MainActivity extends AppCompatActivity {
         });
         mCancel.setOnClickListener(v -> {
             closeForeground();
+        });
+        mDeveloper.setOnClickListener(v -> {
+            Utils.launchUrl("https://github.com/sunilpaulmathew", this);
         });
 
         if (Utils.isNotDonated(this)) {
@@ -360,6 +367,8 @@ public class MainActivity extends AppCompatActivity {
         mAppIcon.setVisibility(View.VISIBLE);
         mAppName.setVisibility(View.VISIBLE);
         mAboutApp.setVisibility(View.VISIBLE);
+        mDevelopedBy.setVisibility(View.VISIBLE);
+        mDeveloper.setVisibility(View.VISIBLE);
         mHowTo.setVisibility(View.VISIBLE);
         mHowToSummary.setVisibility(View.VISIBLE);
         mCreditsTitle.setVisibility(View.VISIBLE);
@@ -391,6 +400,8 @@ public class MainActivity extends AppCompatActivity {
         mAppIcon.setVisibility(View.GONE);
         mAppName.setVisibility(View.GONE);
         mAboutApp.setVisibility(View.GONE);
+        mDevelopedBy.setVisibility(View.GONE);
+        mDeveloper.setVisibility(View.GONE);
         mHowTo.setVisibility(View.GONE);
         mHowToSummary.setVisibility(View.GONE);
         mCreditsTitle.setVisibility(View.GONE);
