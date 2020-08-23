@@ -1,6 +1,6 @@
 ![](banner.png)
 
-[![](https://img.shields.io/badge/Kernel%20Profiler-v0.7-green)](https://play.google.com/store/apps/details?id=com.smartpack.kernelprofiler)
+[![](https://img.shields.io/badge/Kernel%20Profiler-v0.8-green)](https://play.google.com/store/apps/details?id=com.smartpack.kernelprofiler)
 ![](https://img.shields.io/github/downloads/SmartPack/KernelProfiler/total)
 ![](https://img.shields.io/github/contributors/smartpack/KernelProfiler)
 ![](https://img.shields.io/github/license/smartpack/KernelProfiler)
@@ -11,7 +11,7 @@
      height="80">](https://play.google.com/store/apps/details?id=com.smartpack.kernelprofiler)
 [<img src="https://i.ibb.co/q0mdc4Z/get-it-on-github.png"
      alt=""
-     height="80">](https://github.com/SmartPack/KernelProfiler/releases/download/v0.7/com.smartpack.kernelprofiler-v0.7-release.apk)
+     height="80">](https://github.com/SmartPack/KernelProfiler/releases/download/v0.8/com.smartpack.kernelprofiler-v0.8-release.apk)
 
 ## Requirements
 * ROOT Access
