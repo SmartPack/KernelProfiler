@@ -36,7 +36,7 @@
     <string name="edit_config_saved">Configuration file is updated! The changes will be applied on next app launch.</string>
     <string name="failed_message">Unfortunately, \'%s\' is NOT a supported string! Please try another one!</string>
     <string name="kernel_about">About Kernel</string>
-    <string name="kernel_support">How to add support in kernel</string>
+    <string name="kernel_support">How to add support in kernel?</string>
     <string name="kernel_support_summary">Kernel Profiler expects a configuration file (<b><i>kernelprofiler.json</i></b>) and one or more \'<b><i>profiles</i></b>\' (basically shell scripts) in certain specific structure placed inside <b>\'<i>/data/kernel_profiler</i>\'</b>. Please check \'<b>Settings  -> Developer Tools</b>\' for more information.</string>
     <string name="language">Language (%s)</string>
     <string name="language_el">Greek</string>
@@ -90,6 +90,8 @@
     <string name="unsupported">No Kernel Support</string>
     <string name="unsupported_help_message">Please Note: This app is also equipped with necessary tools to create its support files. Please check \'Settings  -> Developer Tools\' for more information.</string>
     <string name="unsupported_message">Please ask your favourite kernel developer to add support to this app!</string>
+    <string name="unsupported_reason">Why this issue happened?</string>
+    <string name="unsupported_solution">How to solve this issue?</string>
     <string name="unsupported_summary">It seems like your kernel doesn\'t have the necessary configuration file/profiles to support this app.</string>
     <string name="wrong_profile">%s is not a proper profile file! Aborting.</string>
     <string name="yes">Yes</string>

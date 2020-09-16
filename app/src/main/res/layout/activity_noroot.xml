@@ -28,6 +28,7 @@
                 android:tint="?android:attr/colorAccent"/>
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/main_title"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_marginStart="50dp"
@@ -62,6 +63,7 @@
                     android:tint="?android:attr/colorAccent"/>
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/main_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
