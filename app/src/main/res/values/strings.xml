@@ -49,7 +49,7 @@
     <string name="name_empty">Profile name shouldn\'t be empty! Aborting.</string>
     <string name="no_internet">Please check your internet connection!</string>
     <string name="no_root">No Root</string>
-    <string name="no_root_message">This app won\'t work without Root Access! Aborting.</string>
+    <string name="no_root_message"><b>Why this issue happened?</b>\n\nYour device is either not rooted, or the root permission is declined for Kernel Profiler by you!\n\n\n<b>Why root permission needed?</b>\n\nIn order to execute, or apply a kernel profile on boot, Kernel Profiler needs superuser permissions, and is impossible on a device without root access!\n\n\n<b>How can I root my device?</b>\n\nA simple google search will help to find many guides to achieve root on your device. Please have a look at it!\n\n\n<b>Is rooting a device safe?</b>\n\nRooting poses some security risk, but it\'s generally safe to do!</string>
     <string name="ok">OK</string>
     <string name="on_boot">Applying Settings…</string>
     <string name="on_boot_conformation">%s is already assigned as the default profile!</string>

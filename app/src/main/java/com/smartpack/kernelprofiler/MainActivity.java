@@ -28,6 +28,7 @@ import com.smartpack.kernelprofiler.utils.CreateConfigActivity;
 import com.smartpack.kernelprofiler.utils.CreateProfileActivity;
 import com.smartpack.kernelprofiler.utils.EditConfigActivity;
 import com.smartpack.kernelprofiler.utils.KP;
+import com.smartpack.kernelprofiler.utils.NoRootActivity;
 import com.smartpack.kernelprofiler.utils.PagerAdapter;
 import com.smartpack.kernelprofiler.utils.Prefs;
 import com.smartpack.kernelprofiler.utils.Utils;
@@ -115,12 +116,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
         if (!RootUtils.rootAccess()) {
-            textView.setText(getString(R.string.no_root));
-            helpIcon.setImageDrawable(Utils.getColoredIcon(R.drawable.ic_help, this));
-            Utils.snackbar(mViewPager, getString(R.string.no_root_message));
-            helpIcon.setOnClickListener(v -> {
-                launchURL("https://www.google.com/search?site=&source=hp&q=android+rooting+magisk");
-            });
+            Intent noRoot = new Intent(this, NoRootActivity.class);
+            startActivity(noRoot);
+            finish();
             return;
         }
 

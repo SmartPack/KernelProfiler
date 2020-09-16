@@ -32,9 +32,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.smartpack.kernelprofiler.utils.CreateConfigActivity" />
-        <activity android:name="com.smartpack.kernelprofiler.utils.CreateProfileActivity" />
-        <activity android:name="com.smartpack.kernelprofiler.utils.EditConfigActivity" />
+        <activity android:name=".utils.CreateConfigActivity" />
+        <activity android:name=".utils.CreateProfileActivity" />
+        <activity android:name=".utils.EditConfigActivity" />
+        <activity android:name=".utils.NoRootActivity" />
 
         <receiver
             android:name=".utils.OnBootReceiver"
