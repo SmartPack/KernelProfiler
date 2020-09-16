@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.view.Menu;
 import android.view.SubMenu;
 import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -21,8 +22,10 @@ import androidx.appcompat.widget.PopupMenu;
 import androidx.cardview.widget.CardView;
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.LoadAdError;
 import com.smartpack.kernelprofiler.fragments.KPFragment;
 import com.smartpack.kernelprofiler.utils.CreateConfigActivity;
 import com.smartpack.kernelprofiler.utils.CreateProfileActivity;
@@ -44,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean mExit;
     private Handler mHandler = new Handler();
     private ViewPager mViewPager;
+    private ViewGroup.MarginLayoutParams mLayoutParams;
 
     private AppCompatImageButton mBack;
     private AppCompatImageView mAppIcon;
@@ -94,15 +98,10 @@ public class MainActivity extends AppCompatActivity {
             Utils.launchUrl("https://github.com/sunilpaulmathew", this);
         });
 
-        if (Utils.isNotDonated(this)) {
-            AdView mAdView = findViewById(R.id.adView);
-            AdRequest adRequest = new AdRequest.Builder()
-                    .build();
-            mAdView.loadAd(adRequest);
-        }
-
         mSettings = findViewById(R.id.settings_menu);
         mViewPager = findViewById(R.id.viewPagerID);
+        mLayoutParams = (ViewGroup.MarginLayoutParams) mViewPager.getLayoutParams();
+        AdView mAdView = findViewById(R.id.adView);
         AppCompatTextView textView = findViewById(R.id.unsupported_Text);
         AppCompatImageView helpIcon = findViewById(R.id.help_Image);
         AppCompatTextView copyRightText = findViewById(R.id.copyright_Text);
@@ -137,6 +136,26 @@ public class MainActivity extends AppCompatActivity {
                         .show();
             });
             return;
+        }
+
+        if (Utils.isNotDonated(this)) {
+            mAdView.setAdListener(new AdListener() {
+                @Override
+                public void onAdLoaded() {
+                    copyRightText.setVisibility(View.GONE);
+                }
+                @Override
+                public void onAdFailedToLoad(LoadAdError adError) {
+                    mAdView.setVisibility(View.GONE);
+                    mLayoutParams.bottomMargin = 0;
+                }
+            });
+            AdRequest adRequest = new AdRequest.Builder()
+                    .build();
+            mAdView.loadAd(adRequest);
+        } else {
+            mAdView.setVisibility(View.GONE);
+            mLayoutParams.bottomMargin = 0;
         }
 
         PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager());

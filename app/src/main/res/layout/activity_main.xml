@@ -67,6 +67,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
+        <androidx.viewpager.widget.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="115dp"
+            android:layout_marginBottom="90dp"
+            android:id="@+id/viewPagerID" />
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/unsupported_Text"
             android:layout_width="match_parent"
@@ -103,18 +110,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
-            ads:adSize="BANNER"
-            android:background="@android:color/transparent"
+            ads:adSize="SMART_BANNER"
             ads:adUnitId="ca-app-pub-7791710838910455/5158225354" >
         </com.google.android.gms.ads.AdView>
     </FrameLayout>
 
     <include layout="@layout/rv_foreground_view" />
-
-    <androidx.viewpager.widget.ViewPager
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="115dp"
-        android:layout_marginBottom="50dp"
-        android:id="@+id/viewPagerID" />
 </RelativeLayout>
