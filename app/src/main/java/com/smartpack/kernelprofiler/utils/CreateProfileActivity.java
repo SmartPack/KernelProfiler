@@ -3,12 +3,12 @@ package com.smartpack.kernelprofiler.utils;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.pm.ActivityInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -19,28 +19,30 @@ import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.app.ActivityCompat;
 
 import com.smartpack.kernelprofiler.R;
-import com.smartpack.kernelprofiler.utils.root.RootUtils;
 
 import java.lang.ref.WeakReference;
 import java.util.Objects;
 
-/**
+/*
  * Created by sunilpaulmathew <sunil.kde@gmail.com> on May 22, 2020
  */
 
 public class CreateProfileActivity extends AppCompatActivity {
 
-    AppCompatEditText mProfileDescriptionHint;
-    AppCompatEditText mProfileDetailsHint;
-    AppCompatTextView mTitle;
-    AppCompatTextView mTestButton;
-    AppCompatTextView mTestOutput;
+    private AppCompatEditText mProfileDescriptionHint;
+    private AppCompatEditText mProfileDetailsHint;
+    private AppCompatTextView mProgressMessage;
+    private AppCompatTextView mTitle;
+    private AppCompatTextView mTestOutput;
+    private LinearLayout mProgressLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_createprofile);
 
+        mProgressLayout = findViewById(R.id.progress_layout);
+        mProgressMessage = findViewById(R.id.progress_message);
         AppCompatImageButton mBack = findViewById(R.id.back_button);
         mBack.setOnClickListener(v -> onBackPressed());
         AppCompatImageButton mSave = findViewById(R.id.save_button);
@@ -48,7 +50,7 @@ public class CreateProfileActivity extends AppCompatActivity {
         mProfileDetailsHint = findViewById(R.id.profile_details_hint);
         mTitle = findViewById(R.id.title);
         mTitle.setText(getString(R.string.create_profile));
-        mTestButton = findViewById(R.id.test_button);
+        AppCompatTextView mTestButton = findViewById(R.id.test_button);
         mTestOutput = findViewById(R.id.test_output);
         mBack.setOnClickListener(v -> onBackPressed());
         mSave.setOnClickListener(v -> {
@@ -82,7 +84,7 @@ public class CreateProfileActivity extends AppCompatActivity {
     }
 
     private void createProfile() {
-        ViewUtils.dialogEditText("",
+        Utils.dialogEditText("",
                 (dialogInterface, i) -> {
                 }, text -> {
                     if (text.isEmpty()) {
@@ -120,14 +122,12 @@ public class CreateProfileActivity extends AppCompatActivity {
     @SuppressLint("StaticFieldLeak")
     private void testCommands(WeakReference<Activity> activityRef) {
         new AsyncTask<Void, Void, Void>() {
-            private ProgressDialog mProgressDialog;
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                mProgressDialog = new ProgressDialog(activityRef.get());
-                mProgressDialog.setMessage(activityRef.get().getString(R.string.testing));
-                mProgressDialog.setCancelable(false);
-                mProgressDialog.show();
+                mProgressMessage.setText(getString(R.string.testing));
+                mProgressMessage.setVisibility(View.VISIBLE);
+                mProgressLayout.setVisibility(View.VISIBLE);
                 KP.mTestingProfile = true;
                 if (KP.mOutput == null) {
                     KP.mOutput = new StringBuilder();
@@ -140,9 +140,9 @@ public class CreateProfileActivity extends AppCompatActivity {
             protected Void doInBackground(Void... voids) {
                 Utils.delete("/data/local/tmp/sm");
                 createTestScript();
-                String output = RootUtils.runAndGetError("sh  /data/local/tmp/sm");
+                String output = Utils.runAndGetError("sh  /data/local/tmp/sm");
                 if (output.isEmpty()) {
-                    output = activityRef.get().getString(R.string.testing_success);
+                    output = getString(R.string.testing_success);
                 }
                 KP.mOutput.append(output);
                 Utils.delete("/data/local/tmp/sm");
@@ -151,10 +151,8 @@ public class CreateProfileActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
-                try {
-                    mProgressDialog.dismiss();
-                } catch (IllegalArgumentException ignored) {
-                }
+                mProgressMessage.setVisibility(View.GONE);
+                mProgressLayout.setVisibility(View.GONE);
                 KP.mTestingProfile = false;
             }
         }.execute();

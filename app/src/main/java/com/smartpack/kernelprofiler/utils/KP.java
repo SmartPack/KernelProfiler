@@ -1,15 +1,13 @@
 package com.smartpack.kernelprofiler.utils;
 
-import com.smartpack.kernelprofiler.utils.root.RootFile;
-import com.smartpack.kernelprofiler.utils.root.RootUtils;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
-/**
+/*
  * Created by sunilpaulmathew <sunil.kde@gmail.com> on May 22, 2020
  */
 
@@ -92,11 +90,16 @@ public class KP {
     }
 
     public static List<String> profileItems() {
-        RootFile file = new RootFile(KPFile().toString());
-        if (!file.exists()) {
-            file.mkdir();
+        List<String> list = new ArrayList<>();
+        String files = Utils.runAndGetOutput("ls '" + KPFile().toString() + "/'");
+        if (!files.isEmpty()) {
+            for (String file : files.split("\\r?\\n")) {
+                if (file != null && !file.isEmpty() && Utils.existFile(KPFile().toString() + "/" + file)) {
+                    list.add(file);
+                }
+            }
         }
-        return file.list();
+        return list;
     }
 
     public static void applyProfile(String file) {
@@ -105,7 +108,7 @@ public class KP {
         } else {
             mOutput.setLength(0);
         }
-        mOutput.append(RootUtils.runAndGetError("sh " + file));;
+        mOutput.append(Utils.runAndGetError("sh " + file));;
     }
 
     private static String readProfile(String file) {
@@ -122,7 +125,7 @@ public class KP {
 
     public static boolean supported() {
         return Utils.existFile(KP_CONFIG) && getCustomTitle() != null &&
-                RootUtils.runAndGetOutput("uname -a").contains(getCustomTitle());
+                Utils.runAndGetOutput("uname -a").contains(getCustomTitle());
     }
 
 }

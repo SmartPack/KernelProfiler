@@ -39,7 +39,6 @@
     <string name="language_en">Αγγλικά</string>
     <string name="language_default">Προεπιλογή</string>
     <string name="language_pt">Πορτογαλικά</string>
-    <string name="more">Περισσότερα</string>
     <string name="more_apps">Περισσότερα από τον Προγραμματιστή</string>
     <string name="name_empty">Το όνομα του Προφίλ δεν πρέπει να είναι κενό! Διακοπή.</string>
     <string name="no_internet">Παρακαλώ ελέγξτε τη σύνδεση δικτύου σας!</string>
@@ -50,7 +49,6 @@
     <string name="on_boot_conformation">%s είναι ήδη καθορισμένο ως προεπιλεγμένο προφίλ!</string>
     <string name="on_boot_message">%s έχει οριστεί ως προεπιλεγμένο προφίλ!</string>
     <string name="on_boot_summary">Εφαρμογή Ρυθμίσεων Κατά-την-Εκκίνηση (%s)!</string>
-    <string name="options">Επιλογές</string>
     <string name="press_back">Πατήστε πίσω ξανά για να βγείτε</string>
     <string name="profile_applied_success">%s εφαρμόστηκε επιτυχώς!</string>
     <string name="profile_description">Περιγραφή Προφίλ</string>
@@ -66,7 +64,6 @@
     <string name="save_config_warning">Παρακαλώ να σημειωθεί: \'%s\' θα αντικατασταθεί. Παρακαλώ βεβαιωθείτε ότι κάνατε αντίγραφο εάν είναι απαραίτητο!</string>
     <string name="share">Κοινοποίηση</string>
     <string name="share_message">Το Kernel Profiler είναι ένα εργαλείο διαχείρισης του kernel βασισμένο σε προφίλ, το οποίο επιτρέπει στους προγραμματιστές kernel να παρέχουν προετοιμασμένα προφίλ στους χρήστες τους.\n\nΗ τελευταία έκδοση του Kernel Profiler μπορεί να αποκτηθεί από https://play.google.com/store/apps/details?id=com.smartpack.kernelprofiler\n\nΓια να μάθετε περισσότερα σχετικά με την ενσωμάτωση της υποστήριξης του Kernel Profiler στο kernel, παρακαλώ επισκεφθείτε https://github.com/SmartPack/KernelProfiler/wiki</string>
-    <string name="share_with">Κοινοποίηση με</string>
     <string name="source_code">Πηγαίος Κώδικας</string>
     <string name="storage_access_denied">Απορρίφθηκε η άδεια εγγραφής στον αποθηκευτικό χώρο!</string>
     <string name="support">Υποστήριξη</string>

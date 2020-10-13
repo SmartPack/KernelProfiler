@@ -32,6 +32,7 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".utils.AboutActivity" />
         <activity android:name=".utils.CreateConfigActivity" />
         <activity android:name=".utils.CreateProfileActivity" />
         <activity android:name=".utils.EditConfigActivity" />
@@ -49,5 +50,4 @@
 
         <service android:name=".utils.BootService" />
     </application>
-
 </manifest>

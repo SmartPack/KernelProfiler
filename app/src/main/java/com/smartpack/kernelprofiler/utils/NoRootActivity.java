@@ -9,9 +9,8 @@ import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.appcompat.widget.AppCompatTextView;
 
 import com.smartpack.kernelprofiler.R;
-import com.smartpack.kernelprofiler.utils.root.RootUtils;
 
-/**
+/*
  * Created by sunilpaulmathew <sunil.kde@gmail.com> on September 16, 2020
  */
 
@@ -27,7 +26,7 @@ public class NoRootActivity extends AppCompatActivity {
         AppCompatTextView mainTitle = findViewById(R.id.main_title);
         AppCompatTextView mainText = findViewById(R.id.main_text);
         AppCompatTextView mCancel = findViewById(R.id.cancel_button);
-        if (!RootUtils.rootAccess()) {
+        if (!Utils.rootAccess()) {
             mainTitle.setText(R.string.no_root);
             mainText.setText(R.string.no_root_message);
         } else {

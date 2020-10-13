@@ -13,24 +13,23 @@ import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.app.ActivityCompat;
 
 import com.smartpack.kernelprofiler.R;
-import com.smartpack.kernelprofiler.utils.root.RootUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/**
+/*
  * Created by sunilpaulmathew <sunil.kde@gmail.com> on May 22, 2020
  */
 
 public class CreateConfigActivity extends AppCompatActivity {
 
-    AppCompatEditText mConfigTitleHint;
-    AppCompatEditText mDescriptionHint;
-    AppCompatEditText mDefaultHint;
-    AppCompatEditText mDeveloperHint;
-    AppCompatEditText mSupportHint;
-    AppCompatEditText mDonationsHint;
-    AppCompatTextView mTitle;
+    private AppCompatEditText mConfigTitleHint;
+    private AppCompatEditText mDescriptionHint;
+    private AppCompatEditText mDefaultHint;
+    private AppCompatEditText mDeveloperHint;
+    private AppCompatEditText mSupportHint;
+    private AppCompatEditText mDonationsHint;
+    private AppCompatTextView mTitle;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -83,7 +82,7 @@ public class CreateConfigActivity extends AppCompatActivity {
                     .setNegativeButton(getString(R.string.cancel), (dialog1, id1) -> {
                     })
                     .setPositiveButton(getString(R.string.test), (dialog1, id1) -> {
-                        if (RootUtils.runAndGetOutput("uname -a").contains(mConfigTitleHint.getText())) {
+                        if (Utils.runAndGetOutput("uname -a").contains(mConfigTitleHint.getText())) {
                             Utils.snackbar(mTitle, getString(R.string.success_message, mConfigTitleHint.getText()));
                         } else {
                             Utils.snackbar(mTitle, getString(R.string.failed_message, mConfigTitleHint.getText()));

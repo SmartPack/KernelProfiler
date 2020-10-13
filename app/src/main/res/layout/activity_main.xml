@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="115dp"
         android:background="@color/black"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -22,9 +23,9 @@
                 android:layout_height="75dp"
                 android:layout_margin="10dp"
                 android:layout_gravity="center|start"
-                app:srcCompat="@mipmap/ic_launcher"
+                app:srcCompat="@mipmap/ic_launcher_round"
                 android:scaleType="fitCenter"
-                android:background="@color/black"/>
+                android:background="@drawable/ic_launcher_background"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -65,14 +66,15 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:background="?android:attr/colorBackground"
+        android:layout_marginTop="115dp" >
 
-        <androidx.viewpager.widget.ViewPager
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="115dp"
-            android:layout_marginBottom="90dp"
-            android:id="@+id/viewPagerID" />
+            android:layout_marginBottom="90dp" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/unsupported_Text"
@@ -115,5 +117,5 @@
         </com.google.android.gms.ads.AdView>
     </FrameLayout>
 
-    <include layout="@layout/rv_foreground_view" />
+    <include layout="@layout/rv_progress_view" />
 </RelativeLayout>

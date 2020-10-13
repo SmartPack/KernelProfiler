@@ -42,7 +42,6 @@
     <string name="language_default">시스템 언어</string>
     <string name="language_ko">한국어</string>
     <string name="language_pt">브라질 포어</string>
-    <string name="more">더보기</string>
     <string name="name_empty">프로필 이름은 비어있으면 안됩니다!</string>
     <string name="no_internet">인터넷 연결을 확인해주세요!</string>
     <string name="no_root">루트 권한 없음</string>
@@ -52,7 +51,6 @@
     <string name="on_boot_conformation">%s(은)는 이미 기본 프로필로 선택되어 있습니다!</string>
     <string name="on_boot_message">%s(이)가 기본 프로필로 선택되었습니다!</string>
     <string name="on_boot_summary">부팅시 사용하는 프로필 (%s) 을 적용하는 중…</string>
-    <string name="options">설정</string>
     <string name="press_back">나가려면 뒤로가기 버튼을 다시 누르세요</string>
     <string name="profile_applied_success">%s(이)가 성공적으로 적용되었습니다!</string>
     <string name="profile_description">프로필 설명</string>
@@ -68,7 +66,6 @@
     <string name="save_config_warning">알아두기: \'%s\'은(는) 덮어써질 것입니다. 필요시 반드시 파일을 백업하세요!</string>
     <string name="share">공유</string>
     <string name="share_message">Kernel Profiler은(는) 프로필 기반의 커널 관리 도구입니다. 커널 개발자들은 그들의 커널 사용자들에게 미리 설계된 프로필들을 제공할 수 있습니다.\n\n최신 버전의 Kernel Profiler은(는) 아래에서 다운받을 수 있습니다.\n플레이 스토어 (Play Store): https://play.google.com/store/apps/details?id=com.smartpack.kernelprofiler\n\n커널에 Kernel Profiler 지원 추가 방법: https://github.com/SmartPack/KernelProfiler/wiki</string>
-    <string name="share_with">공유하기</string>
     <string name="source_code">소스 코드</string>
     <string name="storage_access_denied">저장공간 쓰기 권한이 거부되었습니다!</string>
     <string name="support">지원 받기</string>

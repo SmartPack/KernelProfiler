@@ -27,6 +27,7 @@
     <string name="developed_by">Developed By</string>
     <string name="developer_credits">Developer Credits</string>
     <string name="developer_credits_summary">Add credits text to be shown in the app as copyright!</string>
+    <string name="dismiss">Dismiss</string>
     <string name="documentation">Documentation</string>
     <string name="donations">Donations</string>
     <string name="donation_app">Buy Donation App</string>
@@ -44,7 +45,6 @@
     <string name="language_default">Default</string>
     <string name="language_ko">Korean</string>
     <string name="language_pt">Portuguese</string>
-    <string name="more">More</string>
     <string name="more_apps">More from Developer</string>
     <string name="name_empty">Profile name shouldn\'t be empty! Aborting.</string>
     <string name="no_internet">Please check your internet connection!</string>
@@ -55,7 +55,6 @@
     <string name="on_boot_conformation">%s is already assigned as the default profile!</string>
     <string name="on_boot_message">%s is set as the default profile!</string>
     <string name="on_boot_summary">Applying On-Boot Settings (%s)!</string>
-    <string name="options">Options</string>
     <string name="press_back">Press back again to exit</string>
     <string name="profile_applied_success">%s applied successfully!</string>
     <string name="profile_description">Profile Description</string>
@@ -71,7 +70,6 @@
     <string name="save_config_warning">Please note: \'%s\' will be overwritten. Please be sure to make a backup if necessary!</string>
     <string name="share">Share</string>
     <string name="share_message">Kernel Profiler is a profile based kernel management utility, which allows kernel developers to provide predefined profiles to their users.\n\nThe latest version of Kernel Profiler can be obtained from https://play.google.com/store/apps/details?id=com.smartpack.kernelprofiler\n\nTo know more about integrating Kernel Profiler support into a kernel, please visit https://github.com/SmartPack/KernelProfiler/wiki</string>
-    <string name="share_with">Share with</string>
     <string name="source_code">Source Code</string>
     <string name="storage_access_denied">Permission denied for writing to storage!</string>
     <string name="support">Support</string>

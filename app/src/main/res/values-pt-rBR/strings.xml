@@ -29,7 +29,6 @@
     <string name="language_el">Grego</string>
     <string name="language_en">Inglês</string>
     <string name="language_default">Padrão</string>
-    <string name="more">Mais</string>
     <string name="more_apps">Mais do desenvolvedor</string>
     <string name="name_empty">O nome do perfil não deve estar vazio! Abortando.</string>
     <string name="no_internet">Por favor, verifique sua conexão à internet!</string>
@@ -40,7 +39,6 @@
     <string name="on_boot_conformation">%s já está designado como o perfil padrão!</string>
     <string name="on_boot_message">%s foi definido como o perfil padrão!</string>
     <string name="on_boot_summary">Aplicando configurações de inicialização (%s)!</string>
-    <string name="options">Opções</string>
     <string name="press_back">Pressione voltar novamente para sair</string>
     <string name="profile_applied_success">%s aplicado com sucesso!</string>
     <string name="profile_description">Descrição do Perfil</string>
@@ -49,7 +47,6 @@
     <string name="profile_details_summary">Adicione detalhes (apenas comandos) aqui!</string>
     <string name="report_issue">Comunicar um Problema</string>
     <string name="share">Compartilhar</string>
-    <string name="share_with">Compartilhar com</string>
     <string name="source_code">Código Fonte</string>
     <string name="storage_access_denied">Permissão negada para modificar o armazenamento!</string>
     <string name="support">Suporte</string>

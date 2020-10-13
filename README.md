@@ -86,7 +86,7 @@ Please Note: Purchasing [SmartPack Donation Package](https://play.google.com/sto
 
 ## Credits
 * [Grarak](https://github.com/Grarak), Kernel Adiutor, from where I took a lot of code
-* [topjohnwu](https://github.com/topjohnwu), libsu & Magisk
+* [topjohnwu](https://github.com/topjohnwu), libsu
 * [Lennoard Silva](https://github.com/Lennoard), Code contributions, App Icon, & Portuguese (Brazilian) Translation
 * [tsiflimagas](https://github.com/tsiflimagas), Greek Translations
 * [SmgKhOaRn](https://github.com/FiestaLake), Greek Translations

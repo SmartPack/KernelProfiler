@@ -13,9 +13,8 @@ import android.os.IBinder;
 import androidx.annotation.Nullable;
 
 import com.smartpack.kernelprofiler.R;
-import com.smartpack.kernelprofiler.utils.root.RootUtils;
 
-/**
+/*
  * Created by sunilpaulmathew <sunil.kde@gmail.com> on May 22, 2020
  */
 
@@ -59,7 +58,7 @@ public class BootService extends Service {
             new AsyncTask<Void, Void, Void>() {
                 @Override
                 protected Void doInBackground(Void... voids) {
-                    RootUtils.runCommand("sh " + onBoot);
+                    Utils.runCommand("sh " + onBoot);
                     return null;
                 }
                 @Override
