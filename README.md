@@ -1,6 +1,6 @@
 ![](banner.png)
 
-[![](https://img.shields.io/badge/Kernel%20Profiler-v0.10-green)](https://play.google.com/store/apps/details?id=com.smartpack.kernelprofiler)
+[![](https://img.shields.io/badge/Kernel%20Profiler-v0.11-green)](https://play.google.com/store/apps/details?id=com.smartpack.kernelprofiler)
 ![](https://img.shields.io/github/downloads/SmartPack/KernelProfiler/total)
 ![](https://img.shields.io/github/contributors/smartpack/KernelProfiler)
 ![](https://img.shields.io/github/license/smartpack/KernelProfiler)
@@ -90,6 +90,7 @@ Please Note: Purchasing [SmartPack Donation Package](https://play.google.com/sto
 * [Lennoard Silva](https://github.com/Lennoard), Code contributions, App Icon, & Portuguese (Brazilian) Translation
 * [tsiflimagas](https://github.com/tsiflimagas), Greek Translations
 * [SmgKhOaRn](https://github.com/FiestaLake), Greek Translations
+* [Hafitz Setya](https://github.com/breakdowns), Indonesian Translations
 
 ## Report a bug or request a feature
 

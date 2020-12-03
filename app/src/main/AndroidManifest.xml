@@ -20,7 +20,7 @@
         android:theme="@style/AppTheme"
         android:requestLegacyExternalStorage="true"
         tools:targetApi="q" >
-        
+
         <activity android:name="com.smartpack.kernelprofiler.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
