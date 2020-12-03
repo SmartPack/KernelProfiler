@@ -9,7 +9,6 @@ import android.os.Handler;
 import android.view.Menu;
 import android.view.SubMenu;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AlertDialog;
@@ -21,10 +20,6 @@ import androidx.appcompat.widget.PopupMenu;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.LoadAdError;
 import com.smartpack.kernelprofiler.utils.AboutActivity;
 import com.smartpack.kernelprofiler.utils.CreateConfigActivity;
 import com.smartpack.kernelprofiler.utils.CreateProfileActivity;
@@ -51,13 +46,11 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout mProgressLayout;
     private RecyclerView mRecyclerView;
     private RecycleViewAdapter mRecycleViewAdapter;
-    private ViewGroup.MarginLayoutParams mLayoutParams;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // Initialize App Theme & Google Ads
+        // Initialize App Theme
         Utils.initializeAppTheme(this);
-        Utils.initializeGoogleAds(this);
         super.onCreate(savedInstanceState);
         // Set App Language
         Utils.setLanguage(this);
@@ -67,8 +60,6 @@ public class MainActivity extends AppCompatActivity {
         mProgressMessage = findViewById(R.id.progress_message);
         mSettings = findViewById(R.id.settings_menu);
         mRecyclerView = findViewById(R.id.recycler_view);
-        mLayoutParams = (ViewGroup.MarginLayoutParams) mRecyclerView.getLayoutParams();
-        AdView mAdView = findViewById(R.id.adView);
         AppCompatTextView textView = findViewById(R.id.unsupported_Text);
         AppCompatImageView helpIcon = findViewById(R.id.help_Image);
         AppCompatTextView copyRightText = findViewById(R.id.copyright_Text);
@@ -89,26 +80,6 @@ public class MainActivity extends AppCompatActivity {
                 unsupported();
             });
             return;
-        }
-
-        if (Utils.isNotDonated(this)) {
-            mAdView.setAdListener(new AdListener() {
-                @Override
-                public void onAdLoaded() {
-                    copyRightText.setVisibility(View.GONE);
-                }
-                @Override
-                public void onAdFailedToLoad(LoadAdError adError) {
-                    mAdView.setVisibility(View.GONE);
-                    mLayoutParams.bottomMargin = 0;
-                }
-            });
-            AdRequest adRequest = new AdRequest.Builder()
-                    .build();
-            mAdView.loadAd(adRequest);
-        } else {
-            mAdView.setVisibility(View.GONE);
-            mLayoutParams.bottomMargin = 0;
         }
 
         if (KP.supported() && KP.getDeveloper() != null) {

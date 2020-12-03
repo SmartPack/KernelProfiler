@@ -74,7 +74,7 @@
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="90dp" />
+            android:layout_marginBottom="50dp" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/unsupported_Text"
@@ -105,16 +105,6 @@
             android:padding="12dp"
             android:textColor="?android:attr/colorAccent"
             android:background="@color/black" />
-
-        <com.google.android.gms.ads.AdView
-            xmlns:ads="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/adView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center"
-            ads:adSize="SMART_BANNER"
-            ads:adUnitId="ca-app-pub-7791710838910455/5158225354" >
-        </com.google.android.gms.ads.AdView>
     </FrameLayout>
 
     <include layout="@layout/rv_progress_view" />
