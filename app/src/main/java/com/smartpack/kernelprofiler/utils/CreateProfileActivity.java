@@ -2,13 +2,11 @@ package com.smartpack.kernelprofiler.utils;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
-import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -17,10 +15,13 @@ import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.app.ActivityCompat;
+import androidx.core.widget.NestedScrollView;
 
 import com.smartpack.kernelprofiler.R;
 
-import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
+import java.util.List;
 import java.util.Objects;
 
 /*
@@ -31,18 +32,19 @@ public class CreateProfileActivity extends AppCompatActivity {
 
     private AppCompatEditText mProfileDescriptionHint;
     private AppCompatEditText mProfileDetailsHint;
-    private AppCompatTextView mProgressMessage;
     private AppCompatTextView mTitle;
     private AppCompatTextView mTestOutput;
-    private LinearLayout mProgressLayout;
+    private NestedScrollView mScrollView;
+
+    private List<String> mOutput = null;
+
+    private boolean mTestingProfile = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_createprofile);
 
-        mProgressLayout = findViewById(R.id.progress_layout);
-        mProgressMessage = findViewById(R.id.progress_message);
         AppCompatImageButton mBack = findViewById(R.id.back_button);
         mBack.setOnClickListener(v -> onBackPressed());
         AppCompatImageButton mSave = findViewById(R.id.save_button);
@@ -52,6 +54,8 @@ public class CreateProfileActivity extends AppCompatActivity {
         mTitle.setText(getString(R.string.create_profile));
         AppCompatTextView mTestButton = findViewById(R.id.test_button);
         mTestOutput = findViewById(R.id.test_output);
+        mScrollView = findViewById(R.id.scroll_view);
+
         mBack.setOnClickListener(v -> onBackPressed());
         mSave.setOnClickListener(v -> {
             if (Utils.checkWriteStoragePermission(this)) {
@@ -73,7 +77,7 @@ public class CreateProfileActivity extends AppCompatActivity {
         mTestButton.setOnClickListener(v -> {
             if (mProfileDetailsHint.getText() != null && !mProfileDetailsHint.getText().toString().equals("")) {
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
-                testCommands(new WeakReference<>(this));
+                testCommands();
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER);
             } else {
                 Utils.snackbar(mTitle, getString(R.string.profile_details_empty));
@@ -116,44 +120,31 @@ public class CreateProfileActivity extends AppCompatActivity {
     }
 
     private void createTestScript() {
-        Utils.create("#!/system/bin/sh\n\n" + Objects.requireNonNull(mProfileDetailsHint.getText()).toString(),"/data/local/tmp/sm");
+        Utils.create("#!/system/bin/sh\n\n" + Objects.requireNonNull(mProfileDetailsHint.getText()).toString(), getCacheDir().getPath() + "/sm");
     }
 
     @SuppressLint("StaticFieldLeak")
-    private void testCommands(WeakReference<Activity> activityRef) {
+    private void testCommands() {
         new AsyncTask<Void, Void, Void>() {
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                mProgressMessage.setText(getString(R.string.testing));
-                mProgressMessage.setVisibility(View.VISIBLE);
-                mProgressLayout.setVisibility(View.VISIBLE);
-                KP.mTestingProfile = true;
-                if (KP.mOutput == null) {
-                    KP.mOutput = new StringBuilder();
-                } else {
-                    KP.mOutput.setLength(0);
-                }
+                mTestingProfile = true;
+                mOutput = new ArrayList<>();
+                Utils.delete(getCacheDir().getPath() + "/sm");
             }
             @SuppressLint("WrongThread")
             @Override
             protected Void doInBackground(Void... voids) {
-                Utils.delete("/data/local/tmp/sm");
                 createTestScript();
-                String output = Utils.runAndGetError("sh  /data/local/tmp/sm");
-                if (output.isEmpty()) {
-                    output = getString(R.string.testing_success);
-                }
-                KP.mOutput.append(output);
-                Utils.delete("/data/local/tmp/sm");
+                Utils.runAndGetLiveOutput("sh " + getCacheDir().getPath() + "/sm", mOutput);
                 return null;
             }
             @Override
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
-                mProgressMessage.setVisibility(View.GONE);
-                mProgressLayout.setVisibility(View.GONE);
-                KP.mTestingProfile = false;
+                Utils.delete(getCacheDir().getPath() + "/sm");
+                mTestingProfile = false;
             }
         }.execute();
     }
@@ -166,10 +157,17 @@ public class CreateProfileActivity extends AppCompatActivity {
                     while (!isInterrupted()) {
                         Thread.sleep(100);
                         runOnUiThread(() -> {
-                            if (mTestOutput != null && KP.mOutput != null) {
-                                mTestOutput.setVisibility(View.VISIBLE);
-                                mTestOutput.setText(KP.mOutput.toString());
+                            if (mTestingProfile) {
+                                mScrollView.fullScroll(NestedScrollView.FOCUS_DOWN);
                             }
+                            try {
+                                if (!Utils.getOutput(mOutput).isEmpty()) {
+                                    mTestOutput.setVisibility(View.VISIBLE);
+                                    mTestOutput.setText(Utils.getOutput(mOutput));
+                                } else {
+                                    mTestOutput.setText(getString(R.string.testing_success));
+                                }
+                            } catch (ConcurrentModificationException | NullPointerException ignored) {}
                         });
                     }
                 } catch (InterruptedException ignored) {}
@@ -183,19 +181,11 @@ public class CreateProfileActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-
-        if (KP.mOutput == null) {
-            KP.mOutput = new StringBuilder();
-        } else {
-            KP.mOutput.setLength(0);
-        }
-    }
-
-    @Override
     public void onBackPressed() {
-        if (KP.mTestingProfile) return;
+        if (mTestingProfile) {
+            Utils.snackbar(findViewById(android.R.id.content), getString(R.string.testing));
+            return;
+        }
         if (isTextEntered()) {
             new AlertDialog.Builder(this)
                     .setMessage(getString(R.string.data_lose_warning))

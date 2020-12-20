@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                         @Override
                         protected Void doInBackground(Void... voids) {
-                            KP.applyProfile(profilePath);
+                            Utils.runCommand("sh " + profilePath);
                             return null;
                         }
 
@@ -143,11 +143,9 @@ public class MainActivity extends AppCompatActivity {
                             super.onPostExecute(aVoid);
                             mProgressMessage.setVisibility(View.GONE);
                             mProgressLayout.setVisibility(View.GONE);
-                            boolean resultEmpty = KP.mOutput != null && KP.mOutput.toString().isEmpty();
                             new AlertDialog.Builder(activity)
                                     .setTitle(profile)
-                                    .setMessage(resultEmpty ? getString(R.string.profile_applied_success,
-                                            profile) : KP.mOutput.toString())
+                                    .setMessage(getString(R.string.profile_applied_success))
                                     .setPositiveButton(getString(R.string.cancel), (dialog, id) -> {
                                     })
                                     .show();

@@ -15,9 +15,6 @@ public class KP {
 
     private static final String KP = "/data/kernel_profiler";
     public static final String KP_CONFIG = KP + "/kernelprofiler.json";
-    public static StringBuilder mOutput;
-
-    static boolean mTestingProfile = false;
 
     public static File KPFile() {
         return new File(KP);
@@ -100,15 +97,6 @@ public class KP {
             }
         }
         return list;
-    }
-
-    public static void applyProfile(String file) {
-        if (mOutput == null) {
-            mOutput = new StringBuilder();
-        } else {
-            mOutput.setLength(0);
-        }
-        mOutput.append(Utils.runAndGetError("sh " + file));;
     }
 
     private static String readProfile(String file) {
