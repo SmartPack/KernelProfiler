@@ -6,8 +6,8 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageButton;
-import androidx.appcompat.widget.AppCompatTextView;
 
+import com.google.android.material.textview.MaterialTextView;
 import com.smartpack.kernelprofiler.R;
 
 /*
@@ -23,9 +23,9 @@ public class NoRootActivity extends AppCompatActivity {
         setContentView(R.layout.activity_noroot);
 
         AppCompatImageButton mBack = findViewById(R.id.back_button);
-        AppCompatTextView mainTitle = findViewById(R.id.main_title);
-        AppCompatTextView mainText = findViewById(R.id.main_text);
-        AppCompatTextView mCancel = findViewById(R.id.cancel_button);
+        MaterialTextView mainTitle = findViewById(R.id.main_title);
+        MaterialTextView mainText = findViewById(R.id.main_text);
+        MaterialTextView mCancel = findViewById(R.id.cancel_button);
         if (!Utils.rootAccess()) {
             mainTitle.setText(R.string.no_root);
             mainText.setText(R.string.no_root_message);

@@ -11,15 +11,15 @@ import android.view.SubMenu;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.appcompat.widget.AppCompatImageView;
-import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.textview.MaterialTextView;
 import com.smartpack.kernelprofiler.utils.AboutActivity;
 import com.smartpack.kernelprofiler.utils.CreateConfigActivity;
 import com.smartpack.kernelprofiler.utils.CreateProfileActivity;
@@ -40,7 +40,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private AppCompatImageButton mSettings;
-    private AppCompatTextView mProgressMessage;
+    private MaterialTextView mProgressMessage;
     private boolean mExit;
     private Handler mHandler = new Handler();
     private LinearLayout mProgressLayout;
@@ -60,11 +60,11 @@ public class MainActivity extends AppCompatActivity {
         mProgressMessage = findViewById(R.id.progress_message);
         mSettings = findViewById(R.id.settings_menu);
         mRecyclerView = findViewById(R.id.recycler_view);
-        AppCompatTextView textView = findViewById(R.id.unsupported_Text);
+        MaterialTextView textView = findViewById(R.id.unsupported_Text);
         AppCompatImageView helpIcon = findViewById(R.id.help_Image);
-        AppCompatTextView copyRightText = findViewById(R.id.copyright_Text);
-        AppCompatTextView customTitle = findViewById(R.id.customTitle);
-        AppCompatTextView customDescription = findViewById(R.id.customDescription);
+        MaterialTextView copyRightText = findViewById(R.id.copyright_Text);
+        MaterialTextView customTitle = findViewById(R.id.customTitle);
+        MaterialTextView customDescription = findViewById(R.id.customDescription);
         customTitle.setText(KP.supported() && KP.getCustomTitle() != null ? KP.getCustomTitle() : getString(R.string.app_name));
         customDescription.setText(KP.supported() && KP.getCustomDescription() != null ? KP.getCustomDescription() : getString(R.string.app_name_summary));
         mSettings.setOnClickListener(v -> {
@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
     private void applyProfile(String profile, Activity activity) {
         String profileName = profile + ".sh";
         String profilePath = KP.KPFile() + "/" +  profileName;
-        new AlertDialog.Builder(activity)
+        new MaterialAlertDialogBuilder(activity)
                 .setMessage(getString(R.string.apply_question, profile))
                 .setNegativeButton(getString(R.string.cancel), (dialogInterface, i) -> {
                 })
@@ -143,9 +143,8 @@ public class MainActivity extends AppCompatActivity {
                             super.onPostExecute(aVoid);
                             mProgressMessage.setVisibility(View.GONE);
                             mProgressLayout.setVisibility(View.GONE);
-                            new AlertDialog.Builder(activity)
-                                    .setTitle(profile)
-                                    .setMessage(getString(R.string.profile_applied_success))
+                            new MaterialAlertDialogBuilder(activity)
+                                    .setMessage(getString(R.string.profile_applied_success, profile))
                                     .setPositiveButton(getString(R.string.cancel), (dialog, id) -> {
                                     })
                                     .show();
@@ -266,7 +265,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(about);
                     break;
                 case 14:
-                    new AlertDialog.Builder(activity)
+                    new MaterialAlertDialogBuilder(activity)
                             .setIcon(R.mipmap.ic_launcher)
                             .setTitle(getString(R.string.support_developer))
                             .setMessage(getString(R.string.support_developer_message))

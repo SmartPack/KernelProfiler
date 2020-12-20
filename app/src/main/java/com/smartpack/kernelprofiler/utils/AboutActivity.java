@@ -7,8 +7,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.appcompat.widget.AppCompatImageView;
-import androidx.appcompat.widget.AppCompatTextView;
 
+import com.google.android.material.textview.MaterialTextView;
 import com.smartpack.kernelprofiler.BuildConfig;
 import com.smartpack.kernelprofiler.R;
 
@@ -33,9 +33,9 @@ public class AboutActivity extends AppCompatActivity {
 
         AppCompatImageButton mBack = findViewById(R.id.back);
         AppCompatImageView mDeveloper = findViewById(R.id.developer);
-        AppCompatTextView mAppTitle = findViewById(R.id.app_title);
-        AppCompatTextView mChangeLog = findViewById(R.id.change_log);
-        AppCompatTextView mCancel = findViewById(R.id.cancel_button);
+        MaterialTextView mAppTitle = findViewById(R.id.app_title);
+        MaterialTextView mChangeLog = findViewById(R.id.change_log);
+        MaterialTextView mCancel = findViewById(R.id.cancel_button);
         mAppTitle.setText(getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME);
         mBack.setOnClickListener(v -> onBackPressed());
         mDeveloper.setOnClickListener(v -> {

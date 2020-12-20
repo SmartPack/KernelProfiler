@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView android:layout_width="match_parent"
+<com.google.android.material.card.MaterialCardView
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -22,7 +23,7 @@
                     android:padding="10dp"
                     android:baselineAligned="false">
 
-                        <androidx.appcompat.widget.AppCompatTextView
+                        <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -32,7 +33,7 @@
                             android:layout_marginEnd="20dp"
                             android:textColor="?android:attr/colorAccent" />
 
-                        <androidx.appcompat.widget.AppCompatTextView
+                        <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/description"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -42,11 +43,11 @@
                             android:textColor="@color/white" />
                 </LinearLayout>
 
-                <androidx.appcompat.widget.AppCompatCheckBox
+                <com.google.android.material.checkbox.MaterialCheckBox
                     android:id="@+id/checkbox"
                     android:layout_width="35dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|end"
                     android:buttonTint="?android:attr/colorAccent" />
         </FrameLayout>
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

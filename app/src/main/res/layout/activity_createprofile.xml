@@ -22,7 +22,7 @@
             android:background="?android:attr/colorAccent"
             android:tint="@color/black"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
@@ -64,7 +64,7 @@
                 android:layout_gravity="top"
                 android:baselineAligned="false" >
 
-                <androidx.appcompat.widget.AppCompatTextView
+                <com.google.android.material.textview.MaterialTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
@@ -88,7 +88,7 @@
                     android:padding="10dp"
                     android:textSize="15sp" />
 
-                <androidx.appcompat.widget.AppCompatTextView
+                <com.google.android.material.textview.MaterialTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
@@ -122,7 +122,7 @@
             android:layout_gravity="bottom"
             android:baselineAligned="false" >
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/test_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -141,7 +141,7 @@
                 android:layout_height="match_parent"
                 android:scrollbars="vertical">
 
-                <androidx.appcompat.widget.AppCompatTextView
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/test_output"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

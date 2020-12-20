@@ -35,7 +35,7 @@
                 android:padding="10dp"
                 android:orientation="vertical" >
 
-                <androidx.appcompat.widget.AppCompatTextView
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/customTitle"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -44,7 +44,7 @@
                     android:textStyle="bold"
                     android:textColor="?android:attr/colorAccent" />
 
-                <androidx.appcompat.widget.AppCompatTextView
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/customDescription"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -76,7 +76,7 @@
             android:layout_height="match_parent"
             android:layout_marginBottom="50dp" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/unsupported_Text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -95,7 +95,7 @@
             android:layout_gravity="bottom|end"
             android:visibility="visible" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/copyright_Text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

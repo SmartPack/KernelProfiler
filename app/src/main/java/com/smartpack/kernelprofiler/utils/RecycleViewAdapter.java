@@ -11,12 +11,12 @@ package com.smartpack.kernelprofiler.utils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.checkbox.MaterialCheckBox;
+import com.google.android.material.textview.MaterialTextView;
 import com.smartpack.kernelprofiler.R;
 
 import java.io.File;
@@ -82,9 +82,9 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private AppCompatTextView mTitle;
-        private AppCompatTextView mDescription;
-        private CheckBox mCheckBox;
+        private MaterialTextView mTitle;
+        private MaterialTextView mDescription;
+        private MaterialCheckBox mCheckBox;
 
         public ViewHolder(View view) {
             super(view);

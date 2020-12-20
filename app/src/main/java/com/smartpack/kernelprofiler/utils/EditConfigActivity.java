@@ -5,13 +5,13 @@ import android.os.Bundle;
 import android.os.Environment;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.app.ActivityCompat;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.smartpack.kernelprofiler.R;
 
 import org.json.JSONException;
@@ -69,7 +69,7 @@ public class EditConfigActivity extends AppCompatActivity {
         mSave.setOnClickListener(v -> {
             if (Utils.checkWriteStoragePermission(this)) {
                 if (mConfigTitleHint.getText() != null && !mConfigTitleHint.getText().toString().equals("")) {
-                    new AlertDialog.Builder(this)
+                    new MaterialAlertDialogBuilder(this)
                             .setMessage(getString(R.string.edit_config_message))
                             .setNegativeButton(getString(R.string.cancel), (dialog1, id1) -> {
                             })
@@ -110,7 +110,7 @@ public class EditConfigActivity extends AppCompatActivity {
             obj.put("support", mSupportHint.getText());
             obj.put("donations", mDonationsHint.getText());
             Utils.create(obj.toString(), "/data/kernel_profiler/kernelprofiler.json");
-            new AlertDialog.Builder(this)
+            new MaterialAlertDialogBuilder(this)
                     .setMessage(getString(R.string.edit_config_saved))
                     .setCancelable(false)
                     .setPositiveButton(getString(R.string.cancel), (dialog1, id1) -> {
@@ -133,7 +133,7 @@ public class EditConfigActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if (isTextEntered()) {
-            new AlertDialog.Builder(this)
+            new MaterialAlertDialogBuilder(this)
                     .setMessage(getString(R.string.data_lose_warning))
                     .setNegativeButton(getString(R.string.cancel), (dialog1, id1) -> {
                     })

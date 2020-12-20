@@ -10,7 +10,6 @@ package com.smartpack.kernelprofiler.utils;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -35,6 +34,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.AppCompatEditText;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
 import com.smartpack.kernelprofiler.BuildConfig;
 import com.smartpack.kernelprofiler.MainActivity;
@@ -134,13 +134,13 @@ public class Utils {
         void onClick(String text);
     }
 
-    public static AlertDialog.Builder dialogEditText(String text, final DialogInterface.OnClickListener negativeListener,
-                                             final OnDialogEditTextListener onDialogEditTextListener,
-                                             Context context) {
+    public static MaterialAlertDialogBuilder dialogEditText(String text, final DialogInterface.OnClickListener negativeListener,
+                                                            final OnDialogEditTextListener onDialogEditTextListener,
+                                                            Context context) {
         return dialogEditText(text, negativeListener, onDialogEditTextListener, -1, context);
     }
 
-    public static AlertDialog.Builder dialogEditText(String text, final DialogInterface.OnClickListener negativeListener,
+    public static MaterialAlertDialogBuilder dialogEditText(String text, final DialogInterface.OnClickListener negativeListener,
                                         final OnDialogEditTextListener onDialogEditTextListener, int inputType,
                                         Context context) {
         LinearLayout layout = new LinearLayout(context);
@@ -160,7 +160,7 @@ public class Utils {
 
         layout.addView(editText);
 
-        AlertDialog.Builder dialog = new AlertDialog.Builder(context).setView(layout);
+        MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(context).setView(layout);
         if (negativeListener != null) {
             dialog.setNegativeButton(context.getString(R.string.cancel), negativeListener);
         }

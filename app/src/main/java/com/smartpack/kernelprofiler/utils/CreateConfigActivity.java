@@ -5,13 +5,13 @@ import android.os.Bundle;
 import android.os.Environment;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.AppCompatImageButton;
-import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.app.ActivityCompat;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.textview.MaterialTextView;
 import com.smartpack.kernelprofiler.R;
 
 import org.json.JSONException;
@@ -29,7 +29,7 @@ public class CreateConfigActivity extends AppCompatActivity {
     private AppCompatEditText mDeveloperHint;
     private AppCompatEditText mSupportHint;
     private AppCompatEditText mDonationsHint;
-    private AppCompatTextView mTitle;
+    private MaterialTextView mTitle;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,7 +51,7 @@ public class CreateConfigActivity extends AppCompatActivity {
         mSave.setOnClickListener(v -> {
             if (Utils.checkWriteStoragePermission(this)) {
                 if (mConfigTitleHint.getText() != null && !mConfigTitleHint.getText().toString().equals("")) {
-                    new AlertDialog.Builder(this)
+                    new MaterialAlertDialogBuilder(this)
                             .setIcon(R.mipmap.ic_launcher)
                             .setTitle(getString(R.string.save_config_title))
                             .setMessage(Utils.existFile(
@@ -77,7 +77,7 @@ public class CreateConfigActivity extends AppCompatActivity {
                 Utils.snackbar(mTitle, getString(R.string.title_empty_message));
                 return;
             }
-            new AlertDialog.Builder(this)
+            new MaterialAlertDialogBuilder(this)
                     .setMessage(getString(R.string.title_check))
                     .setNegativeButton(getString(R.string.cancel), (dialog1, id1) -> {
                     })
@@ -119,7 +119,7 @@ public class CreateConfigActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if (isTextEntered()) {
-            new AlertDialog.Builder(this)
+            new MaterialAlertDialogBuilder(this)
                     .setMessage(getString(R.string.data_lose_warning))
                     .setNegativeButton(getString(R.string.cancel), (dialog1, id1) -> {
                     })

@@ -9,14 +9,14 @@ import android.os.Environment;
 import android.view.View;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.AppCompatImageButton;
-import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.widget.NestedScrollView;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.textview.MaterialTextView;
 import com.smartpack.kernelprofiler.R;
 
 import java.util.ArrayList;
@@ -32,8 +32,8 @@ public class CreateProfileActivity extends AppCompatActivity {
 
     private AppCompatEditText mProfileDescriptionHint;
     private AppCompatEditText mProfileDetailsHint;
-    private AppCompatTextView mTitle;
-    private AppCompatTextView mTestOutput;
+    private MaterialTextView mTitle;
+    private MaterialTextView mTestOutput;
     private NestedScrollView mScrollView;
 
     private List<String> mOutput = null;
@@ -52,7 +52,7 @@ public class CreateProfileActivity extends AppCompatActivity {
         mProfileDetailsHint = findViewById(R.id.profile_details_hint);
         mTitle = findViewById(R.id.title);
         mTitle.setText(getString(R.string.create_profile));
-        AppCompatTextView mTestButton = findViewById(R.id.test_button);
+        MaterialTextView mTestButton = findViewById(R.id.test_button);
         mTestOutput = findViewById(R.id.test_output);
         mScrollView = findViewById(R.id.scroll_view);
 
@@ -107,7 +107,7 @@ public class CreateProfileActivity extends AppCompatActivity {
                     }
                     Utils.create("#!/system/bin/sh\n\n# Description=" + mProfileDescriptionHint.getText() + "\n\n" +
                             mProfileDetailsHint.getText(), Environment.getExternalStorageDirectory().toString() + "/" + text);
-                    new AlertDialog.Builder(this)
+                    new MaterialAlertDialogBuilder(this)
                             .setMessage(getString(R.string.create_profile_message, text) + " '" +
                                     Environment.getExternalStorageDirectory().toString() + "'")
                             .setCancelable(false)
@@ -187,7 +187,7 @@ public class CreateProfileActivity extends AppCompatActivity {
             return;
         }
         if (isTextEntered()) {
-            new AlertDialog.Builder(this)
+            new MaterialAlertDialogBuilder(this)
                     .setMessage(getString(R.string.data_lose_warning))
                     .setNegativeButton(getString(R.string.cancel), (dialog1, id1) -> {
                     })
