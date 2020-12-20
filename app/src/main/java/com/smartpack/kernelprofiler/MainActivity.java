@@ -195,6 +195,8 @@ public class MainActivity extends AppCompatActivity {
                 .setChecked(Utils.getBoolean("use_el", false, activity));
         language.add(Menu.NONE, 21, Menu.NONE, getString(R.string.language_ko)).setCheckable(true)
                 .setChecked(Utils.getBoolean("use_ko", false, activity));
+        language.add(Menu.NONE, 22, Menu.NONE, getString(R.string.language_in)).setCheckable(true)
+                .setChecked(Utils.getBoolean("use_in", false, activity));
         SubMenu app = menu.addSubMenu(Menu.NONE, 0, Menu.NONE, getString(R.string.app_about));
         app.add(Menu.NONE, 7, Menu.NONE, getString(R.string.share));
         app.add(Menu.NONE, 8, Menu.NONE, getString(R.string.support));
@@ -324,6 +326,13 @@ public class MainActivity extends AppCompatActivity {
                     if (!Utils.getBoolean("use_ko", false, activity)) {
                         Utils.setDefaultLanguage(activity);
                         Utils.saveBoolean("use_ko", true, activity);
+                        Utils.restartApp(activity);
+                    }
+                    break;
+                case 22:
+                    if (!Utils.getBoolean("use_in", false, activity)) {
+                        Utils.setDefaultLanguage(activity);
+                        Utils.saveBoolean("use_in", true, activity);
                         Utils.restartApp(activity);
                     }
                     break;
