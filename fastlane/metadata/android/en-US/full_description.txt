@@ -1,6 +1,7 @@
 <i>Kernel Profiler</i> is a free and open-sourced profile based kernel management utility, which helps kernel developers to provide predefined profiles to their users.
 
 This app requires
+
 - ROOT Access
 - Support from Kernel Developer (if your favourite kernel developer is not willing to support this app, please do not bother to install)
 
@@ -12,4 +13,5 @@ This app requires
 - Easily create profiles and necessary configuration file within the app (for developers).
 
 <b>Documentation</b>
-- https://github.com/SmartPack/KernelProfiler/wiki
+
+- <a href='https://github.com/SmartPack/KernelProfiler/wiki'>Wiki</a>
