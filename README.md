@@ -9,7 +9,13 @@
 [<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png"
      alt=""
      height="80">](https://play.google.com/store/apps/details?id=com.smartpack.kernelprofiler)
-[<img src="https://i.ibb.co/q0mdc4Z/get-it-on-github.png"
+     [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
+     alt=""
+     height="80">](https://f-droid.org/packages/com.smartpack.kernelprofiler)
+     [<img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png"
+     alt=""
+     height="80">](https://apt.izzysoft.de/fdroid/index/apk/com.smartpack.kernelprofiler)
+     [<img src="https://i.ibb.co/q0mdc4Z/get-it-on-github.png"
      alt=""
      height="80">](https://github.com/SmartPack/KernelProfiler/releases/download/v0.12/com.smartpack.kernelprofiler-v0.12-release.apk)
 
