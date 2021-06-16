@@ -123,9 +123,7 @@ public class CreateConfigActivity extends AppCompatActivity {
                     .setMessage(getString(R.string.data_lose_warning))
                     .setNegativeButton(getString(R.string.cancel), (dialog1, id1) -> {
                     })
-                    .setPositiveButton(getString(R.string.yes), (dialog1, id1) -> {
-                        super.onBackPressed();
-                    })
+                    .setPositiveButton(getString(R.string.yes), (dialog1, id1) -> super.onBackPressed())
                     .show();
         } else {
             super.onBackPressed();

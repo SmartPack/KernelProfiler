@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private AppCompatImageButton mSettings;
     private MaterialTextView mProgressMessage;
     private boolean mExit;
-    private Handler mHandler = new Handler();
+    private final Handler mHandler = new Handler();
     private LinearLayout mProgressLayout;
     private RecyclerView mRecyclerView;
     private RecycleViewAdapter mRecycleViewAdapter;
@@ -67,18 +67,14 @@ public class MainActivity extends AppCompatActivity {
         MaterialTextView customDescription = findViewById(R.id.customDescription);
         customTitle.setText(KP.supported() && KP.getCustomTitle() != null ? KP.getCustomTitle() : getString(R.string.app_name));
         customDescription.setText(KP.supported() && KP.getCustomDescription() != null ? KP.getCustomDescription() : getString(R.string.app_name_summary));
-        mSettings.setOnClickListener(v -> {
-            settingsMenu(this);
-        });
+        mSettings.setOnClickListener(v -> settingsMenu(this));
 
         if (!Utils.rootAccess() || !KP.supported()) {
             unsupported();
             if (!Utils.rootAccess()) finish();
             textView.setText(getString(R.string.unsupported));
             helpIcon.setImageDrawable(Utils.getColoredIcon(R.drawable.ic_help, this));
-            helpIcon.setOnClickListener(v -> {
-                unsupported();
-            });
+            helpIcon.setOnClickListener(v -> unsupported());
             return;
         }
 
@@ -273,10 +269,8 @@ public class MainActivity extends AppCompatActivity {
                             .setMessage(getString(R.string.support_developer_message))
                             .setNeutralButton(getString(R.string.cancel), (dialog1, id1) -> {
                             })
-                            .setPositiveButton(getString(R.string.donation_app), (dialogInterface, i) -> {
-                                Utils.launchUrl(
-                                        "https://play.google.com/store/apps/details?id=com.smartpack.donate", mRecyclerView, activity);
-                            })
+                            .setPositiveButton(getString(R.string.donation_app), (dialogInterface, i) -> Utils.launchUrl(
+                                    "https://play.google.com/store/apps/details?id=com.smartpack.donate", mRecyclerView, activity))
                             .show();
                     break;
                 case 15:

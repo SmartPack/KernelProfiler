@@ -73,9 +73,7 @@ public class EditConfigActivity extends AppCompatActivity {
                             .setMessage(getString(R.string.edit_config_message))
                             .setNegativeButton(getString(R.string.cancel), (dialog1, id1) -> {
                             })
-                            .setPositiveButton(getString(R.string.ok), (dialog1, id1) -> {
-                                createConfig();
-                            })
+                            .setPositiveButton(getString(R.string.ok), (dialog1, id1) -> createConfig())
                             .show();
                 } else {
                     Utils.snackbar(mTitle, getString(R.string.title_empty_message));
@@ -113,9 +111,7 @@ public class EditConfigActivity extends AppCompatActivity {
             new MaterialAlertDialogBuilder(this)
                     .setMessage(getString(R.string.edit_config_saved))
                     .setCancelable(false)
-                    .setPositiveButton(getString(R.string.cancel), (dialog1, id1) -> {
-                        super.onBackPressed();
-                    })
+                    .setPositiveButton(getString(R.string.cancel), (dialog1, id1) -> super.onBackPressed())
                     .show();
         } catch (JSONException ignored) {
         }
@@ -137,9 +133,7 @@ public class EditConfigActivity extends AppCompatActivity {
                     .setMessage(getString(R.string.data_lose_warning))
                     .setNegativeButton(getString(R.string.cancel), (dialog1, id1) -> {
                     })
-                    .setPositiveButton(getString(R.string.yes), (dialog1, id1) -> {
-                        super.onBackPressed();
-                    })
+                    .setPositiveButton(getString(R.string.yes), (dialog1, id1) -> super.onBackPressed())
                     .show();
         } else {
             super.onBackPressed();

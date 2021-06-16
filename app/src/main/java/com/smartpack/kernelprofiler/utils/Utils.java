@@ -58,8 +58,7 @@ import java.util.Objects;
 public class Utils {
 
     static {
-        Shell.Config.verboseLogging(BuildConfig.DEBUG);
-        Shell.Config.setTimeout(10);
+        Shell.enableVerboseLogging = BuildConfig.DEBUG;
     }
 
     /*

@@ -104,7 +104,7 @@ You can report a bug or request a feature by [opening an issue](https://github.c
 
 ## License
 
-    Copyright (C) 2020-2021 sunilpaulmathew <sunil.kde@gmail.com>
+    Copyright (C) 2021-2022 sunilpaulmathew <sunil.kde@gmail.com>
 
     Kernel Profiler is a free softwares: you can redistribute it and/or
     modify it under the terms of the GNU General Public License as published

@@ -13,7 +13,7 @@
     <string name="create_profile">Create a Profile</string>
     <string name="create_profile_message">\'%s\' is created at</string>
     <string name="credits">Credits</string>
-    <string name="credits_summary"><b><i>Grarak</i></b>: KernelAdiutor (Code base)\n<b><i>topjohnwu</i></b>: libsu\n<b><i>Lennoard Silva</i></b>: Code Contributions, App Icon, &amp; Portuguese (Brazilian) Translation\n<b><i>tsiflimagas</i></b>: Greek translations\n<b><i>SmgKhOaRn</i></b>: Korean translations</string>
+    <string name="credits_summary"><b><i>Grarak</i></b>: KernelAdiutor (Code base)\n<b><i>topjohnwu</i></b>: libsu\n<b><i>Lennoard Silva</i></b>: Code Contributions, App Icon, &amp; Portuguese (Brazilian) Translation\n<b><i>tsiflimagas</i></b>: Greek translations\n<b><i>SmgKhOaRn</i></b>: Korean translations\n<b><i>Hafitz Setya</i></b>: Indonesian translations</string>
     <string name="dark_theme">Dark Theme</string>
     <string name="dark_theme_auto">Auto</string>
     <string name="dark_theme_disable">Disable</string>

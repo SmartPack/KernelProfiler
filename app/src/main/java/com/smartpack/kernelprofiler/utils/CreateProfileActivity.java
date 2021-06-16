@@ -111,9 +111,7 @@ public class CreateProfileActivity extends AppCompatActivity {
                             .setMessage(getString(R.string.create_profile_message, text) + " '" +
                                     Environment.getExternalStorageDirectory().toString() + "'")
                             .setCancelable(false)
-                            .setPositiveButton(getString(R.string.cancel), (dialog1, id1) -> {
-                                super.onBackPressed();
-                            })
+                            .setPositiveButton(getString(R.string.cancel), (dialog1, id1) -> super.onBackPressed())
                             .show();
                 }, this).setOnDismissListener(dialogInterface -> {
         }).show();
@@ -191,9 +189,7 @@ public class CreateProfileActivity extends AppCompatActivity {
                     .setMessage(getString(R.string.data_lose_warning))
                     .setNegativeButton(getString(R.string.cancel), (dialog1, id1) -> {
                     })
-                    .setPositiveButton(getString(R.string.yes), (dialog1, id1) -> {
-                        super.onBackPressed();
-                    })
+                    .setPositiveButton(getString(R.string.yes), (dialog1, id1) -> super.onBackPressed())
                     .show();
         } else {
             super.onBackPressed();

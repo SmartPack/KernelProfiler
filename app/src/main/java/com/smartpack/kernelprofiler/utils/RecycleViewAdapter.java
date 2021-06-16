@@ -29,7 +29,7 @@ import java.util.Objects;
 
 public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.ViewHolder> {
 
-    private List<String> data;
+    private final List<String> data;
     public RecycleViewAdapter (List<String> data){
         this.data = data;
     }
@@ -66,8 +66,8 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         holder.mCheckBox.setChecked((this.data.get(position) + ".sh").equals(KP.getDefaultProfile()));
         holder.mCheckBox.setOnClickListener(v -> {
             if (!new File(KP.KPFile() + "/" + this.data.get(position) + ".sh").getName().equals(KP.getDefaultProfile())) {
-                Utils.create(Utils.readFile(KP.KP_CONFIG).replaceAll(Objects.requireNonNull(
-                        KP.getDefaultProfile()), new File(KP.KPFile() + "/" + this.data.get(position) + ".sh").getName()), KP.KP_CONFIG);
+                Utils.create(Utils.readFile(KP.getKPConfig()).replaceAll(Objects.requireNonNull(
+                        KP.getDefaultProfile()), new File(KP.KPFile() + "/" + this.data.get(position) + ".sh").getName()), KP.getKPConfig());
                 Utils.snackbar(holder.mCheckBox, holder.mCheckBox.getContext().getString(R.string.on_boot_message, new File(KP.KPFile() + "/" + this.data.get(position) + ".sh").getName()));
             } else {
                 Utils.snackbar(holder.mCheckBox, holder.mCheckBox.getContext().getString(R.string.on_boot_conformation, new File(KP.KPFile() + "/" + this.data.get(position) + ".sh").getName()));
@@ -82,9 +82,9 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private MaterialTextView mTitle;
-        private MaterialTextView mDescription;
-        private MaterialCheckBox mCheckBox;
+        private final MaterialTextView mTitle;
+        private final MaterialTextView mDescription;
+        private final MaterialCheckBox mCheckBox;
 
         public ViewHolder(View view) {
             super(view);

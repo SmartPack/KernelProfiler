@@ -14,10 +14,14 @@ import java.util.List;
 public class KP {
 
     private static final String KP = "/data/kernel_profiler";
-    public static final String KP_CONFIG = KP + "/kernelprofiler.json";
+    private static final String KP_CONFIG = KP + "/kernelprofiler.json";
 
     public static File KPFile() {
         return new File(KP);
+    }
+
+    public static String getKPConfig() {
+        return KP_CONFIG;
     }
 
     public static String getCustomTitle() {
