@@ -1,6 +1,6 @@
 ![](banner.png)
 
-[![](https://img.shields.io/badge/Kernel%20Profiler-v0.12-green)](https://play.google.com/store/apps/details?id=com.smartpack.kernelprofiler)
+[![](https://img.shields.io/badge/Kernel%20Profiler-v0.13-green)](https://play.google.com/store/apps/details?id=com.smartpack.kernelprofiler)
 ![](https://img.shields.io/github/downloads/SmartPack/KernelProfiler/total)
 ![](https://img.shields.io/github/contributors/smartpack/KernelProfiler)
 ![](https://img.shields.io/github/license/smartpack/KernelProfiler)
@@ -15,9 +15,6 @@
      [<img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png"
      alt=""
      height="80">](https://apt.izzysoft.de/fdroid/index/apk/com.smartpack.kernelprofiler)
-     [<img src="https://i.ibb.co/q0mdc4Z/get-it-on-github.png"
-     alt=""
-     height="80">](https://github.com/SmartPack/KernelProfiler/releases/download/v0.12/com.smartpack.kernelprofiler-v0.12-release.apk)
 
 ## Requirements
 * ROOT Access
