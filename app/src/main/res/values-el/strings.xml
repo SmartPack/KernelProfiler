@@ -62,7 +62,6 @@
     <string name="share">Κοινοποίηση</string>
     <string name="share_message">Το Kernel Profiler είναι ένα εργαλείο διαχείρισης του kernel βασισμένο σε προφίλ, το οποίο επιτρέπει στους προγραμματιστές kernel να παρέχουν προετοιμασμένα προφίλ στους χρήστες τους.\n\nΗ τελευταία έκδοση του Kernel Profiler μπορεί να αποκτηθεί από https://play.google.com/store/apps/details?id=com.smartpack.kernelprofiler\n\nΓια να μάθετε περισσότερα σχετικά με την ενσωμάτωση της υποστήριξης του Kernel Profiler στο kernel, παρακαλώ επισκεφθείτε https://github.com/SmartPack/KernelProfiler/wiki</string>
     <string name="source_code">Πηγαίος Κώδικας</string>
-    <string name="storage_access_denied">Απορρίφθηκε η άδεια εγγραφής στον αποθηκευτικό χώρο!</string>
     <string name="support">Υποστήριξη</string>
     <string name="support_developer">Στηρίξτε τον Προγραμματιστή!</string>
     <string name="support_developer_message">Εάν επιθυμείτε να δείξετε την εκτίμησή σας για τη δουλειά μου, παρακαλώ σκεφτείτε να αγοράσετε το SmartPack Donation Package από το PlayStore καθώς είναι πραγματικά χρήσιμο για να συνεχίσω τα πρότζεκτ μου πιο ενεργά, αν και δεν είναι καθόλου απαραίτητο.</string>

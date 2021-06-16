@@ -63,7 +63,6 @@
     <string name="share">공유</string>
     <string name="share_message">Kernel Profiler은(는) 프로필 기반의 커널 관리 도구입니다. 커널 개발자들은 그들의 커널 사용자들에게 미리 설계된 프로필들을 제공할 수 있습니다.\n\n최신 버전의 Kernel Profiler은(는) 아래에서 다운받을 수 있습니다.\n플레이 스토어 (Play Store): https://play.google.com/store/apps/details?id=com.smartpack.kernelprofiler\n\n커널에 Kernel Profiler 지원 추가 방법: https://github.com/SmartPack/KernelProfiler/wiki</string>
     <string name="source_code">소스 코드</string>
-    <string name="storage_access_denied">저장공간 쓰기 권한이 거부되었습니다!</string>
     <string name="support">지원 받기</string>
     <string name="support_developer">개발자 지원하기!</string>
     <string name="support_developer_message">제 프로젝트를 후원하고 싶다면, 플레이 스토어 (Play Store)에 있는 SmartPack Donation Package 앱을 구매하는 것을 고려해보세요. 제 프로젝트들을 더 활발히 이어나갈 때 매우 큰 도움이 됩니다. 물론 필수는 아닙니다.</string>
