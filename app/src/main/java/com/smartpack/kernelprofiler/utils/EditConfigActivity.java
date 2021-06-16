@@ -1,15 +1,12 @@
 package com.smartpack.kernelprofiler.utils;
 
-import android.Manifest;
 import android.os.Bundle;
-import android.os.Environment;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.appcompat.widget.AppCompatTextView;
-import androidx.core.app.ActivityCompat;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.smartpack.kernelprofiler.R;
@@ -67,22 +64,15 @@ public class EditConfigActivity extends AppCompatActivity {
         mTitle = findViewById(R.id.title);
         mTitle.setText(getString(R.string.edit_config));
         mSave.setOnClickListener(v -> {
-            if (Utils.checkWriteStoragePermission(this)) {
-                if (mConfigTitleHint.getText() != null && !mConfigTitleHint.getText().toString().equals("")) {
-                    new MaterialAlertDialogBuilder(this)
-                            .setMessage(getString(R.string.edit_config_message))
-                            .setNegativeButton(getString(R.string.cancel), (dialog1, id1) -> {
-                            })
-                            .setPositiveButton(getString(R.string.ok), (dialog1, id1) -> createConfig())
-                            .show();
-                } else {
-                    Utils.snackbar(mTitle, getString(R.string.title_empty_message));
-                }
+            if (mConfigTitleHint.getText() != null && !mConfigTitleHint.getText().toString().equals("")) {
+                new MaterialAlertDialogBuilder(this)
+                        .setMessage(getString(R.string.edit_config_message))
+                        .setNegativeButton(getString(R.string.cancel), (dialog1, id1) -> {
+                        })
+                        .setPositiveButton(getString(R.string.ok), (dialog1, id1) -> createConfig())
+                        .show();
             } else {
-                ActivityCompat.requestPermissions(this, new String[]{
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE},1);
-                Utils.snackbar(mTitle, getString(R.string.storage_access_denied) + " " +
-                        Environment.getExternalStorageDirectory().toString());
+                Utils.snackbar(mTitle, getString(R.string.title_empty_message));
             }
         });
         mCheck.setOnClickListener(v -> {

@@ -1,6 +1,5 @@
 package com.smartpack.kernelprofiler.utils;
 
-import android.Manifest;
 import android.os.Bundle;
 import android.os.Environment;
 
@@ -8,7 +7,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.AppCompatImageButton;
-import androidx.core.app.ActivityCompat;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textview.MaterialTextView;
@@ -49,27 +47,20 @@ public class CreateConfigActivity extends AppCompatActivity {
         mTitle = findViewById(R.id.title);
         mTitle.setText(getString(R.string.create_config));
         mSave.setOnClickListener(v -> {
-            if (Utils.checkWriteStoragePermission(this)) {
-                if (mConfigTitleHint.getText() != null && !mConfigTitleHint.getText().toString().equals("")) {
-                    new MaterialAlertDialogBuilder(this)
-                            .setIcon(R.mipmap.ic_launcher)
-                            .setTitle(getString(R.string.save_config_title))
-                            .setMessage(Utils.existFile(
-                                    Environment.getExternalStorageDirectory().toString() + "/kernelprofiler.json") ?
-                                    getString(R.string.save_config_warning, Environment.getExternalStorageDirectory()
-                                            .toString() + "/kernelprofiler.json") : getString(R.string.save_config_message,
-                                    Environment.getExternalStorageDirectory().toString() + "/kernelprofiler.json"))
-                            .setNeutralButton(getString(R.string.cancel), (dialog1, id1) -> {})
-                            .setPositiveButton(getString(R.string.yes), (dialog1, id1) -> saveConfig())
-                            .show();
-                } else {
-                    Utils.snackbar(mTitle, getString(R.string.title_empty_message));
-                }
+            if (mConfigTitleHint.getText() != null && !mConfigTitleHint.getText().toString().equals("")) {
+                new MaterialAlertDialogBuilder(this)
+                        .setIcon(R.mipmap.ic_launcher)
+                        .setTitle(getString(R.string.save_config_title))
+                        .setMessage(Utils.existFile(
+                                Environment.getExternalStorageDirectory().toString() + "/kernelprofiler.json") ?
+                                getString(R.string.save_config_warning, Environment.getExternalStorageDirectory()
+                                        .toString() + "/kernelprofiler.json") : getString(R.string.save_config_message,
+                                Environment.getExternalStorageDirectory().toString() + "/kernelprofiler.json"))
+                        .setNeutralButton(getString(R.string.cancel), (dialog1, id1) -> {})
+                        .setPositiveButton(getString(R.string.yes), (dialog1, id1) -> saveConfig())
+                        .show();
             } else {
-                ActivityCompat.requestPermissions(this, new String[]{
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE},1);
-                Utils.snackbar(mTitle, getString(R.string.storage_access_denied) + " " +
-                        Environment.getExternalStorageDirectory().toString());
+                Utils.snackbar(mTitle, getString(R.string.title_empty_message));
             }
         });
         mCheck.setOnClickListener(v -> {

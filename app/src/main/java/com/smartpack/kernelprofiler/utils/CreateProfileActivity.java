@@ -1,6 +1,5 @@
 package com.smartpack.kernelprofiler.utils;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.pm.ActivityInfo;
 import android.os.AsyncTask;
@@ -12,7 +11,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.AppCompatImageButton;
-import androidx.core.app.ActivityCompat;
 import androidx.core.widget.NestedScrollView;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -58,20 +56,13 @@ public class CreateProfileActivity extends AppCompatActivity {
 
         mBack.setOnClickListener(v -> onBackPressed());
         mSave.setOnClickListener(v -> {
-            if (Utils.checkWriteStoragePermission(this)) {
-                if (mProfileDetailsHint.getText() != null && !mProfileDetailsHint.getText().toString().equals("")) {
-                    if (mProfileDescriptionHint.getText() == null || mProfileDescriptionHint.getText().toString().equals("")) {
-                        Utils.snackbar(mTitle, getString(R.string.profile_description_empty));
-                    }
-                    createProfile();
-                } else {
-                    Utils.snackbar(mTitle, getString(R.string.profile_details_empty));
+            if (mProfileDetailsHint.getText() != null && !mProfileDetailsHint.getText().toString().equals("")) {
+                if (mProfileDescriptionHint.getText() == null || mProfileDescriptionHint.getText().toString().equals("")) {
+                    Utils.snackbar(mTitle, getString(R.string.profile_description_empty));
                 }
+                createProfile();
             } else {
-                ActivityCompat.requestPermissions(this, new String[] {
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE},1);
-                Utils.snackbar(mTitle, getString(R.string.storage_access_denied) + " " +
-                        Environment.getExternalStorageDirectory().toString());
+                Utils.snackbar(mTitle, getString(R.string.profile_details_empty));
             }
         });
         mTestButton.setOnClickListener(v -> {
