@@ -35,10 +35,7 @@
     <string name="kernel_support">Πώς να προσθέσετε υποστήριξη στο kernel</string>
     <string name="kernel_support_summary">Το Kernel Profiler προϋποθέτει ένα αρχείο διαχείρισης ρυθμίσεων (<b><i>kernelprofiler.json</i></b>) κι ένα ή περισσότερα \'<b><i>προφίλ</i></b>\' (βασικά σενάρια shell) σε μια συγκεκριμένη ειδική δομή τοποθετημένα μέσα στο <b>\'<i>/data/kernel_profiler</i>\'</b>. Παρακαλώ ελέγξτε \'<b>Ρυθμίσεις  -> Εργαλεία Προγραμματιστή</b>\' για περισσότερες πληροφορίες.</string>
     <string name="language">Γλώσσα (%s)</string>
-    <string name="language_el">Ελληνικά</string>
-    <string name="language_en">Αγγλικά</string>
     <string name="language_default">Προεπιλογή</string>
-    <string name="language_pt">Πορτογαλικά</string>
     <string name="more_apps">Περισσότερα από τον Προγραμματιστή</string>
     <string name="name_empty">Το όνομα του Προφίλ δεν πρέπει να είναι κενό! Διακοπή.</string>
     <string name="no_internet">Παρακαλώ ελέγξτε τη σύνδεση δικτύου σας!</string>

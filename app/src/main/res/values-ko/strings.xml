@@ -37,11 +37,7 @@
     <string name="kernel_support">커널에 Kernel Profiler 지원 추가 방법</string>
     <string name="kernel_support_summary">Kernel Profiler은(는) 구성 파일을 필요료 합니다 (<b><i>kernelprofiler.json</i></b>)와 하나 이상의 \'<b><i>프로필</i></b>\' (쉘 스크립트)이 특정한 경로 <b>\'<i>/data/kernel_profiler</i>\'</b>에 있어야 합니다. \'<b>설정 -> 개발자 도구</b>\'을(를) 확인해주세요.</string>
     <string name="language">언어 (%s)</string>
-    <string name="language_el">그리스어</string>
-    <string name="language_en">영어</string>
     <string name="language_default">시스템 언어</string>
-    <string name="language_ko">한국어</string>
-    <string name="language_pt">브라질 포어</string>
     <string name="name_empty">프로필 이름은 비어있으면 안됩니다!</string>
     <string name="no_internet">인터넷 연결을 확인해주세요!</string>
     <string name="no_root">루트 권한 없음</string>

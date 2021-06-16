@@ -26,8 +26,6 @@
     <string name="kernel_support">Como adicionar suporte ao kernel</string>
     <string name="kernel_support_summary">O Kernel Profiler espera um arquivo de configuração (<b><i>kernelprofiler.json</i></b>) e um ou mais \'<b><i>perfis</i></b>\' (basicamente scripts shell) em uma determinada estrutura específica colocada em <b>\'<i>/data/kernel_profiler</i>\'</b>. Por favor, dê uma olhada em \'<b>Configurações -> Ferramentas do Desenvolvedor</b>\' para mais informações.</string>
     <string name="language">Idioma (%s)</string>
-    <string name="language_el">Grego</string>
-    <string name="language_en">Inglês</string>
     <string name="language_default">Padrão</string>
     <string name="more_apps">Mais do desenvolvedor</string>
     <string name="name_empty">O nome do perfil não deve estar vazio! Abortando.</string>

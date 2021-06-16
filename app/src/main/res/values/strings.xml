@@ -40,12 +40,12 @@
     <string name="kernel_support">How to add support in kernel?</string>
     <string name="kernel_support_summary">Kernel Profiler expects a configuration file (<b><i>kernelprofiler.json</i></b>) and one or more \'<b><i>profiles</i></b>\' (basically shell scripts) in certain specific structure placed inside <b>\'<i>/data/kernel_profiler</i>\'</b>. Please check \'<b>Settings  -> Developer Tools</b>\' for more information.</string>
     <string name="language">Language (%s)</string>
-    <string name="language_el">Greek</string>
-    <string name="language_en">English</string>
+    <string name="language_el" translatable="false">Ελληνικά</string>
+    <string name="language_en" translatable="false">English</string>
     <string name="language_default">Default</string>
-    <string name="language_ko">Korean</string>
-    <string name="language_in">Indonesian</string>
-    <string name="language_pt">Portuguese</string>
+    <string name="language_ko" translatable="false">한국어</string>
+    <string name="language_in" translatable="false">bahasa Indonesia</string>
+    <string name="language_pt" translatable="false">Português</string>
     <string name="more_apps">More from Developer</string>
     <string name="name_empty">Profile name shouldn\'t be empty! Aborting.</string>
     <string name="no_internet">Please check your internet connection!</string>

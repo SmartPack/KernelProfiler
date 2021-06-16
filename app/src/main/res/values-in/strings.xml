@@ -38,12 +38,7 @@
     <string name="kernel_support">Bagaimana menambahkan dukungan di kernel?</string>
     <string name="kernel_support_summary">Kernel Profiler mengharapkan file konfigurasi (<b><i>kernelprofiler.json</i></b>) dan satu atau lebih \'<b><i>profiles</i></b>\' (pada dasarnya skrip shell) dalam struktur tertentu yang ditempatkan di dalam <b>\'<i>/data/kernel_profiler</i>\'</b>. Silakan periksa \'<b>Pengaturan  -> Alat pengembang</b>\' untuk informasi lebih lanjut.</string>
     <string name="language">Bahasa (%s)</string>
-    <string name="language_el">Greek</string>
-    <string name="language_en">English</string>
     <string name="language_default">Default</string>
-    <string name="language_ko">Korean</string>
-    <string name="language_pt">Portuguese</string>
-    <string name="language_in">Bahasa Indonesia</string>
     <string name="more_apps">Lainnya dari Pengembang</string>
     <string name="name_empty">Nama profil tidak boleh kosong! Membatalkan.</string>
     <string name="no_internet">Silakan periksa koneksi internet anda!</string>

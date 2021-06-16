@@ -182,17 +182,17 @@ public class MainActivity extends AppCompatActivity {
         }
         SubMenu language = menu.addSubMenu(Menu.NONE, 0, Menu.NONE, getString(R.string.language, Utils.getLanguage(activity)));
         language.add(Menu.NONE, 15, Menu.NONE, getString(R.string.language_default)).setCheckable(true)
-                .setChecked(Utils.languageDefault(activity));
+                .setChecked(Utils.getLanguage(activity).equals(java.util.Locale.getDefault().getLanguage()));
         language.add(Menu.NONE, 16, Menu.NONE, getString(R.string.language_en)).setCheckable(true)
-                .setChecked(Utils.getBoolean("use_en", false, activity));
+                .setChecked(Utils.getLanguage(activity).equals("en_US"));
         language.add(Menu.NONE, 17, Menu.NONE, getString(R.string.language_pt)).setCheckable(true)
-                .setChecked(Utils.getBoolean("use_pt", false, activity));
+                .setChecked(Utils.getLanguage(activity).equals("pt"));
         language.add(Menu.NONE, 18, Menu.NONE, getString(R.string.language_el)).setCheckable(true)
-                .setChecked(Utils.getBoolean("use_el", false, activity));
+                .setChecked(Utils.getLanguage(activity).equals("el"));
         language.add(Menu.NONE, 21, Menu.NONE, getString(R.string.language_ko)).setCheckable(true)
-                .setChecked(Utils.getBoolean("use_ko", false, activity));
+                .setChecked(Utils.getLanguage(activity).equals("ko"));
         language.add(Menu.NONE, 22, Menu.NONE, getString(R.string.language_in)).setCheckable(true)
-                .setChecked(Utils.getBoolean("use_in", false, activity));
+                .setChecked(Utils.getLanguage(activity).equals("in"));
         SubMenu app = menu.addSubMenu(Menu.NONE, 0, Menu.NONE, getString(R.string.app_about));
         app.add(Menu.NONE, 7, Menu.NONE, getString(R.string.share));
         app.add(Menu.NONE, 8, Menu.NONE, getString(R.string.support));
@@ -274,29 +274,26 @@ public class MainActivity extends AppCompatActivity {
                             .show();
                     break;
                 case 15:
-                    if (!Utils.languageDefault(activity)) {
-                        Utils.setDefaultLanguage(activity);
+                    if (!Utils.getLanguage(activity).equals(java.util.Locale.getDefault().getLanguage())) {
+                        Utils.saveString("appLanguage", java.util.Locale.getDefault().getLanguage(), activity);
                         Utils.restartApp(activity);
                     }
                     break;
                 case 16:
-                    if (!Utils.getBoolean("use_en", false, activity)) {
-                        Utils.setDefaultLanguage(activity);
-                        Utils.saveBoolean("use_en", true, activity);
+                    if (!Utils.getLanguage(activity).equals("en_US")) {
+                        Utils.saveString("appLanguage", "en_US", activity);
                         Utils.restartApp(activity);
                     }
                     break;
                 case 17:
-                    if (!Utils.getBoolean("use_pt", false, activity)) {
-                        Utils.setDefaultLanguage(activity);
-                        Utils.saveBoolean("use_pt", true, activity);
+                    if (!Utils.getLanguage(activity).equals("pt")) {
+                        Utils.saveString("appLanguage", "pt", activity);
                         Utils.restartApp(activity);
                     }
                     break;
                 case 18:
-                    if (!Utils.getBoolean("use_el", false, activity)) {
-                        Utils.setDefaultLanguage(activity);
-                        Utils.saveBoolean("use_el", true, activity);
+                    if (!Utils.getLanguage(activity).equals("el")) {
+                        Utils.saveString("appLanguage", "el", activity);
                         Utils.restartApp(activity);
                     }
                     break;
@@ -317,16 +314,14 @@ public class MainActivity extends AppCompatActivity {
                     }
                     break;
                 case 21:
-                    if (!Utils.getBoolean("use_ko", false, activity)) {
-                        Utils.setDefaultLanguage(activity);
-                        Utils.saveBoolean("use_ko", true, activity);
+                    if (!Utils.getLanguage(activity).equals("ko")) {
+                        Utils.saveString("appLanguage", "ko", activity);
                         Utils.restartApp(activity);
                     }
                     break;
                 case 22:
-                    if (!Utils.getBoolean("use_in", false, activity)) {
-                        Utils.setDefaultLanguage(activity);
-                        Utils.saveBoolean("use_in", true, activity);
+                    if (!Utils.getLanguage(activity).equals("in")) {
+                        Utils.saveString("appLanguage", "in", activity);
                         Utils.restartApp(activity);
                     }
                     break;
