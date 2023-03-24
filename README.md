@@ -1,15 +1,14 @@
 ![](banner.png)
 
-[![](https://img.shields.io/badge/Kernel%20Profiler-v0.13-green)](https://play.google.com/store/apps/details?id=com.smartpack.kernelprofiler)
+[![](https://img.shields.io/badge/Kernel%20Profiler-v0.13-green)](https://f-droid.org/packages/com.smartpack.kernelprofiler)
 ![](https://img.shields.io/github/downloads/SmartPack/KernelProfiler/total)
 ![](https://img.shields.io/github/contributors/smartpack/KernelProfiler)
 ![](https://img.shields.io/github/license/smartpack/KernelProfiler)
 
+_Important Notice: The development of this project is abandoned._
+
 # Download
-[<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png"
-     alt=""
-     height="80">](https://play.google.com/store/apps/details?id=com.smartpack.kernelprofiler)
-     [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
+[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
      alt=""
      height="80">](https://f-droid.org/packages/com.smartpack.kernelprofiler)
      [<img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png"
@@ -68,22 +67,17 @@ The following commit shall be used for further reference
 Please help me to translate this app. The original english string of this app is available at
 >     https://github.com/SmartPack/KernelProfiler/blob/master/app/src/main/res/values/strings.xml
 
-## Support
-[<img src="https://github.com/SmartPack/SmartPack.github.io/blob/master/asset/pic006.png?raw=true"
-     alt=""
-     height="80">](https://t.me/smartpack_kmanager)
-
 ## Donations
 If you like to appreciate my work, please consider donating to me (either via [PayPal](https://www.paypal.me/menacherry/), or [Ko-fi](https://ko-fi.com/sunilpaulmathew/), or by purchasing the [SmartPack Donation Package](https://play.google.com/store/apps/details?id=com.smartpack.donate) from playstore) as it is helpful to continue my projects more active, although it is not at all necessary.
 Please Note: Purchasing [SmartPack Donation Package](https://play.google.com/store/apps/details?id=com.smartpack.donate) will remove Ads on this app.
 
-[<img src="https://raw.githubusercontent.com/SmartPack/SmartPack.github.io/master/asset/pic005.png"
+[<img src="https://raw.githubusercontent.com/SmartPack/SmartPack.github.io/master/assets/pic005.png"
      alt=""
      height="80">](https://www.paypal.me/menacherry/)
 [<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png"
      alt=""
      height="80">](https://play.google.com/store/apps/details?id=com.smartpack.donate)
-[<img src="https://raw.githubusercontent.com/SmartPack/SmartPack.github.io/master/asset/pic010.png"
+[<img src="https://raw.githubusercontent.com/SmartPack/SmartPack.github.io/master/assets/pic010.png"
      alt=""
      height="80">](https://ko-fi.com/sunilpaulmathew/)
 
@@ -94,10 +88,6 @@ Please Note: Purchasing [SmartPack Donation Package](https://play.google.com/sto
 * [tsiflimagas](https://github.com/tsiflimagas), Greek Translations
 * [SmgKhOaRn](https://github.com/FiestaLake), Greek Translations
 * [Hafitz Setya](https://github.com/breakdowns), Indonesian Translations
-
-## Report a bug or request a feature
-
-You can report a bug or request a feature by [opening an issue](https://github.com/SmartPack/KernelProfiler/issues/new).
 
 ## License
 
